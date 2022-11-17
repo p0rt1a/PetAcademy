@@ -19,6 +19,7 @@ export class CategoriesComponent implements OnInit {
   getPets() {
     this.petsService.getPets().subscribe((response) => {
       console.log(response);
+      this.pets = response;
     });
   }
 }
