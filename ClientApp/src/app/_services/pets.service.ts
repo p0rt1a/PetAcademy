@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Pet } from '../Models';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,7 @@ export class PetsService {
 
   constructor(private http: HttpClient) {}
 
-  getPets() {
-    return this.http.get(this.baseUrl);
+  getPets(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(this.baseUrl);
   }
 }
