@@ -22,6 +22,8 @@ namespace ServerApp
             Configuration = configuration;
         }
 
+        readonly string myAllowOrigins = "_myAllowOrigin";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -29,6 +31,20 @@ namespace ServerApp
         {
             services.AddDbContext<AcademyContext>(x => x.UseSqlite("Data Source=academy.db"));
             services.AddControllers().AddNewtonsoftJson();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                        name: myAllowOrigins,
+                        builder =>
+                        {
+                            builder
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .AllowAnyOrigin();
+                        }
+                    );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +58,8 @@ namespace ServerApp
             //app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(myAllowOrigins);
 
             app.UseAuthorization();
 
