@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace ServerApp.Models
 {
-    public class Pet
+    public class Category
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public List<TrainingCategory> TrainingCategories { get; set; }
     }
 }
