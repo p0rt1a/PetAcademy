@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServerApp.DTO
 {
+    //data transfer object
     public class AddTrainingDTO
     {
         public Training training { get; set; }
