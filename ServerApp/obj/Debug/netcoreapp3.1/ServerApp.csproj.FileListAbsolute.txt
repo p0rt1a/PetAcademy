@@ -74,3 +74,15 @@ C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\obj\Debug\netcoreapp3.1
 C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\obj\Debug\netcoreapp3.1\ServerApp.dll
 C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\obj\Debug\netcoreapp3.1\ServerApp.pdb
 C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\obj\Debug\netcoreapp3.1\ServerApp.genruntimeconfig.cache
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\alper\Desktop\My Websites\Pet Academy\ServerApp\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
