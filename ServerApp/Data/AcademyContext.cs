@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.JSInterop.Infrastructure;
 using ServerApp.Models;
 using System;
@@ -8,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace ServerApp.Data
 {
-    public class AcademyContext : DbContext
+    public class AcademyContext : IdentityDbContext<User, Role, int>
     {
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Training> Trainings { get; set; }
-
         public AcademyContext(DbContextOptions<AcademyContext> options) : base(options)
         {
         }
+
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Training> Trainings { get; set; }
     }
 }
