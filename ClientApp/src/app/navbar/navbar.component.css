@@ -1,0 +1,25 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+@media only screen and (min-width: 769px) {
+  nav {
+    padding: 20px 40px;
+  }
+}
+
+.login-logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 769px) {
+  .login-logout {
+    gap: 10px;
+  }
+}
+
+a:hover {
+  cursor: pointer;
+}

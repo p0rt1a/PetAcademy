@@ -1,0 +1,37 @@
+<div class="form-header">Kayıt Ol</div>
+<form class="form-default" (ngSubmit)="register()">
+  <div class="form-section">
+    <label for="name">İsim</label>
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="model.name"
+      placeholder="İsim"
+    />
+  </div>
+  <div class="form-section">
+    <label for="username">Kullanıcı Adınız</label>
+    <input
+      type="text"
+      name="username"
+      [(ngModel)]="model.username"
+      placeholder="Kullanıcı Adı"
+    />
+  </div>
+  <div class="form-section">
+    <label for="email">Email Adresiniz</label>
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="model.email"
+      placeholder="example@mail.com"
+    />
+  </div>
+  <div class="form-section">
+    <label for="password">Şifreniz</label>
+    <input name="password" [(ngModel)]="model.password" type="password" />
+  </div>
+  <div class="form-section">
+    <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+  </div>
+</form>

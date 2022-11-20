@@ -1,21 +1,7 @@
-<!-- <form class="add-training-form">
-  <div>
-    <label for="header">Video Başlığı</label>
-    <input #header type="text" placeholder="Video başlığı giriniz..." />
+<div class="trainings">
+  <div class="training" *ngFor="let item of trainings">
+    <h3>{{ item.header }}</h3>
+    <small>Kedi, Köpek, Kuş</small>
+    <p>{{ item.description }}</p>
   </div>
-  <div>
-    <label for="videoUrl">Video Bağlantısı</label>
-    <input #videoUrl type="text" placeholder="Video bağlantısını giriniz..." />
-  </div>
-  <div>
-    <label for="description">Video Açıklaması</label>
-    <input
-      #description
-      type="text"
-      placeholder="Videonun açıklamasını giriniz..."
-    />
-  </div>
-  <div>
-    <button (click)="addTraining(header.value)">Eğitim Oluştur</button>
-  </div>
-</form> -->
+</div>

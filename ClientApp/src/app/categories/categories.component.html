@@ -1,3 +1,6 @@
-<div class="pet" *ngFor="let item of pets">
-  {{ item.name }}
+<div class="categories">
+  <a href="#" class="category">All Categories</a>
+  <a href="#" class="category" *ngFor="let item of categories">
+    {{ item.name }}
+  </a>
 </div>

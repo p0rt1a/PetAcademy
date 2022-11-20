@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Pet } from '../Models';
-import { PetsService } from '../_services/pets.service';
+import { Category } from '../Models';
+import { CategoriesService } from '../_services/categories.service';
 
 @Component({
   selector: 'categories',
@@ -8,18 +8,17 @@ import { PetsService } from '../_services/pets.service';
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit {
-  pets?: Pet[];
+  categories?: Category[];
 
-  constructor(private petsService: PetsService) {}
+  constructor(private categoryService: CategoriesService) {}
 
   ngOnInit(): void {
     this.getPets();
   }
 
   getPets() {
-    this.petsService.getPets().subscribe((response) => {
-      console.log(response);
-      this.pets = response;
+    this.categoryService.getCategories().subscribe((response) => {
+      this.categories = response;
     });
   }
 }

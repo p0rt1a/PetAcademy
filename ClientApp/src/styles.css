@@ -1,1 +1,157 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary: #457b9d;
+  --dark-primary: #1d3557;
+  --white: #fff;
+  --icon: #ff6666;
+  --black: #000000;
+  --grey: #f4f4f4;
+}
+
+.font-funny {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.icon {
+  color: var(--icon);
+  font-weight: bold;
+}
+@media only screen and (min-width: 769px) {
+  .icon {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .icon {
+    font-size: 1.1rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.row {
+  display: flex;
+}
+
+.col-3 {
+  flex: 3;
+}
+.col-9 {
+  flex: 9;
+}
+
+@media only screen and (min-width: 769px) {
+  .form-header {
+    font-size: 2.1rem;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .form-header {
+    font-size: 2.1rem;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+
+.form-default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 769px) {
+  .form-default {
+    gap: 15px;
+    padding: 50px 0;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .form-default {
+    gap: 15px;
+  }
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (min-width: 769px) {
+  .form-section {
+    font-size: 1.2rem;
+    gap: 10px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .form-section {
+    font-size: 1.2rem;
+    gap: 10px;
+  }
+}
+
+.form-section input {
+  border: 1px solid #222;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+@media only screen and (min-width: 769px) {
+  .form-section input {
+    font-size: 0.9rem;
+    padding: 8px;
+    border-radius: 12px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .form-section input {
+    font-size: 0.9rem;
+    padding: 8px;
+    border-radius: 12px;
+  }
+}
+
+.btn {
+  transition: 0.3s;
+  border: none;
+}
+@media only screen and (min-width: 769px) {
+  .btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn-primary {
+  color: var(--white);
+  background-color: var(--primary);
+}
+@media only screen and (min-width: 769px) {
+  .btn-primary {
+    border-radius: 12px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .btn-primary {
+    border-radius: 12px;
+  }
+}

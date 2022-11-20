@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddTrainingDTO, Training } from '../Models';
+import { AddTrainingDTO, Category, Training } from '../Models';
 import { CategoriesService } from '../_services/categories.service';
 import { TrainingsService } from '../_services/trainings.service';
 
@@ -10,8 +10,10 @@ import { TrainingsService } from '../_services/trainings.service';
 })
 export class TrainingsComponent implements OnInit {
   trainings?: Training[];
-  training: AddTrainingDTO = new AddTrainingDTO(
-    new Training('Header X', 'Video URL X', 'Description X'),
+
+  testTraining: Training = new Training('AAAAA', 'XXXXXX', 'BBBBBB');
+  testTrainingDTO: AddTrainingDTO = new AddTrainingDTO(
+    this.testTraining,
     [1, 2]
   );
 
@@ -30,9 +32,17 @@ export class TrainingsComponent implements OnInit {
     });
   }
 
-  addTraining() {
-    this.trainingService.addTraining(this.training).subscribe((response) => {
+  getTrainingById(id: number) {
+    this.trainingService.getTrainingById(id).subscribe((response) => {
       console.log(response);
     });
+  }
+
+  addTraining() {
+    this.trainingService
+      .addTraining(this.testTrainingDTO)
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 }
