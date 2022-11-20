@@ -4,6 +4,7 @@ using ServerApp.DTO;
 using ServerApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace ServerApp.Controllers
     [Route("api/[controller]")]
     public class TrainingsController : ControllerBase
     {
-        private AcademyContext _context;
+        private readonly AcademyContext _context;
 
         public TrainingsController(AcademyContext context)
         {
@@ -36,6 +37,7 @@ namespace ServerApp.Controllers
         public IActionResult GetTrainingById(int id)
         {
             var training = _context.Trainings.Find(id);
+
             if (training == null)
             {
                 return NotFound();
@@ -44,10 +46,17 @@ namespace ServerApp.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult AddTraining(Training newTraining)
+        public IActionResult AddTraining(AddTrainingDTO newTraining)
         {
-            _context.Trainings.Add(newTraining);
+            _context.Trainings.Add(newTraining.training);
             _context.SaveChanges();
+
+            //var training = _context.Trainings.Find(newTraining.training.Id);
+            //training.TrainingCategories = newTraining.categoryIndexes.Select(x => new TrainingCategories() { 
+            //    CategoryId = x,
+            //    TrainingId = training.Id
+            //}).ToList();
+            //_context.SaveChanges();
 
             return Ok();
         }

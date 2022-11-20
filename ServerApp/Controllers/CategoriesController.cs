@@ -12,7 +12,7 @@ namespace ServerApp.Controllers
     [Route("api/[controller]")]
     public class CategoriesController : ControllerBase
     {
-        AcademyContext _context;
+        private readonly AcademyContext _context;
 
         public CategoriesController(AcademyContext context)
         {
@@ -34,6 +34,7 @@ namespace ServerApp.Controllers
         public IActionResult GetCategoryById(int id)
         {
             var category = _context.Categories.Find(id);
+
             if (category == null)
             {
                 return NotFound();
