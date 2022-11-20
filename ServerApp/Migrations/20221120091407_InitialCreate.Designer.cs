@@ -8,8 +8,8 @@ using ServerApp.Data;
 namespace ServerApp.Migrations
 {
     [DbContext(typeof(AcademyContext))]
-    [Migration("20221118090930_manyToManyWithCategoryAndTraining")]
-    partial class manyToManyWithCategoryAndTraining
+    [Migration("20221120091407_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,36 +49,6 @@ namespace ServerApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Trainings");
-                });
-
-            modelBuilder.Entity("ServerApp.Models.TrainingCategory", b =>
-                {
-                    b.Property<int>("TrainingId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("TrainingId", "CategoryId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("TrainingCategory");
-                });
-
-            modelBuilder.Entity("ServerApp.Models.TrainingCategory", b =>
-                {
-                    b.HasOne("ServerApp.Models.Category", "Category")
-                        .WithMany("TrainingCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ServerApp.Models.Training", "Training")
-                        .WithMany("TrainingCategories")
-                        .HasForeignKey("TrainingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
