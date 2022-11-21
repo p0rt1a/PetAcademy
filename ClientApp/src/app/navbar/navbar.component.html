@@ -1,9 +1,12 @@
 <nav>
-  <div class="icon">PetAcademy</div>
+  <a [routerLink]="['/home']" class="icon">PetAcademy</a>
   <a [routerLink]="['/trainings']">Eğitimler</a>
   <a [routerLink]="['/trainers']">Eğitmenler</a>
-  <div class="login-logout">
+  <div *ngIf="!isLoggedIn()" class="login-logout">
     <a [routerLink]="['/register']">Kayıt Ol</a>
     <a [routerLink]="['/login']">Giriş Yap</a>
+  </div>
+  <div *ngIf="isLoggedIn()" class="login-logout">
+    <a (click)="logout()">Çıkış Yap</a>
   </div>
 </nav>
