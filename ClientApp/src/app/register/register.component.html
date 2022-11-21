@@ -1,7 +1,7 @@
 <div class="form-header">Kayıt Ol</div>
 <form class="form-default" (ngSubmit)="register()">
   <div class="form-section">
-    <label for="name">İsim</label>
+    <label>İsim</label>
     <input
       type="text"
       name="name"
@@ -10,7 +10,7 @@
     />
   </div>
   <div class="form-section">
-    <label for="username">Kullanıcı Adınız</label>
+    <label>Kullanıcı Adınız</label>
     <input
       type="text"
       name="username"
@@ -19,7 +19,7 @@
     />
   </div>
   <div class="form-section">
-    <label for="email">Email Adresiniz</label>
+    <label>Email Adresiniz</label>
     <input
       type="email"
       name="email"
@@ -28,8 +28,8 @@
     />
   </div>
   <div class="form-section">
-    <label for="password">Şifreniz</label>
-    <input name="password" [(ngModel)]="model.password" type="password" />
+    <label>Şifreniz</label>
+    <input type="password" name="password" [(ngModel)]="model.password" />
   </div>
   <div class="form-section">
     <button type="submit" class="btn btn-primary">Kayıt Ol</button>
