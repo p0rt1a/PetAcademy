@@ -17,5 +17,6 @@ namespace ServerApp.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Training> Trainings { get; set; }
+        public DbSet<CategoryTraining> CategoryTraining { get; set; }
     }
 }
