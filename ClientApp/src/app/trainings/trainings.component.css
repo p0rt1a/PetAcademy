@@ -1,0 +1,86 @@
+header {
+  text-align: center;
+}
+@media only screen and (min-width: 769px) {
+  header {
+    font-size: 1.2rem;
+    padding: 3rem 0;
+  }
+}
+@media only screen and (max-width: 770px) {
+  header {
+    font-size: 1.2rem;
+    padding: 3rem 0;
+  }
+}
+
+.training {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@media only screen and (min-width: 769px) {
+  .training {
+    margin-bottom: 10px;
+    padding: 20px;
+    gap: 10px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .training {
+    margin-bottom: 10px;
+    padding: 20px;
+    gap: 10px;
+  }
+}
+
+.training-header {
+  text-align: center;
+}
+
+.beginner {
+  background-color: var(--green);
+}
+.med {
+  background-color: var(--orange);
+}
+.expert {
+  background-color: var(--red);
+  color: var(--white);
+}
+@media only screen and (min-width: 769px) {
+  .beginner,
+  .med,
+  .expert {
+    font-size: 0.7rem;
+    padding: 5px;
+    border-radius: 12px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .beginner,
+  .med,
+  .expert {
+    font-size: 0.7rem;
+    padding: 5px;
+    border-radius: 12px;
+  }
+}
+
+.level {
+  position: absolute;
+}
+@media only screen and (min-width: 769px) {
+  .level {
+    top: 20px;
+    right: 20px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .level {
+    top: 20px;
+    right: 20px;
+  }
+}

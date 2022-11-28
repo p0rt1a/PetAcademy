@@ -1,7 +1,22 @@
-<div class="trainings">
+<header>
+  <h2>Eğitimler</h2>
+</header>
+<div class="trainings col-9">
   <div class="training" *ngFor="let item of trainings">
-    <h3>{{ item.header }}</h3>
-    <small>Kedi, Köpek, Kuş</small>
-    <p>{{ item.description }}</p>
+    <div class="training-header">
+      <h3>{{ item.header }}</h3>
+      <training-category [trainingId]="item.id"></training-category>
+    </div>
+    <div
+      class="level"
+      [class.beginner]="item.level == 'başlangıç'"
+      [class.med]="item.level == 'orta'"
+      [class.expert]="item.level == 'ileri'"
+    >
+      {{ item.level | uppercase }} SEVİYE
+    </div>
+    <div class="training-body">
+      <p>{{ item.description }}</p>
+    </div>
   </div>
 </div>
