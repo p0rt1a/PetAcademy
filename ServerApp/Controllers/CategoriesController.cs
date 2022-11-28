@@ -22,7 +22,7 @@ namespace ServerApp.Controllers
         [HttpGet]
         public IActionResult GetCategories()
         {
-            var categories = _context.Categories.ToList();
+            var categories = _context.Categories.ToList().OrderBy(c => c.Name);
             if (categories == null)
             {
                 return NotFound();
