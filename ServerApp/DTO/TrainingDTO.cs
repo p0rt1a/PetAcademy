@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ServerApp.DTO
 {
     //data transfer object
-    public class AddTrainingDTO
+    public class TrainingDTO
     {
         public Training training { get; set; }
         public int[] categoryIndexes { get; set; }
