@@ -15,7 +15,6 @@ export class LoginComponent {
   login() {
     this.authService.login(this.model).subscribe(
       () => {
-        console.log('Giriş başarılı');
         this.router.navigate(['/home']);
       },
       (error) => {
