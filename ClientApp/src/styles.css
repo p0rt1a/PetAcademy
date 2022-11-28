@@ -9,8 +9,11 @@
   --dark-primary: #1d3557;
   --white: #fff;
   --icon: #ff6666;
+  --red: #d90429;
   --black: #000000;
   --grey: #f4f4f4;
+  --orange: #ffb703;
+  --green: #38b000;
 }
 
 .font-funny {
@@ -81,59 +84,68 @@ a {
   }
 }
 
-.form-section {
+.form-default .form-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 @media only screen and (min-width: 769px) {
-  .form-section {
+  .form-default .form-section {
     font-size: 1.2rem;
     gap: 10px;
   }
 }
 @media only screen and (max-width: 770px) {
-  .form-section {
+  .form-default .form-section {
     font-size: 1.2rem;
     gap: 10px;
   }
 }
 
-.form-section input {
+.form-default input,
+.form-default textarea,
+.form-default select {
   border: 1px solid #222;
   font-family: "Montserrat Alternates", sans-serif;
+
+  text-align: center;
 }
 @media only screen and (min-width: 769px) {
-  .form-section input {
+  .form-default input,
+  .form-default textarea,
+  .form-default select {
     font-size: 0.9rem;
     padding: 8px;
     border-radius: 12px;
+
+    width: 500px;
+  }
+
+  .form-default textarea {
+    height: 200px;
   }
 }
 @media only screen and (max-width: 770px) {
-  .form-section input {
+  .form-default input,
+  .form-default textarea,
+  .form-default select {
     font-size: 0.9rem;
     padding: 8px;
     border-radius: 12px;
+
+    width: 500px;
+  }
+
+  .form-default textarea {
+    height: 200px;
   }
 }
 
 .btn {
   transition: 0.3s;
   border: none;
-}
-@media only screen and (min-width: 769px) {
-  .btn {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-  }
-}
-@media only screen and (max-width: 770px) {
-  .btn {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-  }
+  font-family: "Montserrat Alternates", sans-serif;
 }
 
 .btn:hover {
@@ -148,10 +160,37 @@ a {
 @media only screen and (min-width: 769px) {
   .btn-primary {
     border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
   }
 }
 @media only screen and (max-width: 770px) {
   .btn-primary {
     border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
   }
+}
+
+@media only screen and (min-width: 769px) {
+  .btn-small {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    border-radius: 8px;
+  }
+}
+
+.btn-small-primary {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.btn-small-secondary {
+  color: var(--black);
+  background-color: var(--orange);
+}
+
+.btn-small-danger {
+  color: var(--white);
+  background-color: var(--red);
 }
