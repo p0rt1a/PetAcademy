@@ -16,6 +16,9 @@ import { appRoutes } from './routes';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateTrainingComponent } from './update-training/update-training.component';
+import { AddTrainingComponent } from './add-training/add-training.component';
+import { TrainingCategoryComponent } from './training-category/training-category.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { FormsModule } from '@angular/forms';
     NotfoundComponent,
     NavbarComponent,
     TrainersComponent,
+    UpdateTrainingComponent,
+    AddTrainingComponent,
+    TrainingCategoryComponent,
   ],
   imports: [
     BrowserModule,
