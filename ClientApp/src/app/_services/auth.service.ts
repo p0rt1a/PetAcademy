@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +10,8 @@ export class AuthService {
   baseUrl: string = 'https://localhost:5001/api/user/';
   jwtHelper = new JwtHelperService();
   decodedToken: any;
+  isTrainer?: boolean;
+  trainerId: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -17,11 +19,25 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'login', model).pipe(
       map((response: any) => {
         var result = response;
+
+        this.isTrainer = response.isTrainer;
+
+        if (this.isTrainer) {
+          this.trainerId = result.id;
+        }
         if (result) {
           localStorage.setItem('token', result.token);
         }
       })
     );
+  }
+
+  getIsTrainer() {
+    return this.isTrainer;
+  }
+
+  getTrainerId() {
+    return this.trainerId;
   }
 
   register(model: any) {
