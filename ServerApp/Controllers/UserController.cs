@@ -38,6 +38,7 @@ namespace ServerApp.Controllers
                 Name = entity.Name,
                 UserName = entity.Username,
                 Email = entity.Email,
+                IsTrainer = entity.IsTrainer
             };
 
             var result = await _userManager.CreateAsync(user, entity.Password);
@@ -64,10 +65,32 @@ namespace ServerApp.Controllers
 
             if (result.Succeeded)
             {
-                return Ok(new { token = GenerateJwtToken(user) });
+                var token = GenerateJwtToken(user);
+                var isTrainer = user.IsTrainer;
+                LoginUserReturnDTO returningUser = new LoginUserReturnDTO()
+                {
+                    Id = user.Id,
+                    Token = token,
+                    IsTrainer = isTrainer
+                };
+                //return Ok(new { token = GenerateJwtToken(user) });
+                return Ok(returningUser);
             }
 
             return Unauthorized();
+        }
+
+        [HttpGet("information/{id}")]
+        public async Task<IActionResult> GetIsTrainerInformation(int id)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user.IsTrainer);
         }
 
         private string GenerateJwtToken(User user)
