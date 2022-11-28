@@ -15,8 +15,7 @@ export class RegisterComponent {
   register() {
     this.authService.register(this.model).subscribe(
       () => {
-        console.log('Kullanıcı Oluşturuldu');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
       },
       (error) => {
         console.log('Error: ' + error);
