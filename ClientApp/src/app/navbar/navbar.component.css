@@ -1,6 +1,7 @@
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 1px solid black;
 }
 @media only screen and (min-width: 769px) {
@@ -16,10 +17,49 @@ nav {
 }
 @media only screen and (min-width: 769px) {
   .login-logout {
-    gap: 10px;
+    gap: 20px;
   }
 }
 
 a:hover {
   cursor: pointer;
+}
+
+.active {
+  display: inline-block;
+  visibility: visible;
+
+  transition: 0.3s;
+}
+.deactive {
+  display: none;
+  visibility: hidden;
+
+  transition: 0.3s;
+}
+
+input {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  font-family: "Montserrat Alternates", sans-serif;
+}
+@media only screen and (min-width: 769px) {
+  input {
+    border-radius: 8px;
+    font-size: 0.8rem;
+    padding: 5px 8px;
+
+    width: 120px;
+  }
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media only screen and (min-width: 769px) {
+  form {
+    gap: 10px;
+  }
 }

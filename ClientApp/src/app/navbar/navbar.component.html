@@ -1,12 +1,44 @@
 <nav>
   <a [routerLink]="['/home']" class="icon">PetAcademy</a>
-  <a [routerLink]="['/trainings']">Eğitimler</a>
+  <a [routerLink]="['/home']">Ana Sayfa</a>
   <a [routerLink]="['/trainers']">Eğitmenler</a>
+  <a
+    href="#"
+    *ngIf="isTrainer && isLoggedIn()"
+    [routerLink]="['/update-training']"
+    >Eğitim Ekle/Sil/Düzenle</a
+  >
   <div *ngIf="!isLoggedIn()" class="login-logout">
-    <a [routerLink]="['/register']">Kayıt Ol</a>
-    <a [routerLink]="['/login']">Giriş Yap</a>
+    <div class="login">
+      <form (ngSubmit)="login()">
+        <input
+          #name
+          type="text"
+          placeholder="Username"
+          name="username"
+          [(ngModel)]="model.username"
+        />
+        <input
+          #password
+          type="password"
+          placeholder="Password"
+          name="password"
+          [(ngModel)]="model.password"
+        />
+        <button
+          type="submit"
+          class="btn btn-small btn-small-primary"
+          (click)="name.value = ''; password.value = ''"
+        >
+          Giriş Yap
+        </button>
+      </form>
+    </div>
+    <a [routerLink]="['/register']" class="btn btn-small btn-small-secondary"
+      >Kayıt Ol</a
+    >
   </div>
   <div *ngIf="isLoggedIn()" class="login-logout">
-    <a (click)="logout()">Çıkış Yap</a>
+    <a (click)="logout()" class="btn btn-small btn-small-danger">Çıkış Yap</a>
   </div>
 </nav>

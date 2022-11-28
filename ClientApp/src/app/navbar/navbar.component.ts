@@ -8,6 +8,9 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  model: any = {};
+  isTrainer?: boolean;
+
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
@@ -16,9 +19,19 @@ export class NavbarComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
+  getTrainerInformation() {
+    this.isTrainer = this.authService.getIsTrainer();
+  }
+
+  login() {
+    this.authService.login(this.model).subscribe((response) => {
+      this.router.navigate(['/home']);
+      this.getTrainerInformation();
+    });
+  }
+
   logout() {
     localStorage.removeItem('token');
-
     this.router.navigate(['/home']);
   }
 }
