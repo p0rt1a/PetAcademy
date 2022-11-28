@@ -8,6 +8,16 @@ export class Category {
   }
 }
 
+export class CategoryTrainingDTO {
+  categoryId: number;
+  trainingId: number;
+
+  constructor(categoryId: number, trainingId: number) {
+    this.categoryId = categoryId;
+    this.trainingId = trainingId;
+  }
+}
+
 export class AddTrainingDTO {
   training: Training;
   categoryIndexes: number[];
@@ -19,14 +29,35 @@ export class AddTrainingDTO {
 }
 
 export class Training {
+  id?: number;
   header: string;
   videoUrl: string;
   description: string;
+  level: string;
+  trainerId?: number;
 
-  constructor(header: string, videoUrl: string, description: string) {
+  constructor(
+    header: string,
+    videoUrl: string,
+    description: string,
+    level: string,
+    trainerId?: number
+  ) {
     this.header = header;
     this.videoUrl = videoUrl;
+    this.level = level;
     this.description = description;
+    this.trainerId = trainerId;
+  }
+}
+
+export class TrainingDTO {
+  training: Training;
+  categoryIndexes: number[];
+
+  constructor(training: Training, indexes: number[]) {
+    this.training = training;
+    this.categoryIndexes = indexes;
   }
 }
 
