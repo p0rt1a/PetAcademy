@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ServerApp.Data;
 
 namespace ServerApp.Migrations
 {
     [DbContext(typeof(AcademyContext))]
-    partial class AcademyContextModelSnapshot : ModelSnapshot
+    [Migration("20221124154631_addedCategoryTrainingTable")]
+    partial class addedCategoryTrainingTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,9 +185,6 @@ namespace ServerApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Header")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Level")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("TrainerId")

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ServerApp.Data;
 
 namespace ServerApp.Migrations
 {
     [DbContext(typeof(AcademyContext))]
-    partial class AcademyContextModelSnapshot : ModelSnapshot
+    [Migration("20221122170748_addedTrainerIdColumnToTrainingsTable")]
+    partial class addedTrainerIdColumnToTrainingsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,23 +131,6 @@ namespace ServerApp.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("ServerApp.Models.CategoryTraining", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TrainingId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CategoryTraining");
-                });
-
             modelBuilder.Entity("ServerApp.Models.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -183,9 +168,6 @@ namespace ServerApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Header")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Level")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("TrainerId")

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ServerApp.Data;
 
 namespace ServerApp.Migrations
 {
     [DbContext(typeof(AcademyContext))]
-    partial class AcademyContextModelSnapshot : ModelSnapshot
+    [Migration("20221121150653_addIsTrainerColumnToUserTable")]
+    partial class addIsTrainerColumnToUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,23 +131,6 @@ namespace ServerApp.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("ServerApp.Models.CategoryTraining", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TrainingId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CategoryTraining");
-                });
-
             modelBuilder.Entity("ServerApp.Models.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -185,12 +170,6 @@ namespace ServerApp.Migrations
                     b.Property<string>("Header")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Level")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("TrainerId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("VideoUrl")
                         .HasColumnType("TEXT");
 
@@ -217,9 +196,6 @@ namespace ServerApp.Migrations
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsTrainer")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("LockoutEnabled")
@@ -257,6 +233,9 @@ namespace ServerApp.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("TEXT")
                         .HasMaxLength(256);
+
+                    b.Property<bool>("isTrainer")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
