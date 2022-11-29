@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ServerApp.Data;
 using ServerApp.DTO;
 using ServerApp.Models;
@@ -21,7 +22,7 @@ namespace ServerApp.Controllers
             this._context = context;
         }
 
-        [HttpGet("getByTrainingId/{id}")]
+        [HttpGet("getCategories/{id}")]
         public IActionResult GetCategoriesByTrainingId(int id)
         {
             var allTable = _context.CategoryTraining.Where(x => x.TrainingId == id).ToList();
@@ -47,6 +48,19 @@ namespace ServerApp.Controllers
             await _context.SaveChangesAsync();
 
             return Ok();
+        }
+
+        [HttpGet("getTrainings")]
+        public IActionResult GetTrainingsByCategoryId(int id)
+        {
+            var allTable = _context.CategoryTraining.Where(x => x.CategoryId == id).ToList();
+
+            if (allTable == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(allTable);
         }
     }
 }

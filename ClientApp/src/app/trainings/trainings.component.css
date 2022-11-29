@@ -42,6 +42,7 @@ header {
 
 .beginner {
   background-color: var(--green);
+  color: var(--white);
 }
 .med {
   background-color: var(--orange);

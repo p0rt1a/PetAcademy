@@ -1,0 +1,65 @@
+<nav>
+  <button class="btn btn-primary" [routerLink]="['/add-training']">
+    Yeni Eğitim Ekle
+  </button>
+</nav>
+<!-- <div *ngIf="getSelectedTrainingId() != 0">
+  <div class="form-header">Eğitim Güncelle</div>
+  <form
+    class="form-default"
+    (ngSubmit)="updateTraining()"
+    id="training-add-form"
+  >
+  <input type="text" hidden [name]="selectedModel.id" [(ngModel)]="model.id">
+    <div class="form-section">
+      <label>Video Başlığı</label>
+      <input
+        required
+        type="text"
+        name="header"
+        [placeholder]="selectedModel.header"
+        [(ngModel)]="model.header"
+      />
+    </div>
+    <div class="form-section">
+      <label>Eğitim Seviyesi Seçiniz</label>
+      <select name="level" form="training-add-form" [(ngModel)]="model.level">
+        <option value="başlangıç">Başlangıç</option>
+        <option value="orta">Orta Seviye</option>
+        <option value="ileri">İleri Seviye</option>
+      </select>
+    </div>
+    <div class="form-section">
+      <label>Video Açıklaması</label>
+      <textarea
+        required
+        type="text"
+        name="description"
+        [placeholder]="selectedModel.description"
+        [(ngModel)]="model.description"
+      >
+      </textarea>
+    </div>
+    <div class="form-section">
+      <label>Youtube Video Bağlantısı</label>
+      <input
+        required
+        type="text"
+        name="videoUrl"
+        placeholder="Bağlantı"
+        [(ngModel)]="model.videoUrl"
+      />
+    </div>
+    <button class="btn btn-primary" type="submit">Eğitimi Ekle</button>
+  </form>
+</div> -->
+<div class="trainings">
+  <div class="training" *ngFor="let item of trainings">
+    <h2>{{ item.header }}</h2>
+    <p>{{ item.description }}</p>
+    <div class="edit">
+      <div class="btn btn-small btn-small-secondary">Güncelle</div>
+      <div class="btn btn-small btn-small-danger">Sil</div>
+    </div>
+  </div>
+</div>

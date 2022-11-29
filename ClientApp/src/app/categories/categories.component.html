@@ -1,6 +1,13 @@
 <div class="categories">
-  <a href="#" class="category">All Categories</a>
-  <a href="#" class="category" *ngFor="let item of categories">
+  <a href="#" class="category" (click)="changeSelectedCategory(0)"
+    >All Categories</a
+  >
+  <a
+    href="#"
+    class="category"
+    *ngFor="let item of categories"
+    (click)="changeSelectedCategory(item.id)"
+  >
     {{ item.name }}
   </a>
 </div>

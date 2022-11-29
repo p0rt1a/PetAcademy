@@ -1,4 +1,7 @@
 <div class="row">
-  <categories class="col-3"></categories>
-  <trainings class="col-9"></trainings>
+  <categories
+    class="col-3"
+    (categoryChange)="getSelectedCategory($event)"
+  ></categories>
+  <trainings class="col-9" [category]="selectedCategory"></trainings>
 </div>

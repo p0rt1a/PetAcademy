@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Category } from '../Models';
 import { CategoriesService } from '../_services/categories.service';
 
@@ -8,12 +8,17 @@ import { CategoriesService } from '../_services/categories.service';
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit {
+  @Output() categoryChange = new EventEmitter<number>();
   categories?: Category[];
 
   constructor(private categoryService: CategoriesService) {}
 
   ngOnInit(): void {
     this.getCategories();
+  }
+
+  changeSelectedCategory(categoryId: number) {
+    this.categoryChange.emit(categoryId);
   }
 
   getCategories() {

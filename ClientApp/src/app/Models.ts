@@ -1,5 +1,30 @@
-export class Category {
+export class Training {
   id?: number;
+  header: string;
+  videoUrl: string;
+  description: string;
+  level: string;
+  trainerId: number;
+
+  constructor(
+    header: string,
+    videoUrl: string,
+    description: string,
+    level: string,
+    trainerId: number,
+    id?: number
+  ) {
+    this.id = id;
+    this.header = header;
+    this.videoUrl = videoUrl;
+    this.level = level;
+    this.description = description;
+    this.trainerId = trainerId;
+  }
+}
+
+export class Category {
+  id: number;
   name: string;
 
   constructor(id: number, name: string) {
@@ -25,29 +50,6 @@ export class AddTrainingDTO {
   constructor(training: Training, categoryIndexes: number[]) {
     this.training = training;
     this.categoryIndexes = categoryIndexes;
-  }
-}
-
-export class Training {
-  id?: number;
-  header: string;
-  videoUrl: string;
-  description: string;
-  level: string;
-  trainerId?: number;
-
-  constructor(
-    header: string,
-    videoUrl: string,
-    description: string,
-    level: string,
-    trainerId?: number
-  ) {
-    this.header = header;
-    this.videoUrl = videoUrl;
-    this.level = level;
-    this.description = description;
-    this.trainerId = trainerId;
   }
 }
 

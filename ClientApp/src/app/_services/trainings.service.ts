@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddTrainingDTO, Training, TrainingDTO } from '../Models';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TrainingsService {
   baseUrl: string = 'https://localhost:5001/api/trainings/';
+  selectedTrainingId: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -30,5 +30,22 @@ export class TrainingsService {
 
   getTrainingsByTrainerId(trainerId: number): Observable<Training[]> {
     return this.http.get<Training[]>(this.baseUrl + 'trainer/' + trainerId);
+  }
+
+  getTrainingsByCategoryId(id: number): Observable<Training[]> {
+    return this.http.get<Training[]>(
+      this.baseUrl + 'training-by-category/' + id
+    );
+  }
+
+  updateTraining(entity: Training) {
+    return this.http.put(
+      this.baseUrl + 'update-training/' + this.selectedTrainingId,
+      entity
+    );
+  }
+
+  deleteTraining(id: number) {
+    return this.http.delete(this.baseUrl + id);
   }
 }

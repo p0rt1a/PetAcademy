@@ -1,0 +1,28 @@
+@media only screen and (min-width: 769px) {
+  nav {
+    padding: 10px;
+  }
+}
+
+.training {
+  position: relative;
+}
+
+.edit {
+  position: absolute;
+  display: flex;
+}
+@media only screen and (min-width: 769px) {
+  .edit {
+    top: 10px;
+    right: 10px;
+    gap: 5px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .edit {
+    top: 10px;
+    right: 10px;
+    gap: 5px;
+  }
+}

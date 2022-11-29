@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
@@ -102,7 +103,7 @@ namespace ServerApp.Controllers
         }
 
         [HttpGet("trainer/{id}")]
-        public IActionResult GetTrainersTrainingById(int id)
+        public IActionResult GetTrainingsByTrainerId(int id)
         {
             var trainings = _context.Trainings.Where(t => t.TrainerId == id).ToList();
 
@@ -112,6 +113,83 @@ namespace ServerApp.Controllers
             }
 
             return Ok(trainings);
+        }
+
+        [HttpGet("training-by-category/{id}")]
+        public IActionResult GetTrainingsByCategoryId(int id)
+        {
+            var categoryTrainings = _context.CategoryTraining.Where(x => x.CategoryId == id).ToList();
+            
+            if (categoryTrainings == null)
+            {
+                return NotFound();
+            }
+
+            List<Training> trainings = new List<Training>();
+
+            for(int i = 0; i < categoryTrainings.Count; i++)
+            {
+                var training = _context.Trainings.Find(categoryTrainings[i].TrainingId);
+                trainings.Add(training);
+            }
+
+            return Ok(trainings);
+        }
+
+        [HttpGet("training-by-level")]
+        public IActionResult GetTrainingsByLevel(string levelName)
+        {
+            var trainings = _context.Trainings.Where(x => x.Level == levelName).ToList();
+
+            if (trainings == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(trainings);
+        }
+
+        [HttpPut("update-training/{id}")]
+        public IActionResult UpdateTraining(int id, Training entity)
+        {
+            var training = _context.Trainings.Find(id);
+
+            if (training == null)
+            {
+                return NotFound();
+            }
+
+            training.Header = entity.Header;
+            training.Level = entity.Level;
+            training.Description = entity.Description;
+            training.VideoUrl = entity.VideoUrl;
+
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTraining(int id)
+        {
+            var training = _context.Trainings.Find(id);
+
+            if (training == null)
+            {
+                return NotFound();
+            }
+
+            var categoryTrainings = _context.CategoryTraining.Where(x => x.TrainingId == id).ToList();
+
+            for(int i = 0; i < categoryTrainings.Count; i++)
+            {
+                _context.CategoryTraining.Remove(categoryTrainings[i]);
+            }
+
+            _context.Trainings.Remove(training);
+            _context.SaveChanges();
+
+            return Ok();
         }
     }
 }
