@@ -5,7 +5,7 @@ import { CategoriesService } from '../_services/categories.service';
 import { TrainingsService } from '../_services/trainings.service';
 
 @Component({
-  selector: 'app-update-training',
+  selector: 'update-training',
   templateUrl: './update-training.component.html',
   styleUrls: ['./update-training.component.css'],
 })
