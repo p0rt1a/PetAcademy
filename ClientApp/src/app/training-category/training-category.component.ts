@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { VirtualTimeScheduler } from 'rxjs';
 import { Category, CategoryTrainingDTO } from '../Models';
 import { CategoriesService } from '../_services/categories.service';
 import { CategoryTrainingService } from '../_services/category-training.service';
+import { TrainingsService } from '../_services/trainings.service';
 
 @Component({
   selector: 'training-category',
@@ -16,7 +16,8 @@ export class TrainingCategoryComponent implements OnInit {
 
   constructor(
     private categoryService: CategoriesService,
-    private categoryTrainingService: CategoryTrainingService
+    private categoryTrainingService: CategoryTrainingService,
+    private trainingService: TrainingsService
   ) {}
 
   ngOnInit(): void {

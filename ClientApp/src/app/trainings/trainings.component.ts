@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Training } from '../Models';
-import { CategoryTrainingService } from '../_services/category-training.service';
 import { TrainingsService } from '../_services/trainings.service';
 
 @Component({
@@ -16,8 +15,6 @@ export class TrainingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTrainings();
-    console.log(this.category);
-    console.log('On Init worked');
   }
 
   ngDoCheck() {
@@ -27,7 +24,6 @@ export class TrainingsComponent implements OnInit {
     }
     if (this.category != undefined) {
       this.getTrainingsByCategoryId(this.category);
-      console.log('Do Check method worked');
       this.category = undefined;
     }
   }

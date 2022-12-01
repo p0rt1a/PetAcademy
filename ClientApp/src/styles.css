@@ -40,6 +40,10 @@ a {
   color: black;
 }
 
+.rel {
+  position: relative;
+}
+
 .row {
   display: flex;
 }

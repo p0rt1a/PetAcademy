@@ -32,14 +32,6 @@ export class AuthService {
     );
   }
 
-  getIsTrainer() {
-    return this.isTrainer;
-  }
-
-  getTrainerId() {
-    return this.trainerId;
-  }
-
   register(model: any) {
     return this.http.post(this.baseUrl + 'register', model);
   }
@@ -47,5 +39,13 @@ export class AuthService {
   isLoggedIn() {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token?.toString());
+  }
+
+  getIsTrainer() {
+    return this.isTrainer;
+  }
+
+  getTrainerId() {
+    return this.trainerId;
   }
 }

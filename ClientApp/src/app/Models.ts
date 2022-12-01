@@ -1,5 +1,5 @@
 export class Training {
-  id?: number;
+  id: number;
   header: string;
   videoUrl: string;
   description: string;
@@ -12,7 +12,7 @@ export class Training {
     description: string,
     level: string,
     trainerId: number,
-    id?: number
+    id: number
   ) {
     this.id = id;
     this.header = header;
@@ -20,6 +20,15 @@ export class Training {
     this.level = level;
     this.description = description;
     this.trainerId = trainerId;
+  }
+}
+export class TrainingDTO {
+  training: Training;
+  categoryIndexes: number[];
+
+  constructor(training: Training, indexes: number[]) {
+    this.training = training;
+    this.categoryIndexes = indexes;
   }
 }
 
@@ -32,7 +41,6 @@ export class Category {
     this.name = name;
   }
 }
-
 export class CategoryTrainingDTO {
   categoryId: number;
   trainingId: number;
@@ -42,33 +50,3 @@ export class CategoryTrainingDTO {
     this.trainingId = trainingId;
   }
 }
-
-export class AddTrainingDTO {
-  training: Training;
-  categoryIndexes: number[];
-
-  constructor(training: Training, categoryIndexes: number[]) {
-    this.training = training;
-    this.categoryIndexes = categoryIndexes;
-  }
-}
-
-export class TrainingDTO {
-  training: Training;
-  categoryIndexes: number[];
-
-  constructor(training: Training, indexes: number[]) {
-    this.training = training;
-    this.categoryIndexes = indexes;
-  }
-}
-
-// export class TrainingCategory {
-//   trainingId: number;
-//   categoryId: number;
-
-//   constructor(trainingId: number, categoryId: number) {
-//     this.trainingId = trainingId;
-//     this.categoryId = categoryId;
-//   }
-// }

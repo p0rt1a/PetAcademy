@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, Training, TrainingDTO } from '../Models';
+import { Router } from '@angular/router';
+import { Training } from '../Models';
 import { AuthService } from '../_services/auth.service';
-import { CategoriesService } from '../_services/categories.service';
 import { TrainingsService } from '../_services/trainings.service';
 
 @Component({
@@ -11,26 +11,51 @@ import { TrainingsService } from '../_services/trainings.service';
 })
 export class UpdateTrainingComponent implements OnInit {
   trainings?: Training[];
-  // model: Training = new Training('', '', '', '');
-  // selectedModel: Training = new Training('', '', '', '', 0, 0);
+  selectedModel: Training = new Training('', '', '', '', 0, 0);
 
   constructor(
     private trainingService: TrainingsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getTrainingsByTrainerId();
   }
 
-  // updateTraining() {
-  //   this.trainingService.updateTraining(this.model);
-  // }
-
   deleteTraining(id: number) {
     this.trainingService.deleteTraining(id).subscribe(() => {
       console.log('Silme işlemi başarılı');
     });
+
+    this.router.navigate(['/home']);
+  }
+
+  updateTraining(
+    id: any,
+    header: string,
+    videoUrl: string,
+    description: string,
+    level: string
+  ) {
+    id = this.getSelectedTrainingId();
+
+    var model = new Training(
+      header,
+      videoUrl,
+      description,
+      level,
+      this.authService.getTrainerId(),
+      id
+    );
+
+    this.trainingService.updateTraining(model.id, model).subscribe(() => {
+      console.log('Güncelleme işlemi başarılı');
+    });
+
+    this.setSelectedTrainingId(0);
+
+    this.router.navigate(['/home']);
   }
 
   getTrainingsByTrainerId() {
@@ -41,19 +66,17 @@ export class UpdateTrainingComponent implements OnInit {
       });
   }
 
-  setSelectedTrainingId(id: number) {
-    this.trainingService.selectedTrainingId = id;
+  getTrainingById(id: number) {
+    this.trainingService.getTrainingById(id).subscribe((response) => {
+      this.selectedModel = response;
+    });
   }
-
-  // getSelectedTraining() {
-  //   this.trainingService
-  //     .getTrainingById(this.getSelectedTrainingId())
-  //     .subscribe((response) => {
-  //       this.selectedModel = response;
-  //     });
-  // }
 
   getSelectedTrainingId() {
     return this.trainingService.selectedTrainingId;
+  }
+
+  setSelectedTrainingId(id: number) {
+    this.trainingService.selectedTrainingId = id;
   }
 }

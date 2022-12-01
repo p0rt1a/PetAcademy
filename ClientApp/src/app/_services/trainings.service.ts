@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AddTrainingDTO, Training, TrainingDTO } from '../Models';
+import { Training, TrainingDTO } from '../Models';
 
 @Injectable({
   providedIn: 'root',
@@ -16,36 +16,31 @@ export class TrainingsService {
     return this.http.get<Training[]>(this.baseUrl);
   }
 
-  addTraining(training: AddTrainingDTO) {
-    return this.http.post(this.baseUrl + 'add', training);
-  }
-
   getTrainingById(id: number): Observable<Training> {
     return this.http.get<Training>(this.baseUrl + id);
   }
 
-  getTrainingDTOById(id: number): Observable<TrainingDTO> {
-    return this.http.get<TrainingDTO>(this.baseUrl + 'trainingDto' + id);
+  addTraining(training: TrainingDTO) {
+    return this.http.post(this.baseUrl, training);
   }
 
   getTrainingsByTrainerId(trainerId: number): Observable<Training[]> {
-    return this.http.get<Training[]>(this.baseUrl + 'trainer/' + trainerId);
+    return this.http.get<Training[]>(
+      this.baseUrl + 'trainings-by-trainer/' + trainerId
+    );
   }
 
   getTrainingsByCategoryId(id: number): Observable<Training[]> {
     return this.http.get<Training[]>(
-      this.baseUrl + 'training-by-category/' + id
-    );
-  }
-
-  updateTraining(entity: Training) {
-    return this.http.put(
-      this.baseUrl + 'update-training/' + this.selectedTrainingId,
-      entity
+      this.baseUrl + 'trainings-by-category/' + id
     );
   }
 
   deleteTraining(id: number) {
     return this.http.delete(this.baseUrl + id);
+  }
+
+  updateTraining(id: number, model: Training) {
+    return this.http.put(this.baseUrl + id, model);
   }
 }

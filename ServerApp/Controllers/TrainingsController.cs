@@ -24,21 +24,24 @@ namespace ServerApp.Controllers
             this._context = context;
         }
         
+        //confirmed
         [HttpGet]
-        public IActionResult GetTrainings()
+        public IActionResult GetAll()
         {
             var trainings = _context.Trainings.ToList();
+
             if (trainings == null)
             {
                 return NotFound();
             }
+
             return Ok(trainings);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetTrainingById(int id)
+        public IActionResult GetTrainingById(int id)
         {
-            var training = await _context.Trainings.FindAsync(id);
+            var training = _context.Trainings.Find(id);
 
             if (training == null)
             {
@@ -48,61 +51,24 @@ namespace ServerApp.Controllers
             return Ok(training);
         }
 
-        #region GetTrainingDTO
-        //[HttpGet("trainingDto/{id}")]
-        //public async Task<IActionResult> GetTrainingDTOById(int id)
-        //{
-        //    var training = await _context.Trainings.FindAsync(id);
-
-        //    List<CategoryTraining> items = await _context.CategoryTraining.Where(x => x.TrainingId == training.Id).ToListAsync();
-        //    List<int> categories = new List<int>();
-        //    foreach (var item in items)
-        //    {
-        //        categories.Add(item.CategoryId);
-        //    }
-
-        //    if (training == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    TrainingDTO entity = new TrainingDTO()
-        //    {
-        //        training = training,
-        //        categoryIndexes = categories.ToArray()
-        //    };
-
-        //    return Ok(entity);
-        //}
-        #endregion
-
-        [HttpPost("add")]
-        public async Task<IActionResult> AddTraining(TrainingDTO entity)
+        [HttpPost]
+        public IActionResult Add(TrainingDTO entity)
         {
             _context.Trainings.Add(entity.training);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
-            var training = await _context.Trainings.FindAsync(entity.training.Id);
+            var training = _context.Trainings.Find(entity.training.Id);
 
             foreach(var item in entity.categoryIndexes) {
-                await _context.CategoryTraining.AddAsync(new CategoryTraining() { TrainingId = training.Id, CategoryId = item });
+                _context.CategoryTraining.Add(new CategoryTraining() { TrainingId = training.Id, CategoryId = item });
             };
 
-            await _context.SaveChangesAsync();
-
-            #region Many to Many Relationship
-            //var training = _context.Trainings.Find(newTraining.training.Id);
-            //training.TrainingCategories = newTraining.categoryIndexes.Select(x => new TrainingCategories() { 
-            //    CategoryId = x,
-            //    TrainingId = training.Id
-            //}).ToList();
-            //_context.SaveChanges();
-            #endregion
+            _context.SaveChanges();
 
             return Ok();
         }
 
-        [HttpGet("trainer/{id}")]
+        [HttpGet("trainings-by-trainer/{id}")]
         public IActionResult GetTrainingsByTrainerId(int id)
         {
             var trainings = _context.Trainings.Where(t => t.TrainerId == id).ToList();
@@ -115,7 +81,7 @@ namespace ServerApp.Controllers
             return Ok(trainings);
         }
 
-        [HttpGet("training-by-category/{id}")]
+        [HttpGet("trainings-by-category/{id}")]
         public IActionResult GetTrainingsByCategoryId(int id)
         {
             var categoryTrainings = _context.CategoryTraining.Where(x => x.CategoryId == id).ToList();
@@ -149,7 +115,7 @@ namespace ServerApp.Controllers
             return Ok(trainings);
         }
 
-        [HttpPut("update-training/{id}")]
+        [HttpPut("{id}")]
         public IActionResult UpdateTraining(int id, Training entity)
         {
             var training = _context.Trainings.Find(id);

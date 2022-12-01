@@ -26,3 +26,19 @@
     gap: 5px;
   }
 }
+
+.close-button {
+  position: absolute;
+}
+@media only screen and (min-width: 769px) {
+  .close-button {
+    top: 20px;
+    right: 40px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .close-button {
+    top: 20px;
+    right: 40px;
+  }
+}

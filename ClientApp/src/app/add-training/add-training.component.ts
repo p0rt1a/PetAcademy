@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AddTrainingDTO, Category, Training } from '../Models';
+import { Category, Training, TrainingDTO } from '../Models';
 import { AuthService } from '../_services/auth.service';
 import { CategoriesService } from '../_services/categories.service';
 import { TrainingsService } from '../_services/trainings.service';
@@ -11,7 +11,7 @@ import { TrainingsService } from '../_services/trainings.service';
   styleUrls: ['./add-training.component.css'],
 })
 export class AddTrainingComponent implements OnInit {
-  model: Training = new Training('', '', '', '', 0);
+  model: Training = new Training('', '', '', '', 0, 0);
   modelCategory: number[] = [];
   categories?: Category[];
 
@@ -27,13 +27,12 @@ export class AddTrainingComponent implements OnInit {
   }
 
   addTraining() {
-    //Adding to Training Table;
     var newUrl = this.model.videoUrl.split('v=', 2);
 
     this.model.trainerId = this.authService.getTrainerId();
     this.model.videoUrl = newUrl[1];
 
-    var entity = new AddTrainingDTO(this.model, this.modelCategory);
+    var entity = new TrainingDTO(this.model, this.modelCategory);
 
     this.trainingService.addTraining(entity).subscribe(
       () => {
