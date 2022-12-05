@@ -10,6 +10,7 @@ import { CategoriesService } from '../_services/categories.service';
 export class CategoriesComponent implements OnInit {
   @Output() categoryChange = new EventEmitter<number>();
   categories?: Category[];
+  defaultSelectedAnimal: string = 'Tüm Hayvanlar';
 
   constructor(private categoryService: CategoriesService) {}
 
@@ -17,8 +18,16 @@ export class CategoriesComponent implements OnInit {
     this.getCategories();
   }
 
-  changeSelectedCategory(categoryId: number) {
-    this.categoryChange.emit(categoryId);
+  changeSelectedAnimal(categoryId: any) {
+    this.categoryChange.emit(categoryId.target.value);
+  }
+
+  changeSelectedLevel(levelName: any) {
+    console.log(levelName.target.value);
+  }
+
+  getSearch(text: any) {
+    console.log(text);
   }
 
   getCategories() {
