@@ -14,25 +14,61 @@ header {
   }
 }
 
+.trainings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin: 0 auto;
+}
+@media only screen and (min-width: 769px) {
+  .trainings {
+    gap: 20px;
+    max-width: 90vw;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .trainings {
+    gap: 20px;
+    width: 90vw;
+  }
+}
+
 .training {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
+  text-align: center;
+  transition: 0.3s;
+  background-color: var(--grey);
+
+  border-radius: 12px;
+}
+.training:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transform: translateY(-8px);
 }
 @media only screen and (min-width: 769px) {
   .training {
     margin-bottom: 10px;
-    padding: 20px;
+    padding: 3rem;
     gap: 10px;
+    width: 350px;
+    height: 400px;
   }
 }
 @media only screen and (max-width: 770px) {
   .training {
     margin-bottom: 10px;
-    padding: 20px;
+    padding: 3rem;
     gap: 10px;
+    width: 350px;
+    height: 450px;
   }
 }
 
@@ -55,7 +91,6 @@ header {
   .beginner,
   .med,
   .expert {
-    font-size: 0.7rem;
     padding: 5px;
     border-radius: 12px;
   }
@@ -64,7 +99,6 @@ header {
   .beginner,
   .med,
   .expert {
-    font-size: 0.7rem;
     padding: 5px;
     border-radius: 12px;
   }
@@ -77,11 +111,13 @@ header {
   .level {
     top: 20px;
     right: 20px;
+    font-size: 0.55rem;
   }
 }
 @media only screen and (max-width: 770px) {
   .level {
     top: 20px;
     right: 20px;
+    font-size: 0.55rem;
   }
 }
