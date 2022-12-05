@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Training } from '../Models';
 import { TrainingsService } from '../_services/trainings.service';
 
@@ -8,13 +9,19 @@ import { TrainingsService } from '../_services/trainings.service';
   styleUrls: ['./trainings.component.css'],
 })
 export class TrainingsComponent implements OnInit {
-  @Input() category?: number;
+  category?: number;
   trainings?: Training[];
+  url: string = '/home';
 
-  constructor(private trainingService: TrainingsService) {}
+  constructor(
+    private trainingService: TrainingsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getTrainings();
+
+    this.url = this.router.url;
   }
 
   ngDoCheck() {
@@ -26,6 +33,10 @@ export class TrainingsComponent implements OnInit {
       this.getTrainingsByCategoryId(this.category);
       this.category = undefined;
     }
+  }
+
+  getSelectedCategory(name: number) {
+    this.category = name;
   }
 
   getTrainings() {
