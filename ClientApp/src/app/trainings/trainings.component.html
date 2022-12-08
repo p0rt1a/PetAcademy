@@ -1,22 +1,28 @@
-<header>
-  <h2>Eğitimler</h2>
-</header>
-<div class="trainings col-9">
-  <div class="training" *ngFor="let item of trainings">
-    <div class="training-header">
-      <h3>{{ item.header }}</h3>
-      <training-category [trainingId]="item.id"></training-category>
-    </div>
-    <div
-      class="level"
-      [class.beginner]="item.level == 'başlangıç'"
-      [class.med]="item.level == 'orta'"
-      [class.expert]="item.level == 'ileri'"
-    >
-      {{ item.level | lowercase }} seviye
-    </div>
-    <div class="training-body">
-      <p>{{ item.description }}</p>
+<categories
+  (categoryChange)="getSelectedCategory($event)"
+  *ngIf="url == '/trainings'"
+></categories>
+<section>
+  <header>
+    <h2>Eğitimler</h2>
+  </header>
+  <div class="trainings">
+    <div class="training" *ngFor="let item of trainings">
+      <div class="training-header">
+        <h3>{{ item.header }}</h3>
+        <training-category [trainingId]="item.id"></training-category>
+      </div>
+      <div
+        class="level"
+        [class.beginner]="item.level == 'başlangıç'"
+        [class.med]="item.level == 'orta'"
+        [class.expert]="item.level == 'ileri'"
+      >
+        {{ item.level | lowercase }} seviye
+      </div>
+      <div class="training-body">
+        <p>{{ item.description }}</p>
+      </div>
     </div>
   </div>
-</div>
+</section>

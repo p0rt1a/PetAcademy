@@ -1,19 +1,3 @@
-header {
-  text-align: center;
-}
-@media only screen and (min-width: 769px) {
-  header {
-    font-size: 1.2rem;
-    padding: 3rem 0;
-  }
-}
-@media only screen and (max-width: 770px) {
-  header {
-    font-size: 1.2rem;
-    padding: 3rem 0;
-  }
-}
-
 .trainings {
   display: flex;
   justify-content: center;
@@ -22,16 +6,34 @@ header {
 
   margin: 0 auto;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   .trainings {
     gap: 20px;
     max-width: 90vw;
   }
 }
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 1026px) {
   .trainings {
     gap: 20px;
     width: 90vw;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .trainings {
+    gap: 15px;
+    width: 95vw;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .trainings {
+    gap: 12px;
+    width: 80vw;
+  }
+}
+@media only screen and (max-width: 321px) {
+  .trainings {
+    gap: 8px;
+    width: 98vw;
   }
 }
 
@@ -45,35 +47,121 @@ header {
   text-align: center;
   transition: 0.3s;
   background-color: var(--grey);
-
-  border-radius: 12px;
 }
 .training:hover {
   cursor: pointer;
   opacity: 0.9;
-  transform: translateY(-8px);
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   .training {
-    margin-bottom: 10px;
-    padding: 3rem;
+    padding: 5.3rem;
     gap: 10px;
     width: 350px;
-    height: 400px;
+
+    border-radius: 20px;
+  }
+
+  .training:hover {
+    transform: translateY(-12px);
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .training {
+    padding: 5rem;
+    gap: 10px;
+    width: 350px;
+
+    border-radius: 20px;
+  }
+
+  .training:hover {
+    transform: translateY(-10px);
   }
 }
 @media only screen and (max-width: 770px) {
   .training {
-    margin-bottom: 10px;
-    padding: 3rem;
+    padding: 4rem 1rem;
     gap: 10px;
-    width: 350px;
-    height: 450px;
+    width: 300px;
+
+    border-radius: 14px;
+  }
+
+  .training:hover {
+    transform: translateY(-8px);
+  }
+}
+@media only screen and (max-width: 482px) {
+  .training {
+    padding: 3rem 1rem;
+    gap: 10px;
+    width: 100%;
+
+    border-radius: 10px;
+  }
+
+  .training:hover {
+    transform: translateY(-5px);
+  }
+}
+@media only screen and (max-width: 482px) {
+  .training {
+    padding: 3rem 1rem;
+    gap: 10px;
+    width: 40vw;
+
+    border-radius: 10px;
+  }
+
+  .training:hover {
+    transform: translateY(-5px);
   }
 }
 
 .training-header {
   text-align: center;
+}
+
+@media only screen and (min-width: 1025px) {
+  .training-header h3 {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .training-header h3 {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .training-header h3 {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .training-header h3 {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .training-body p {
+    font-size: 1.15rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .training-body p {
+    font-size: 1.05rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .training-body p {
+    font-size: 0.65rem;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .training-body p {
+    font-size: 0.48rem;
+  }
 }
 
 .beginner {
@@ -87,7 +175,15 @@ header {
   background-color: var(--red);
   color: var(--white);
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
+  .beginner,
+  .med,
+  .expert {
+    padding: 5px;
+    border-radius: 12px;
+  }
+}
+@media only screen and (max-width: 1026px) {
   .beginner,
   .med,
   .expert {
@@ -99,15 +195,22 @@ header {
   .beginner,
   .med,
   .expert {
-    padding: 5px;
-    border-radius: 12px;
+    padding: 5px 3px;
+    border-radius: 6px;
   }
 }
 
 .level {
   position: absolute;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
+  .level {
+    top: 20px;
+    right: 20px;
+    font-size: 0.55rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
   .level {
     top: 20px;
     right: 20px;
@@ -116,8 +219,15 @@ header {
 }
 @media only screen and (max-width: 770px) {
   .level {
-    top: 20px;
-    right: 20px;
-    font-size: 0.55rem;
+    top: 15px;
+    right: 15px;
+    font-size: 0.5rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .level {
+    top: 8px;
+    right: 8px;
+    font-size: 0.43rem;
   }
 }

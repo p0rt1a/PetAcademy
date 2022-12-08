@@ -1,13 +1,31 @@
 <div class="categories">
-  <a href="#" class="category" (click)="changeSelectedCategory(0)"
-    >All Categories</a
-  >
-  <a
-    href="#"
-    class="category"
-    *ngFor="let item of categories"
-    (click)="changeSelectedCategory(item.id)"
-  >
-    {{ item.name }}
-  </a>
+  <div class="category-section">
+    <select (change)="changeSelectedAnimal($event)">
+      <option selected hidden disabled>Hayvana Göre Fitrele</option>
+      <option [value]="0">
+        {{ defaultSelectedAnimal }}
+      </option>
+      <option *ngFor="let item of categories" [value]="item.id">
+        {{ item.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="category-section">
+    <select (change)="changeSelectedLevel($event)">
+      <option selected hidden disabled>Seviyeye Göre Filtrele</option>
+      <option value="başlangıç">Başlangıç Seviye</option>
+      <option value="orta">Orta Seviye</option>
+      <option value="ileri">İleri Seviye</option>
+    </select>
+  </div>
+
+  <div class="category-section">
+    <input
+      #myInput
+      type="text"
+      placeholder="Eğitim Ara"
+      (input)="getSearch(myInput.value)"
+    />
+  </div>
 </div>

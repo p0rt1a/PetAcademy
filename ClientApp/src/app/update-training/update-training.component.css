@@ -1,6 +1,25 @@
+#update-training {
+  margin: 0 auto;
+}
+@media only screen and (min-width: 769px) {
+  #update-training {
+    width: 65vw;
+  }
+}
+
 @media only screen and (min-width: 769px) {
   nav {
     padding: 10px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  nav {
+    padding: 8px;
+  }
+}
+@media only screen and (max-width: 482px) {
+  nav {
+    padding: 5px 10px;
   }
 }
 
@@ -8,37 +27,112 @@
   position: relative;
 }
 
+.training-body {
+  text-align: center;
+}
+@media only screen and (min-width: 1025px) {
+  .training-body {
+    padding: 4rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .training-body {
+    padding: 3.2rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .training-body {
+    padding: 3rem;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .training-body h2 {
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .training-body h2 {
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .training-body h2 {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .training-body h2 {
+    font-size: 0.6rem;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .training-body p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .training-body p {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .training-body p {
+    font-size: 0.6rem;
+  }
+}
+
 .edit {
   position: absolute;
   display: flex;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   .edit {
     top: 10px;
     right: 10px;
     gap: 5px;
   }
 }
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 1026px) {
   .edit {
     top: 10px;
     right: 10px;
     gap: 5px;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .edit {
+    top: 5px;
+    right: 5px;
+    gap: 2px;
   }
 }
 
 .close-button {
   position: absolute;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   .close-button {
-    top: 20px;
-    right: 40px;
+    top: 12px;
+    right: 12px;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .close-button {
+    top: 10px;
+    right: 10px;
   }
 }
 @media only screen and (max-width: 770px) {
   .close-button {
-    top: 20px;
-    right: 40px;
+    top: 5px;
+    right: 5px;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .close-button {
+    top: 2px;
+    right: 2px;
   }
 }

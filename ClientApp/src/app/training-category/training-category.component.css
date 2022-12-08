@@ -1,0 +1,20 @@
+@media only screen and (min-width: 1025px) {
+  .training-category {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .training-category {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .training-category {
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .training-category {
+    font-size: 0.4rem;
+  }
+}

@@ -1,43 +1,45 @@
-<header>
-  <h2>Kayıt Ol</h2>
-</header>
-<form class="form-default" (ngSubmit)="register()">
-  <div class="form-section">
-    <label>İsim</label>
-    <input
-      type="text"
-      name="name"
-      [(ngModel)]="model.name"
-      placeholder="İsim"
-    />
-  </div>
-  <div class="form-section">
-    <label>Kullanıcı Adınız</label>
-    <input
-      type="text"
-      name="username"
-      [(ngModel)]="model.username"
-      placeholder="Kullanıcı Adı"
-    />
-  </div>
-  <div class="form-section">
-    <label>Email Adresiniz</label>
-    <input
-      type="email"
-      name="email"
-      [(ngModel)]="model.email"
-      placeholder="example@mail.com"
-    />
-  </div>
-  <div class="form-section">
-    <label>Şifreniz</label>
-    <input type="password" name="password" [(ngModel)]="model.password" />
-  </div>
-  <div class="form-section">
-    <label>Eğitmen Üyeliği</label>
-    <input type="checkbox" name="isTrainer" [(ngModel)]="model.isTrainer" />
-  </div>
-  <div class="form-section">
-    <button type="submit" class="btn btn-primary">Kayıt Ol</button>
-  </div>
-</form>
+<section>
+  <header>
+    <h2>Kayıt Ol</h2>
+  </header>
+  <form class="form-default" (ngSubmit)="register()">
+    <div class="form-section">
+      <label>İsim</label>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="model.name"
+        placeholder="İsim"
+      />
+    </div>
+    <div class="form-section">
+      <label>Kullanıcı Adınız</label>
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="model.username"
+        placeholder="Kullanıcı Adı"
+      />
+    </div>
+    <div class="form-section">
+      <label>Email Adresiniz</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="model.email"
+        placeholder="example@mail.com"
+      />
+    </div>
+    <div class="form-section">
+      <label>Şifreniz</label>
+      <input type="password" name="password" [(ngModel)]="model.password" />
+    </div>
+    <div class="form-section">
+      <label>Eğitmen Üyeliği</label>
+      <input type="checkbox" name="isTrainer" [(ngModel)]="model.isTrainer" />
+    </div>
+    <div class="form-section">
+      <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+    </div>
+  </form>
+</section>

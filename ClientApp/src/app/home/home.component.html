@@ -1,14 +1,43 @@
 <div>
   <section id="header">
     <div class="shadow"></div>
-    <div class="main-content">
-      <p class="content">
+    <div class="content main-content">
+      <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
         laboriosam atque maiores, corporis repudiandae quis exercitationem neque
         optio hic ut! Corporis distinctio pariatur in quis quos numquam maiores
         nam consectetur architecto voluptas!
       </p>
       <a [routerLink]="['/register']" class="btn btn-success">Şimdi Kaydol</a>
+    </div>
+  </section>
+
+  <section id="about-us">
+    <div class="row">
+      <div class="content">
+        <h2>PetAcademy Nedir?</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+          dolores provident ut earum sint quisquam cupiditate totam, ad quae?
+          Tempora cum alias inventore? Recusandae quam doloribus corrupti iste
+          ea officia perferendis, sint quaerat mollitia repudiandae.
+        </p>
+      </div>
+      <div class="image-border">
+        <div class="image"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="categories">
+    <header>
+      <h2>Eğitim Kategorilerimiz</h2>
+    </header>
+    <div class="categories">
+      <div class="category" *ngFor="let item of categories">
+        <p class="category-icon"></p>
+        <h3>{{ item.name }}</h3>
+      </div>
     </div>
   </section>
 

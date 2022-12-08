@@ -1,24 +1,85 @@
 .categories {
   display: flex;
-  flex-direction: column;
-}
-/* @media only screen and (min-width: 769px) {
-  .categories {
-    gap: 20px;
-  }
-} */
+  justify-content: space-around;
 
-.category {
-  text-align: center;
-  border: 1px solid black;
+  background-color: var(--grey);
 }
-@media only screen and (min-width: 769px) {
-  .category {
-    padding: 1rem;
+@media only screen and (min-width: 1025px) {
+  .categories {
+    padding: 0.5rem 0;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .categories {
+    padding: 0.5rem 0;
   }
 }
 @media only screen and (max-width: 770px) {
-  .category {
-    padding: 1rem;
+  .categories {
+    padding: 0.2rem 0;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .categories {
+    padding: 0.1rem 0;
+  }
+}
+
+.category-section {
+  display: flex;
+  align-items: center;
+}
+
+.category-section select,
+.category-section input {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: var(--black);
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+
+  text-align: center;
+}
+@media only screen and (min-width: 1025px) {
+  .category-section select,
+  .category-section input {
+    padding: 0.1rem;
+    width: 300px;
+
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .category-section select,
+  .category-section input {
+    padding: 0.1rem;
+    width: 250px;
+
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .category-section select,
+  .category-section input {
+    padding: 0.05rem;
+    width: 145px;
+
+    font-size: 0.55rem;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .category-section select,
+  .category-section input {
+    padding: 0.03rem;
+    width: 95px;
+
+    font-size: 0.4rem;
+  }
+}
+@media only screen and (max-width: 321px) {
+  .category-section select,
+  .category-section input {
+    padding: 0.02rem;
+    width: 30vw;
+    font-size: 0.4rem;
   }
 }

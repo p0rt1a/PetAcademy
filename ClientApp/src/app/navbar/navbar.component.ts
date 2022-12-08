@@ -10,10 +10,20 @@ import { AuthService } from '../_services/auth.service';
 export class NavbarComponent implements OnInit {
   model: any = {};
   isTrainer?: boolean;
+  isMobile?: boolean;
+  isClickedOnUser: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (screen.width < 770) {
+      this.isMobile = true;
+    }
+  }
+
+  mobileClick() {
+    this.isClickedOnUser = false;
+  }
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
@@ -28,6 +38,8 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/home']);
       this.getTrainerInformation();
     });
+
+    console.log('Logged In');
   }
 
   logout() {

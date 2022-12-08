@@ -2,11 +2,59 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
+
+  position: relative;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   nav {
-    padding: 20px 40px;
+    padding: 20px 30px;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  nav {
+    padding: 15px 40px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  nav {
+    padding: 12px 15px;
+  }
+}
+@media only screen and (max-width: 482px) {
+  nav {
+    padding: 10px 10px;
+  }
+}
+@media only screen and (max-width: 321px) {
+  nav {
+    padding: 6px 8px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  nav a {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  nav a {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  nav a {
+    font-size: 0.65rem;
+  }
+}
+@media only screen and (max-width: 482px) {
+  nav a {
+    font-size: 0.52rem;
+  }
+}
+@media only screen and (max-width: 321px) {
+  nav a {
+    font-size: 0.4rem;
   }
 }
 
@@ -15,9 +63,28 @@ nav {
   justify-content: center;
   align-items: center;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   .login-logout {
-    gap: 20px;
+    gap: 15px;
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .login-logout {
+    gap: 12px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .login-logout {
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .login-logout {
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -25,31 +92,54 @@ a:hover {
   cursor: pointer;
 }
 
-.active {
-  display: inline-block;
-  visibility: visible;
-
-  transition: 0.3s;
-}
-.deactive {
-  display: none;
-  visibility: hidden;
-
-  transition: 0.3s;
-}
-
 input {
   color: var(--primary);
   border: 1px solid var(--primary);
   font-family: "Montserrat Alternates", sans-serif;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
+  input {
+    border-radius: 8px;
+    font-size: 0.9rem;
+    padding: 4px 7px;
+
+    width: 140px;
+  }
+}
+@media only screen and (max-width: 1026px) {
   input {
     border-radius: 8px;
     font-size: 0.8rem;
-    padding: 5px 8px;
+    padding: 4px 6px;
 
-    width: 120px;
+    width: 100px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  input {
+    border-radius: 7px;
+    font-size: 0.65rem;
+    padding: 3px 5px;
+
+    width: 90px;
+  }
+}
+@media only screen and (max-width: 482px) {
+  input {
+    border-radius: 5px;
+    font-size: 0.45rem;
+    padding: 2px 4px;
+
+    width: 70px;
+  }
+}
+@media only screen and (max-width: 321px) {
+  input {
+    border-radius: 5px;
+    font-size: 0.4rem;
+    padding: 2px 4px;
+
+    width: 52px;
   }
 }
 
@@ -58,8 +148,68 @@ form {
   justify-content: space-around;
   align-items: center;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
+  form {
+    gap: 15px;
+  }
+}
+@media only screen and (max-width: 1024px) {
   form {
     gap: 10px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  form {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+@media only screen and (max-width: 482px) {
+  form {
+    flex-direction: column;
+    gap: 3px;
+  }
+}
+
+.mobile-user-stuffs {
+  background-color: rgba(180, 180, 180, 0.6);
+
+  display: flex;
+
+  position: absolute;
+
+  z-index: 2;
+}
+@media only screen and (max-width: 770px) {
+  .mobile-user-stuffs {
+    width: 150px;
+
+    padding: 0.7rem 0;
+    border-radius: 10px;
+
+    right: 5px;
+    top: 50px;
+  }
+}
+@media only screen and (max-width: 482px) {
+  .mobile-user-stuffs {
+    width: 90px;
+
+    padding: 0.7rem 0;
+    border-radius: 10px;
+
+    right: 10px;
+    top: 45px;
+  }
+}
+@media only screen and (max-width: 321px) {
+  .mobile-user-stuffs {
+    width: 60px;
+
+    padding: 0.5rem 0;
+    border-radius: 6px;
+
+    right: 5px;
+    top: 35px;
   }
 }

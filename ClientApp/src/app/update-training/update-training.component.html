@@ -3,103 +3,109 @@
     Yeni Eğitim Ekle
   </button>
 </nav>
-<div class="trainings">
-  <div class="training" *ngFor="let item of trainings">
-    <h2>{{ item.header }}</h2>
-    <p>{{ item.description }}</p>
-    <div class="edit">
-      <div
-        class="btn btn-small btn-small-secondary"
-        (click)="setSelectedTrainingId(item.id); getTrainingById(item.id)"
-      >
-        Güncelle
+<section id="update-training">
+  <div class="trainings">
+    <div class="training" *ngFor="let item of trainings">
+      <div class="training-body">
+        <h2>{{ item.header }}</h2>
+        <p>{{ item.description }}</p>
       </div>
-      <div
-        class="btn btn-small btn-small-danger"
-        (click)="deleteTraining(item.id)"
-      >
-        Sil
-      </div>
-    </div>
-    <div *ngIf="getSelectedTrainingId() == item.id">
-      <div class="update rel">
-        <form
-          class="form-default"
-          (ngSubmit)="
-            updateTraining(
-              idInput.value,
-              header.value,
-              videoUrl.value,
-              description.value,
-              level.value
-            )
-          "
-          id="training-update-form"
+      <div class="edit">
+        <div
+          class="btn btn-small btn-small-secondary"
+          (click)="setSelectedTrainingId(item.id); getTrainingById(item.id)"
         >
-          <div class="form-section">
-            <input
-              type="number"
-              name="id"
-              [value]="selectedModel.id"
-              #idInput
-            />
-          </div>
-          <div class="form-section">
-            <label>Video Başlığı</label>
-            <input
-              required
-              type="text"
-              name="header"
-              [value]="selectedModel.header"
-              #header
-            />
-          </div>
-          <div class="form-section">
-            <label>Eğitim Seviyesi Seçiniz</label>
-            <select
-              name="level"
-              form="training-update-form"
-              [value]="selectedModel.level"
-              #level
-            >
-              <option value="başlangıç">Başlangıç</option>
-              <option value="orta">Orta Seviye</option>
-              <option value="ileri">İleri Seviye</option>
-            </select>
-          </div>
-          <div class="form-section">
-            <label>Video Açıklaması</label>
-            <textarea
-              required
-              type="text"
-              name="description"
-              [value]="selectedModel.description"
-              #description
-            >
+          Güncelle
+        </div>
+        <div
+          class="btn btn-small btn-small-danger"
+          (click)="deleteTraining(item.id)"
+        >
+          Sil
+        </div>
+      </div>
+      <div *ngIf="getSelectedTrainingId() == item.id">
+        <div class="update rel">
+          <form
+            class="form-default"
+            (ngSubmit)="
+              updateTraining(
+                idInput.value,
+                header.value,
+                videoUrl.value,
+                description.value,
+                level.value
+              )
+            "
+            id="training-update-form"
+          >
+            <div class="form-section">
+              <input
+                hidden
+                type="number"
+                name="id"
+                [value]="selectedModel.id"
+                #idInput
+              />
+            </div>
+            <div class="form-section">
+              <label>Video Başlığı</label>
+              <input
+                required
+                type="text"
+                name="header"
+                [value]="selectedModel.header"
+                #header
+              />
+            </div>
+            <div class="form-section">
+              <label>Eğitim Seviyesi Seçiniz</label>
+              <select
+                name="level"
+                form="training-update-form"
+                [value]="selectedModel.level"
+                #level
+              >
+                <option value="başlangıç">Başlangıç</option>
+                <option value="orta">Orta Seviye</option>
+                <option value="ileri">İleri Seviye</option>
+              </select>
+            </div>
+            <div class="form-section">
+              <label>Video Açıklaması</label>
+              <textarea
+                required
+                type="text"
+                name="description"
+                [value]="selectedModel.description"
+                #description
+              >
             {{ selectedModel.description }}
-            </textarea>
-          </div>
-          <div class="form-section">
-            <label>Youtube Video Bağlantısı</label>
-            <input
-              required
-              type="text"
-              name="videoUrl"
-              [value]="selectedModel.videoUrl"
-              #videoUrl
-            />
-          </div>
-          <button class="btn btn-primary" type="submit">
-            Eğitimi Güncelle
+            </textarea
+              >
+            </div>
+            <div class="form-section">
+              <label>Youtube Video Bağlantısı</label>
+              <input
+                required
+                type="text"
+                name="videoUrl"
+                [value]="selectedModel.videoUrl"
+                #videoUrl
+              />
+            </div>
+            <button class="btn btn-primary" type="submit">
+              Eğitimi Güncelle
+            </button>
+          </form>
+          <button
+            (click)="setSelectedTrainingId(0)"
+            class="btn btn-small btn-small-danger close-button"
+          >
+            Kapat
           </button>
-        </form>
-        <button
-          (click)="setSelectedTrainingId(0)"
-          class="btn btn-small btn-small-danger close-button"
-        >
-          Kapat
-        </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

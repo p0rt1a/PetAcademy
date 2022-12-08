@@ -58,7 +58,7 @@ namespace ServerApp.Controllers
 
             if (user == null)
             {
-                return BadRequest(new { message = "Username is incorrect"});
+                return BadRequest(new { message = "Username is incorrect" });
             }
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, entity.Password, false);

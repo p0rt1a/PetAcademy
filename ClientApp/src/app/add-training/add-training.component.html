@@ -1,55 +1,59 @@
-<div class="form-header">Yeni Eğitim Ekle</div>
-<form class="form-default" (ngSubmit)="addTraining()" id="training-add-form">
-  <div class="form-section">
-    <label>Video Başlığı</label>
-    <input
-      required
-      type="text"
-      name="header"
-      placeholder="Başlık"
-      [(ngModel)]="model.header"
-    />
-  </div>
-  <div class="form-section">
-    <label>Eğitim Seviyesi Seçiniz</label>
-    <select name="level" form="training-add-form" [(ngModel)]="model.level">
-      <option value="başlangıç">Başlangıç</option>
-      <option value="orta">Orta Seviye</option>
-      <option value="ileri">İleri Seviye</option>
-    </select>
-  </div>
-  <div class="form-section">
-    <label>Video Açıklaması</label>
-    <textarea
-      required
-      type="text"
-      name="description"
-      placeholder="Açıklama"
-      [(ngModel)]="model.description"
-    >
-    </textarea>
-  </div>
-  <div class="form-section">
-    <label>Eğitim Hangi Hayvan İçin Uygun?</label>
-    <select
-      [(ngModel)]="modelCategory[0]"
-      name="categoryId"
-      form="training-add-form"
-    >
-      <option *ngFor="let item of categories" [value]="item.id">
-        {{ item.name }}
-      </option>
-    </select>
-  </div>
-  <div class="form-section">
-    <label>Youtube Video Bağlantısı</label>
-    <input
-      required
-      type="text"
-      name="videoUrl"
-      placeholder="Bağlantı"
-      [(ngModel)]="model.videoUrl"
-    />
-  </div>
-  <button class="btn btn-primary" type="submit">Eğitimi Ekle</button>
-</form>
+<section>
+  <header>
+    <h2>Yeni Eğitim Ekle</h2>
+  </header>
+  <form class="form-default" (ngSubmit)="addTraining()" id="training-add-form">
+    <div class="form-section">
+      <label>Video Başlığı</label>
+      <input
+        required
+        type="text"
+        name="header"
+        placeholder="Başlık"
+        [(ngModel)]="model.header"
+      />
+    </div>
+    <div class="form-section">
+      <label>Eğitim Seviyesi Seçiniz</label>
+      <select name="level" form="training-add-form" [(ngModel)]="model.level">
+        <option value="başlangıç">Başlangıç</option>
+        <option value="orta">Orta Seviye</option>
+        <option value="ileri">İleri Seviye</option>
+      </select>
+    </div>
+    <div class="form-section">
+      <label>Video Açıklaması</label>
+      <textarea
+        required
+        type="text"
+        name="description"
+        placeholder="Açıklama"
+        [(ngModel)]="model.description"
+      >
+      </textarea>
+    </div>
+    <div class="form-section">
+      <label>Eğitim Hangi Hayvan İçin Uygun?</label>
+      <select
+        [(ngModel)]="modelCategory[0]"
+        name="categoryId"
+        form="training-add-form"
+      >
+        <option *ngFor="let item of categories" [value]="item.id">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-section">
+      <label>Youtube Video Bağlantısı</label>
+      <input
+        required
+        type="text"
+        name="videoUrl"
+        placeholder="Bağlantı"
+        [(ngModel)]="model.videoUrl"
+      />
+    </div>
+    <button class="btn btn-primary" type="submit">Eğitimi Ekle</button>
+  </form>
+</section>

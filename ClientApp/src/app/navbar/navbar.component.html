@@ -1,7 +1,7 @@
 <nav>
   <a [routerLink]="['/home']" class="icon">PetAcademy</a>
   <a [routerLink]="['/home']">Ana Sayfa</a>
-  <a [routerLink]="['/trainers']">Eğitmenler</a>
+  <!-- <a [routerLink]="['/trainers']">Eğitmenler</a> -->
   <a [routerLink]="['/trainings']">Eğitimler</a>
   <a
     href="#"
@@ -9,37 +9,89 @@
     [routerLink]="['/update-training']"
     >Eğitim Ekle/Sil/Düzenle</a
   >
-  <div *ngIf="!isLoggedIn()" class="login-logout">
-    <div class="login">
-      <form (ngSubmit)="login()">
-        <input
-          #name
-          type="text"
-          placeholder="Username"
-          name="username"
-          [(ngModel)]="model.username"
-        />
-        <input
-          #password
-          type="password"
-          placeholder="Password"
-          name="password"
-          [(ngModel)]="model.password"
-        />
-        <button
-          type="submit"
-          class="btn btn-small btn-small-primary"
-          (click)="name.value = ''; password.value = ''"
-        >
-          Giriş Yap
-        </button>
-      </form>
-    </div>
-    <a [routerLink]="['/register']" class="btn btn-small btn-small-secondary"
-      >Kayıt Ol</a
-    >
+  <div
+    class="user-stuffs-icon"
+    [class.active]="isMobile"
+    [class.deactive]="!isMobile"
+    (pointerdown)="isClickedOnUser = !isClickedOnUser"
+  >
+    X
   </div>
-  <div *ngIf="isLoggedIn()" class="login-logout">
-    <a (click)="logout()" class="btn btn-small btn-small-danger">Çıkış Yap</a>
+  <div *ngIf="isClickedOnUser == true" class="mobile-user-stuffs">
+    <div *ngIf="!isLoggedIn()" class="login-logout">
+      <div class="login">
+        <form (ngSubmit)="login()">
+          <input
+            #name
+            type="text"
+            placeholder="Kullanıcı Adı"
+            name="username"
+            [(ngModel)]="model.username"
+          />
+          <input
+            #password
+            type="password"
+            placeholder="Şifre"
+            name="password"
+            [(ngModel)]="model.password"
+          />
+          <button
+            type="submit"
+            class="btn btn-small btn-small-primary"
+            (click)="name.value = ''; password.value = ''"
+          >
+            Giriş Yap
+          </button>
+        </form>
+      </div>
+      <a
+        [routerLink]="['/register']"
+        class="btn btn-small btn-small-secondary"
+        (click)="mobileClick()"
+        >Kayıt Ol</a
+      >
+    </div>
+    <div *ngIf="isLoggedIn()" class="login-logout">
+      <a (click)="logout()" class="btn btn-small btn-small-danger">Çıkış Yap</a>
+    </div>
+  </div>
+  <div
+    [class.deactive]="isMobile"
+    [class.active]="!isMobile"
+    class="user-stuffs"
+  >
+    <div *ngIf="!isLoggedIn()" class="login-logout">
+      <div class="login">
+        <form (ngSubmit)="login()">
+          <input
+            #name
+            type="text"
+            placeholder="Kullanıcı Adı"
+            name="username"
+            [(ngModel)]="model.username"
+          />
+          <input
+            #password
+            type="password"
+            placeholder="Şifre"
+            name="password"
+            [(ngModel)]="model.password"
+          />
+          <button
+            type="submit"
+            class="btn btn-small btn-small-primary"
+            (click)="name.value = ''; password.value = ''"
+          >
+            Giriş Yap
+          </button>
+        </form>
+      </div>
+      <a [routerLink]="['/register']" class="btn btn-small btn-small-secondary"
+        >Kayıt Ol</a
+      >
+    </div>
+    <div *ngIf="isLoggedIn()" class="login-logout">
+      <a (click)="logout()" class="btn btn-small btn-small-danger">Çıkış Yap</a>
+    </div>
   </div>
 </nav>
