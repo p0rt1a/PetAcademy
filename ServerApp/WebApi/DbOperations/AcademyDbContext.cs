@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApi.Entities;
 
 namespace WebApi.DbOperations
 {
@@ -7,6 +8,8 @@ namespace WebApi.DbOperations
         public AcademyDbContext(DbContextOptions<AcademyDbContext> options) : base(options)
         {
         }
+
+        public DbSet<Training> Trainings { get; set; }
 
         public override int SaveChanges()
         {
