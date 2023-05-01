@@ -40,8 +40,11 @@ C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\WebApi.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\WebApi.pdb
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\ref\WebApi.dll
-C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\refint\WebApi.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\FluentValidation.dll
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 46762900f481e8c07de76c314b0ecfbe04e21206
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
@@ -49,3 +52,9 @@ C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.Id
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+<<<<<<< HEAD
+=======
+C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\refint\WebApi.dll
+=======
+>>>>>>> parent of 93ff1dd (Fix user email & password check if statement in login command)
+>>>>>>> 46762900f481e8c07de76c314b0ecfbe04e21206
