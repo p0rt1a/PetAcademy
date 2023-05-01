@@ -13,6 +13,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
+using WebApi.Middlewares;
 
 namespace WebApi
 {
@@ -51,6 +52,8 @@ namespace WebApi
             app.UseSwaggerUi3();
 
             app.UseAuthorization();
+
+            app.UseCustomException();
 
             app.UseEndpoints(endpoints =>
             {
