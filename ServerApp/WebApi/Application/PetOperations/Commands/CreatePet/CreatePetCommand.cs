@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
+using WebApi.Entities;
 
 namespace WebApi.Application.PetOperations.Commands.CreatePet
 {
@@ -31,7 +32,10 @@ namespace WebApi.Application.PetOperations.Commands.CreatePet
             if (genre is null)
                 throw new InvalidOperationException("Tür mevcut değil");
 
-            //TODO: Create pet with using mapper
+            var pet = _mapper.Map<Pet>(Model);
+
+            _dbContext.Pets.Add(pet);
+            _dbContext.SaveChanges();
         }
     }
 
