@@ -23,7 +23,8 @@ namespace WebApi.DbOperations
                             City = "İzmir",
                             Address = "Karşıyaka",
                             Price = 1350,
-                            GenreId = 1
+                            GenreId = 1,
+                            UserId = 1
                         },
                         new Training()
                         {
@@ -32,7 +33,8 @@ namespace WebApi.DbOperations
                             City = "Ankara",
                             Address = "Çankaya",
                             Price = 1250,
-                            GenreId = 2
+                            GenreId = 2,
+                            UserId = 2
                         },
                         new Training()
                         {
@@ -41,7 +43,8 @@ namespace WebApi.DbOperations
                             City = "Denizli",
                             Address = "Albayrak",
                             Price = 2000,
-                            GenreId = 1
+                            GenreId = 1,
+                            UserId = 2
                         }
                     );
 
@@ -65,19 +68,22 @@ namespace WebApi.DbOperations
                         {
                             Name = "Huysuz",
                             Age = 2,
-                            GenreId = 1
+                            GenreId = 1,
+                            UserId = 1
                         },
                         new Pet()
                         {
                             Name = "Bonjour",
                             Age = 1,
-                            GenreId = 2
+                            GenreId = 2,
+                            UserId = 2
                         },
                         new Pet()
                         {
                             Name = "Tekir",
                             Age = 3,
-                            GenreId = 2
+                            GenreId = 2,
+                            UserId = 1
                         }
                     );
 
@@ -96,6 +102,25 @@ namespace WebApi.DbOperations
                         {
                             TrainingId = 2,
                             PetId = 2
+                        }
+                    );
+
+                context.Users.AddRange(
+                        new User()
+                        {
+                            Name = "Alperen",
+                            Surname = "Polat",
+                            Email = "alperen@hotmail.com",
+                            Password = "Alperen.123",
+                            BirthOfDate = new DateTime(1999, 07, 21)
+                        },
+                        new User()
+                        {
+                            Name = "Hilal",
+                            Surname = "Polat",
+                            Email = "hilal@hotmail.com",
+                            Password = "Hilal.123",
+                            BirthOfDate = new DateTime(1999, 10, 13)
                         }
                     );
 
