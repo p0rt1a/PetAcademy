@@ -24,6 +24,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainingDetail
         {
             var training = _dbContext.Trainings
                 .Include(x => x.Genre)
+                .Include(x => x.User)
                 .SingleOrDefault(x => x.Id == TrainingId);
 
             if (training is null)
@@ -42,6 +43,8 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainingDetail
         public string City { get; set; }
         public string Address { get; set; }
         public string Genre { get; set; }
+        public string TrainerName { get; set; }
+        public string TrainerEmail { get; set; }
         public decimal Price { get; set; }
     }
 }

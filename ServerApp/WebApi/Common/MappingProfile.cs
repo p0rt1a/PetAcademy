@@ -20,7 +20,9 @@ namespace WebApi.Common
             CreateMap<Training, TrainingViewModel>()
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
             CreateMap<Training, TrainingDetailViewModel>()
-                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
+                .ForMember(dest => dest.TrainerName, opt => opt.MapFrom(src => $"{src.User.Name} {src.User.Surname}"))
+                .ForMember(dest => dest.TrainerEmail, opt => opt.MapFrom(src => src.User.Email));
             CreateMap<CreateTrainingModel, Training>();
             #endregion
 
