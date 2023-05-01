@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebApi.Application.AuthOperations.Commands.Register;
 using WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
+using WebApi.Application.PetOperations.Commands.CreatePet;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
@@ -37,6 +38,10 @@ namespace WebApi.Common
 
             #region Auth Mappings
             CreateMap<RegisterModel, User>();
+            #endregion
+
+            #region Pet Mappings
+            CreateMap<CreatePetModel, Pet>();
             #endregion
         }
     }
