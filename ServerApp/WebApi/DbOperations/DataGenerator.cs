@@ -60,6 +60,45 @@ namespace WebApi.DbOperations
                         }
                     );
 
+                context.Pets.AddRange(
+                        new Pet()
+                        {
+                            Name = "Huysuz",
+                            Age = 2,
+                            GenreId = 1
+                        },
+                        new Pet()
+                        {
+                            Name = "Bonjour",
+                            Age = 1,
+                            GenreId = 2
+                        },
+                        new Pet()
+                        {
+                            Name = "Tekir",
+                            Age = 3,
+                            GenreId = 2
+                        }
+                    );
+
+                context.Enrollments.AddRange(
+                        new Enrollment()
+                        {
+                            TrainingId = 1,
+                            PetId = 1
+                        },
+                        new Enrollment()
+                        {
+                            TrainingId = 2,
+                            PetId = 1
+                        },
+                        new Enrollment()
+                        {
+                            TrainingId = 2,
+                            PetId = 2
+                        }
+                    );
+
                 context.SaveChanges();
             }
         }
