@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hTzF3VLaw5sIirXKVTA+CLk/E2tCZp27OamoDG7F2bDjUvFeRDeCHltPxLaftroCRjrZytSfMRsiV0rNIy1Mww==",
+  "dgSpecHash": "gqxgMhfyRg9wkBl43ffY0kp1t+90aWQtvUkQ0N8bpMrdhLGKRyZzFoxxb0/i/nv7LswXssKtv4wln2mjnJNmJA==",
   "success": true,
   "projectFilePath": "C:\\Users\\alper\\Desktop\\PetAcademy\\ServerApp\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alper\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\alper\\.nuget\\packages\\fluentvalidation\\10.1.0\\fluentvalidation.10.1.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.aspnetcore.authorization\\1.0.2\\microsoft.aspnetcore.authorization.1.0.2.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\1.0.2\\microsoft.aspnetcore.hosting.abstractions.1.0.2.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\1.0.2\\microsoft.aspnetcore.hosting.server.abstractions.1.0.2.nupkg.sha512",
