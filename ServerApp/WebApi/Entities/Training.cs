@@ -11,5 +11,7 @@ namespace WebApi.Entities
         public string City { get; set; }
         public string Address { get; set; }
         public decimal Price { get; set; }
+        public int GenreId { get; set; }
+        public Genre Genre { get; set; }
     }
 }
