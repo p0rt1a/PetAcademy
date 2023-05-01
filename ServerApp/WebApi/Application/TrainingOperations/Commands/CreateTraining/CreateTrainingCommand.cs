@@ -42,6 +42,7 @@ namespace WebApi.Application.TrainingOperations.Commands.CreateTraining
         public string Address { get; set; }
         public int MaxPetCount { get; set; }
         public int GenreId { get; set; }
+        public int UserId { get; set; }
         public decimal Price { get; set; }
     }
 }
