@@ -15,6 +15,7 @@ namespace WebApi.Application.TrainingOperations.Commands.CreateTraining
             RuleFor(command => command.Model.City.Trim()).MinimumLength(2);
             RuleFor(command => command.Model.Address.Trim()).MinimumLength(2);
             RuleFor(command => command.Model.Price).GreaterThan(0);
+            RuleFor(command => command.Model.UserId).GreaterThan(0);
         }
     }
 }
