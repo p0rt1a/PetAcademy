@@ -28,6 +28,7 @@ namespace WebApi.Application.TrainingOperations.Commands.UpdateTraining
 
             training.Description = string.IsNullOrEmpty(Model.Description.Trim()) ? training.Description : Model.Description;
             training.Price = Model.Price > 0 ? Model.Price : training.Price;
+            training.MaxPetCount = Model.MaxPetCount > 0 ? Model.MaxPetCount : training.MaxPetCount;
 
             _dbContext.SaveChanges();
         }
@@ -37,5 +38,6 @@ namespace WebApi.Application.TrainingOperations.Commands.UpdateTraining
     {
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public int MaxPetCount { get; set; }
     }
 }
