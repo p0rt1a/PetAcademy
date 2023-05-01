@@ -50,6 +50,9 @@ namespace WebApi.Controllers
             CreateTrainingCommand command = new(_context, _mapper);
             command.Model = model;
 
+            CreateTrainingCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
+
             command.Handle();
 
             return Ok();
