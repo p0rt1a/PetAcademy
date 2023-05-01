@@ -66,6 +66,9 @@ namespace WebApi.Controllers
             command.TrainingId = id;
             command.Model = model;
 
+            UpdateTrainingCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
+
             command.Handle();
 
             return Ok();
