@@ -25,7 +25,7 @@ namespace WebApi.Application.AuthOperations.Commands.Login
         {
             var user = _dbContext.Users.SingleOrDefault(x => x.Email == Model.Email && x.Password == Model.Password);
 
-            if (user is null)
+            if (user is not null)
                 throw new InvalidOperationException("Email ya da şifre hatalı");
 
             TokenHandler tokenHandler = new(_configuration);
