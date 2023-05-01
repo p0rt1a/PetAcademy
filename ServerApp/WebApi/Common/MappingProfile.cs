@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.Entities;
 
@@ -14,6 +15,7 @@ namespace WebApi.Common
         {
             #region Training Mappings
             CreateMap<Training, TrainingViewModel>();
+            CreateMap<Training, TrainingDetailViewModel>();
             #endregion
         }
     }
