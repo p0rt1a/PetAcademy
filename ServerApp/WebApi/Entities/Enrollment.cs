@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApi.Entities
 {
-    public class Enrollments
+    public class Enrollment
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
