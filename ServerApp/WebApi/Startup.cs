@@ -14,6 +14,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
 using WebApi.Middlewares;
+using WebApi.Services;
 
 namespace WebApi
 {
@@ -35,6 +36,8 @@ namespace WebApi
             services.AddDbContext<AcademyDbContext>(options => options.UseInMemoryDatabase(databaseName: "AcademyDb"));
             services.AddScoped<IAcademyDbContext>(provider => provider.GetService<AcademyDbContext>());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            services.AddSingleton<ILoggerService, ConsoleLogger>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
