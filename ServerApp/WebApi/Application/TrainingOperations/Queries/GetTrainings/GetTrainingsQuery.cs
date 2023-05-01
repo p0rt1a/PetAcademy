@@ -19,11 +19,13 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainingsQuery
             _mapper = mapper;
         }
 
-        public void Handle()
+        public List<TrainingViewModel> Handle()
         {
             var trainings = _dbContext.Trainings.ToList<Training>();
 
-            //TODO: Map trainings to its viewModel and return
+            var vm = _mapper.Map<List<TrainingViewModel>>(trainings);
+
+            return vm;
         }
     }
 
