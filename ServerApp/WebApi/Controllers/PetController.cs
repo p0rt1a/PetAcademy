@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Application.PetOperations.Commands.CreatePet;
+using WebApi.Application.PetOperations.Commands.UpdatePet;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
@@ -32,6 +33,17 @@ namespace WebApi.Controllers
 
             CreatePetCommandValidator validator = new();
             validator.ValidateAndThrow(command);
+
+            command.Handle();
+
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdatePet([FromBody]UpdatePetModel model)
+        {
+            UpdatePetCommand command = new(_context, _mapper);
+            command.Model = model;
 
             command.Handle();
 
