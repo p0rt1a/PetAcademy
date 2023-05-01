@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Application.AuthOperations.Commands.Register;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
@@ -22,8 +23,13 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register()
+        public IActionResult Register([FromBody]RegisterModel model)
         {
+            RegisterCommand command = new(_context, _mapper);
+            command.Model = model;
+
+            command.Handle();
+
             return Ok();
         }
     }
