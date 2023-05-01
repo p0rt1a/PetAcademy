@@ -17,7 +17,8 @@ namespace WebApi.Common
             #region Training Mappings
             CreateMap<Training, TrainingViewModel>()
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
-            CreateMap<Training, TrainingDetailViewModel>();
+            CreateMap<Training, TrainingDetailViewModel>()
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
             CreateMap<CreateTrainingModel, Training>();
             #endregion
         }
