@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Application.GenreOperations.Queries.GetGenres;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
@@ -24,7 +25,10 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetGenres()
         {
-            return Ok();
+            GetGenresQuery query = new(_context, _mapper);
+            var result = query.Handle();
+
+            return Ok(result);
         }
     }
 }
