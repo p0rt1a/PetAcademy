@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
@@ -33,6 +34,9 @@ namespace WebApi.Controllers
         {
             GetTrainingDetailQuery query = new(_context, _mapper);
             query.TrainingId = id;
+
+            GetTrainingDetailQueryValidator validator = new();
+            validator.ValidateAndThrow(query);
 
             var result = query.Handle();
 
