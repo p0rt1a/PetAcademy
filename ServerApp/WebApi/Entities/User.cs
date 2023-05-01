@@ -14,5 +14,8 @@ namespace WebApi.Entities
         public string Surname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public DateTime BirthOfDate { get; set; }
+        public ICollection<Pet> Pets { get; set; }
+        public ICollection<Training> Trainings { get; set; }
     }
 }
