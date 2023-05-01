@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
@@ -8,6 +9,7 @@ namespace WebApi.Controllers
     public class TrainingController : ControllerBase
     {
         private readonly IAcademyDbContext _context;
+        private readonly IMapper _mapper;
 
         public TrainingController(IAcademyDbContext context)
         {
