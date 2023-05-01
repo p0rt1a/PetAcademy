@@ -2,6 +2,7 @@
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
+using WebApi.Application.TrainingOperations.Commands.DeleteTraining;
 using WebApi.Application.TrainingOperations.Commands.UpdateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
@@ -68,6 +69,17 @@ namespace WebApi.Controllers
 
             UpdateTrainingCommandValidator validator = new();
             validator.ValidateAndThrow(command);
+
+            command.Handle();
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTraining(int id)
+        {
+            DeleteTrainingCommand command = new(_context);
+            command.TrainingId = id;
 
             command.Handle();
 
