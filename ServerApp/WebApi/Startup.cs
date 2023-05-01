@@ -45,10 +45,10 @@ namespace WebApi
 
             app.UseHttpsRedirection();
 
+            app.UseRouting();
+
             app.UseOpenApi();
             app.UseSwaggerUi3();
-
-            app.UseRouting();
 
             app.UseAuthorization();
 

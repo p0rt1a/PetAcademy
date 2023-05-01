@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Application.TrainingOperations.Queries.GetTrainingsQuery;
+using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
@@ -12,15 +12,16 @@ namespace WebApi.Controllers
         private readonly IAcademyDbContext _context;
         private readonly IMapper _mapper;
 
-        public TrainingController(IAcademyDbContext context)
+        public TrainingController(IAcademyDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public IActionResult GetTrainings()
         {
-            GetTrainingsQuery query = new(_context, _mapper);
+            GetTrainingsQuery query = new GetTrainingsQuery(_context, _mapper);
             var result = query.Handle();
 
             return Ok(result);

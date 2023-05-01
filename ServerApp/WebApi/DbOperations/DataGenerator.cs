@@ -21,23 +21,28 @@ namespace WebApi.DbOperations
                             Title = "Yürüme Eğitimi",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                             City = "İzmir",
-                            Address = "Karşıyaka"
+                            Address = "Karşıyaka",
+                            Price = 1350
                         },
                         new Training()
                         {
                             Title = "Tuvalet Eğitimi",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                             City = "Ankara",
-                            Address = "Çankaya"
+                            Address = "Çankaya",
+                            Price = 1250
                         },
                         new Training()
                         {
                             Title = "Tuvalet Eğitimi",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                             City = "Denizli",
-                            Address = "Albayrak"
+                            Address = "Albayrak",
+                            Price = 2000
                         }
                     );
+
+                context.SaveChanges();
             }
         }
     }

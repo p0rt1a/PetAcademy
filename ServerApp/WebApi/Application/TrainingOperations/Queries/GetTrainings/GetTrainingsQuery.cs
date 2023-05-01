@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using WebApi.DbOperations;
 using WebApi.Entities;
 
-namespace WebApi.Application.TrainingOperations.Queries.GetTrainingsQuery
+namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
 {
     public class GetTrainingsQuery
     {
