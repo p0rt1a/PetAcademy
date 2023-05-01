@@ -10,6 +10,7 @@ namespace WebApi.DbOperations
         DbSet<Genre> Genres { get; set; }
         DbSet<Pet> Pets { get; set; }
         DbSet<Enrollment> Enrollments { get; set; }
+        DbSet<User> Users { get; set; }
         int SaveChanges();
     }
 }
