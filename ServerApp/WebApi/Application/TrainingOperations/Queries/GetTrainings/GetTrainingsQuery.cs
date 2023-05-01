@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,9 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
 
         public List<TrainingViewModel> Handle()
         {
-            var trainings = _dbContext.Trainings.ToList<Training>();
+            var trainings = _dbContext.Trainings
+                .Include(x => x.Genre)
+                .ToList<Training>();
 
             var vm = _mapper.Map<List<TrainingViewModel>>(trainings);
 
@@ -34,6 +37,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
         public string Title { get; set; }
         public string Description { get; set; }
         public string City { get; set; }
+        public string Genre { get; set; }
         public decimal Price { get; set; }
     }
 }
