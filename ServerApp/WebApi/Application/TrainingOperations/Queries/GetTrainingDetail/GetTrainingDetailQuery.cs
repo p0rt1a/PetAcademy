@@ -19,14 +19,16 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainingDetail
             _mapper = mapper;
         }
 
-        public void Handle()
+        public TrainingDetailViewModel Handle()
         {
             var training = _dbContext.Trainings.SingleOrDefault(x => x.Id == TrainingId);
 
             if (training is null)
                 throw new InvalidOperationException("Eğitim bulunamadı");
 
-            //TODO: Map training and return viewModel
+            var vm = _mapper.Map<TrainingDetailViewModel>(training);
+
+            return vm;
         }
     }
 
