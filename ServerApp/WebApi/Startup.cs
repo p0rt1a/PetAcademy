@@ -29,6 +29,8 @@ namespace WebApi
         {
             services.AddControllers();
 
+            services.AddSwaggerDocument();
+
             services.AddDbContext<AcademyDbContext>(options => options.UseInMemoryDatabase(databaseName: "AcademyDb"));
             services.AddScoped<IAcademyDbContext>(provider => provider.GetService<AcademyDbContext>());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -42,6 +44,9 @@ namespace WebApi
             }
 
             app.UseHttpsRedirection();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseRouting();
 
