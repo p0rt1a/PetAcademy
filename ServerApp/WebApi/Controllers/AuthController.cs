@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,9 @@ namespace WebApi.Controllers
         {
             RegisterCommand command = new(_context, _mapper);
             command.Model = model;
+
+            RegisterCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
 
             command.Handle();
 
