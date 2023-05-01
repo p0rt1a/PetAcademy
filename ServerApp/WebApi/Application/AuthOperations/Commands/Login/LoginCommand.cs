@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
+using WebApi.TokenOperations;
 using WebApi.TokenOperations.Models;
 
 namespace WebApi.Application.AuthOperations.Commands.Login
@@ -20,14 +21,22 @@ namespace WebApi.Application.AuthOperations.Commands.Login
             _configuration = configuration;
         }
 
-        public void Handle()
+        public Token Handle()
         {
             var user = _dbContext.Users.SingleOrDefault(x => x.Email == Model.Email && x.Password == Model.Password);
 
             if (user is null)
                 throw new InvalidOperationException("Email ya da şifre hatalı");
 
-            //TODO: Set user's token properties
+            TokenHandler tokenHandler = new(_configuration);
+            Token token = tokenHandler.CreateAccessToken();
+
+            user.RefreshToken = token.RefreshToken;
+            user.RefreshTokenExpirenDate = token.ExpirationDate.AddMinutes(45);
+
+            _dbContext.SaveChanges();
+
+            return token;
         }
     }
 
