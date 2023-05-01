@@ -48,6 +48,9 @@ namespace WebApi.Controllers
             LoginCommand command = new(_context, _configuration);
             command.Model = model;
 
+            LoginCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
+
             var token = command.Handle();
 
             return token;
