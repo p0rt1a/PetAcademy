@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,9 @@ namespace WebApi.Application.PetOperations.Commands.UpdatePet
 
         public void Handle()
         {
-            var user = _dbContext.Users.SingleOrDefault(x => x.Id == Model.UserId);
+            var user = _dbContext.Users
+                .Include(x => x.Pets)
+                .SingleOrDefault(x => x.Id == Model.UserId);
 
             if (user is null)
                 throw new InvalidOperationException("Kullanıcı bulunamadı");
@@ -31,6 +34,9 @@ namespace WebApi.Application.PetOperations.Commands.UpdatePet
 
             if (pet is null)
                 throw new InvalidOperationException("Evcil hayvan bulunamadı");
+
+            if (!user.Pets.Any(x => x.Id == PetId))
+                throw new InvalidOperationException("Evcil hayvan başka bir kullanıcıya ait");
 
             pet.Name = string.IsNullOrEmpty(Model.Name.Trim()) ? pet.Name : Model.Name;
             pet.Age = Model.Age > 0 ? Model.Age : pet.Age;
