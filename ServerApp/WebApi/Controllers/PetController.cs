@@ -40,9 +40,10 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdatePet([FromBody]UpdatePetModel model)
+        public IActionResult UpdatePet(int id, [FromBody]UpdatePetModel model)
         {
             UpdatePetCommand command = new(_context, _mapper);
+            command.PetId = id;
             command.Model = model;
 
             UpdatePetCommandValidator validator = new();
