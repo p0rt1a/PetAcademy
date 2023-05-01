@@ -81,6 +81,9 @@ namespace WebApi.Controllers
             DeleteTrainingCommand command = new(_context);
             command.TrainingId = id;
 
+            DeleteTrainingCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
+
             command.Handle();
 
             return Ok();
