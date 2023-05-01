@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
@@ -25,6 +26,10 @@ namespace WebApi.Common
 
             #region Genre Mappings
             CreateMap<Genre, GenreViewModel>();
+            #endregion
+
+            #region Enrollment Mappings
+            CreateMap<CreateEnrollmentModel, Enrollment>();
             #endregion
         }
     }
