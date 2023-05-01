@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
+using WebApi.Entities;
 
 namespace WebApi.Application.TrainingOperations.Commands.CreateTraining
 {
@@ -11,6 +12,7 @@ namespace WebApi.Application.TrainingOperations.Commands.CreateTraining
     {
         private readonly IAcademyDbContext _dbContext;
         private readonly IMapper _mapper;
+        public CreateTrainingModel Model { get; set; }
 
         public CreateTrainingCommand(IAcademyDbContext dbContext, IMapper mapper)
         {
@@ -20,7 +22,10 @@ namespace WebApi.Application.TrainingOperations.Commands.CreateTraining
 
         public void Handle()
         {
-            //TODO: Create training with using mapper
+            var createdTraining = _mapper.Map<Training>(Model);
+
+            _dbContext.Trainings.Add(createdTraining);
+            _dbContext.SaveChanges();
         }
     }
 
