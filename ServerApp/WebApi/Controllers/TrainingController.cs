@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.DbOperations;
@@ -41,6 +42,17 @@ namespace WebApi.Controllers
             var result = query.Handle();
 
             return Ok(result);
+        }
+
+        [HttpPost]
+        public IActionResult CreateTraining([FromBody]CreateTrainingModel model)
+        {
+            CreateTrainingCommand command = new(_context, _mapper);
+            command.Model = model;
+
+            command.Handle();
+
+            return Ok();
         }
     }
 }
