@@ -34,6 +34,8 @@ namespace WebApi.Application.PetOperations.Commands.UpdatePet
 
             pet.Name = string.IsNullOrEmpty(Model.Name.Trim()) ? pet.Name : Model.Name;
             pet.Age = Model.Age > 0 ? Model.Age : pet.Age;
+
+            _dbContext.SaveChanges();
         }
     }
 
