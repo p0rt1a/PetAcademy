@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -28,6 +29,9 @@ namespace WebApi.Controllers
         {
             CreatePetCommand command = new(_context, _mapper);
             command.Model = model;
+
+            CreatePetCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
 
             command.Handle();
 
