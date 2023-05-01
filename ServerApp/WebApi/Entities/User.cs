@@ -15,6 +15,8 @@ namespace WebApi.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public DateTime? BirthOfDate { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpirenDate { get; set; }
         public ICollection<Pet> Pets { get; set; }
         public ICollection<Training> Trainings { get; set; }
     }
