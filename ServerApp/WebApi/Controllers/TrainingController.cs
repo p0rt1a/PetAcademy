@@ -2,6 +2,7 @@
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
+using WebApi.Application.TrainingOperations.Commands.UpdateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.DbOperations;
@@ -52,6 +53,18 @@ namespace WebApi.Controllers
 
             CreateTrainingCommandValidator validator = new();
             validator.ValidateAndThrow(command);
+
+            command.Handle();
+
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateTraining(int id, [FromBody]UpdateTrainingModel model)
+        {
+            UpdateTrainingCommand command = new(_context);
+            command.TrainingId = id;
+            command.Model = model;
 
             command.Handle();
 
