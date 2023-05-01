@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
 
@@ -24,16 +25,15 @@ namespace WebApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
             services.AddDbContext<AcademyDbContext>(options => options.UseInMemoryDatabase(databaseName: "AcademyDb"));
             services.AddScoped<IAcademyDbContext>(provider => provider.GetService<AcademyDbContext>());
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
