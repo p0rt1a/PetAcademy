@@ -27,7 +27,13 @@ namespace WebApi.Application.PetOperations.Commands.UpdatePet
             if (user is null)
                 throw new InvalidOperationException("Kullanıcı bulunamadı");
 
-            //TODO: Create mapping and update pet
+            var pet = _dbContext.Pets.SingleOrDefault(x => x.Id == PetId);
+
+            if (pet is null)
+                throw new InvalidOperationException("Evcil hayvan bulunamadı");
+
+            pet.Name = string.IsNullOrEmpty(Model.Name.Trim()) ? pet.Name : Model.Name;
+            pet.Age = Model.Age > 0 ? Model.Age : pet.Age;
         }
     }
 
