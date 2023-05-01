@@ -14,6 +14,8 @@ namespace WebApi.Entities
         public int Age { get; set; }
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
         public ICollection<Enrollment> Enrollments { get; set; }
     }
 }
