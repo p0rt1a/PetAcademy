@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Application.GenreOperations.Queries.GetGenres;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
@@ -20,6 +21,10 @@ namespace WebApi.Common
             CreateMap<Training, TrainingDetailViewModel>()
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
             CreateMap<CreateTrainingModel, Training>();
+            #endregion
+
+            #region Genre Mappings
+            CreateMap<Genre, GenreViewModel>();
             #endregion
         }
     }
