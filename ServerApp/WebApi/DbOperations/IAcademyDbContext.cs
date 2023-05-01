@@ -8,6 +8,8 @@ namespace WebApi.DbOperations
     {
         DbSet<Training> Trainings { get; set; }
         DbSet<Genre> Genres { get; set; }
+        DbSet<Pet> Pets { get; set; }
+        DbSet<Enrollment> Enrollments { get; set; }
         int SaveChanges();
     }
 }
