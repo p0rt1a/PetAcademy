@@ -45,6 +45,9 @@ namespace WebApi.Controllers
             UpdatePetCommand command = new(_context, _mapper);
             command.Model = model;
 
+            UpdatePetCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
+
             command.Handle();
 
             return Ok();
