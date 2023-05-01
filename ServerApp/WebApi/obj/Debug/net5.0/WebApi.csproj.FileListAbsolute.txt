@@ -40,7 +40,6 @@ C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\WebApi.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\WebApi.pdb
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\ref\WebApi.dll
-C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\refint\WebApi.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -49,3 +48,5 @@ C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.Id
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\WebApi.StaticWebAssets.xml
+C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\refint\WebApi.dll
