@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
@@ -13,5 +15,6 @@ namespace WebApi.Entities
         public decimal Price { get; set; }
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
+        public ICollection<Enrollment> Enrollments { get; set; }
     }
 }
