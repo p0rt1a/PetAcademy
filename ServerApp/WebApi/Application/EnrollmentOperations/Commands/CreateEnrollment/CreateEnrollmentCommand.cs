@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
+using WebApi.Entities;
 
 namespace WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment
 {
@@ -11,6 +12,7 @@ namespace WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment
     {
         private readonly IAcademyDbContext _dbContext;
         private readonly IMapper _mapper;
+        public CreateEnrollmentModel Model { get; set; }
 
         public CreateEnrollmentCommand(IAcademyDbContext dbContext, IMapper mapper)
         {
@@ -20,9 +22,15 @@ namespace WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment
 
         public void Handle()
         {
-            //TODO: Add enrollment controls and throw error
+            var enrollment = _dbContext.Enrollments.SingleOrDefault(x => x.PetId == Model.PetId && x.TrainingId == Model.TrainingId);
 
-            //TODO: Map model to enrollment and save
+            if (enrollment is not null)
+                throw new InvalidOperationException("Evcil hayvan zaten bu eğitimde mevcut");
+
+            enrollment = _mapper.Map<Enrollment>(Model);
+
+            _dbContext.Enrollments.Add(enrollment);
+            _dbContext.SaveChanges();
         }
     }
 
