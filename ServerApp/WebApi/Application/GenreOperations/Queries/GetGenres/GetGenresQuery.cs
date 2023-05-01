@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
+using WebApi.Entities;
 
 namespace WebApi.Application.GenreOperations.Queries.GetGenres
 {
@@ -18,9 +19,13 @@ namespace WebApi.Application.GenreOperations.Queries.GetGenres
             _mapper = mapper;
         }
 
-        public void Handle()
+        public List<GenreViewModel> Handle()
         {
-            //TODO: Get genres with using mapper
+            var genres = _dbContext.Genres.ToList<Genre>();
+
+            var vm = _mapper.Map<List<GenreViewModel>>(genres);
+
+            return vm;
         }
     }
 
