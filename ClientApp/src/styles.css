@@ -8,6 +8,7 @@
 :root {
   --primary: #457b9d;
   --dark-primary: #1d3557;
+  --info: #5bc0de;
   --fancy: #b314e4;
   --white: #fff;
   --icon: #e32d6e;
@@ -46,8 +47,8 @@ input,
 select {
   border: 1px solid var(--dark-grey);
   border-radius: 12px;
-  font-size: 0.7rem;
-  padding: 6px 12px;
+  font-size: 0.85rem;
+  padding: 8px 14px;
 }
 @media only screen and (min-width: 640px) {
   input,
@@ -80,6 +81,106 @@ select {
 @media only screen and (min-width: 640px) {
   .medium-container {
     width: 70vw;
+  }
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  transition: 0.3s;
+
+  font-size: 0.9rem;
+}
+.btn:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+@media only screen and (min-width: 640px) {
+  .btn {
+    padding: 8px 12px;
+    font-size: 1.1rem;
+  }
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  padding: 2px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  border-radius: 10px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+}
+@media only screen and (min-width: 640px) {
+  .badge {
+    font-size: 0.9rem;
+  }
+}
+
+.badge-fancy {
+  background-color: var(--fancy);
+  color: var(--white);
+}
+
+.badge-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.jumbotron {
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+@media only screen and (min-width: 640px) {
+  .jumbotron {
+    align-items: flex-start;
+    text-align: left;
+    padding: 30px 7vw;
+    gap: 20px;
+  }
+}
+
+.jumbotron h1 {
+  color: var(--dark-primary);
+  font-weight: 550;
+  font-size: 2rem;
+}
+@media only screen and (min-width: 640px) {
+  .jumbotron h1 {
+    font-size: 3rem;
+  }
+}
+
+.jumbotron p {
+  color: var(--dark-grey);
+  font-size: 1rem;
+  line-height: 25px;
+}
+@media only screen and (min-width: 640px) {
+  .jumbotron p {
+    font-size: 1.3rem;
   }
 }
 
@@ -145,38 +246,6 @@ select {
   }
 }
 
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-
-  padding: 2px;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.badge {
-  border-radius: 10px;
-  padding: 4px 10px;
-  font-size: 0.7rem;
-}
-@media only screen and (min-width: 640px) {
-  .badge {
-    font-size: 0.9rem;
-  }
-}
-
-.badge-fancy {
-  background-color: var(--fancy);
-  color: var(--white);
-}
-
-.badge-primary {
-  background-color: var(--primary);
-  color: var(--white);
-}
-
 .filter-nav {
   display: flex;
   align-items: center;
@@ -223,34 +292,4 @@ select {
   .filter-nav select {
     width: 200px;
   }
-}
-
-.btn {
-  border: none;
-  border-radius: 10px;
-  padding: 6px 10px;
-  margin: 2px 8px;
-  transition: 0.3s;
-
-  font-size: 0.8rem;
-}
-.btn:hover {
-  opacity: 0.9;
-  cursor: pointer;
-}
-@media only screen and (min-width: 640px) {
-  .btn {
-    padding: 8px 12px;
-    font-size: 1rem;
-  }
-}
-
-.btn-success {
-  background-color: var(--success);
-  color: var(--white);
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: var(--white);
 }
