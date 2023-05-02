@@ -13,6 +13,9 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
     {
         private readonly IAcademyDbContext _dbContext;
         private readonly IMapper _mapper;
+        public string Title { get; set; }
+        public string City { get; set; }
+        public string Genre { get; set; }
 
         public GetTrainingsQuery(IAcademyDbContext dbContext, IMapper mapper)
         {
@@ -25,6 +28,15 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
             var trainings = _dbContext.Trainings
                 .Include(x => x.Genre)
                 .ToList<Training>();
+
+            if (Title != default)
+                trainings = trainings.Where(x => x.Title.ToLower().Contains(Title.ToLower())).ToList<Training>();
+
+            if (City != default)
+                trainings = trainings.Where(x => x.City.ToLower().Contains(City.ToLower())).ToList<Training>();
+
+            if (Genre != default)
+                trainings = trainings.Where(x => x.Genre.Name.ToLower().Contains(Genre.ToLower())).ToList<Training>();
 
             var vm = _mapper.Map<List<TrainingViewModel>>(trainings);
 
