@@ -1,8 +1,15 @@
 <div class="trainings">
-  <div class="training">
+  <div class="training" *ngFor="let training of trainings">
     <div class="head">
-      <h2></h2>
+      <h2>{{ training.title }}</h2>
+      <div class="badges">
+        <small class="badge">{{ training.city }}</small>
+        <small class="badge">{{ training.genre }}</small>
+      </div>
     </div>
-    <div class="body"></div>
+    <div class="body">
+      <p>{{ training.description }}</p>
+    </div>
+    <button>{{ training.price }}</button>
   </div>
 </div>
