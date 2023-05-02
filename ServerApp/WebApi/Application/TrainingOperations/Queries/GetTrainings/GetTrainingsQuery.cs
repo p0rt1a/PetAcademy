@@ -34,6 +34,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
 
     public class TrainingViewModel
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string City { get; set; }
