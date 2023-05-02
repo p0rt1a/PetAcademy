@@ -1,4 +1,38 @@
-<!--TODO: Create filter navigation bar here -->
+<nav class="filter-nav">
+  <div class="flex">
+    <h2>Filtrele</h2>
+    <select
+      #city
+      (change)="getTrainingsByFilter(title.value, city.value, genre.value)"
+    >
+      <option value="" selected hidden>Şehir Seç</option>
+      <option value="">Tümünü Görüntüle</option>
+      <option [value]="city.name" *ngFor="let city of cities">
+        {{ city.name }}
+      </option>
+    </select>
+    <select
+      #genre
+      (change)="getTrainingsByFilter(title.value, city.value, genre.value)"
+    >
+      <option value="" selected hidden>Hayvan Türü Seç</option>
+      <option value="">Tümünü Görüntüle</option>
+      <option [value]="genre.name" *ngFor="let genre of genres">
+        {{ genre.name }}
+      </option>
+    </select>
+  </div>
+  <div></div>
+  <div class="search">
+    <input
+      #title
+      (input)="getTrainingsByFilter(title.value, city.value, genre.value)"
+      type="text"
+      placeholder="Arama"
+    />
+    <button class="btn btn-primary">Arama</button>
+  </div>
+</nav>
 
 <section>
   <header>

@@ -41,7 +41,29 @@ header h1 {
   }
 }
 
+/* FORMS */
+input,
+select {
+  border: 1px solid var(--dark-grey);
+  border-radius: 12px;
+  font-size: 0.7rem;
+}
+@media only screen and (min-width: 640px) {
+  input,
+  select {
+    padding: 8px 15px;
+    width: 200px;
+    font-size: 0.95rem;
+  }
+}
+
 /* UTILS */
+.flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 .self-align-center {
   align-self: center;
 }
@@ -150,10 +172,25 @@ header h1 {
   color: var(--white);
 }
 
+.filter-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+
+  background-color: var(--grey);
+}
+@media only screen and (min-width: 640px) {
+  .filter-nav {
+    padding: 15px 8vw;
+  }
+}
+
 .btn {
   border: none;
   border-radius: 10px;
   padding: 8px 12px;
+  margin: 2px 8px;
   transition: 0.3s;
 
   font-size: 0.9rem;
@@ -170,5 +207,10 @@ header h1 {
 
 .btn-success {
   background-color: var(--success);
+  color: var(--white);
+}
+
+.btn-primary {
+  background-color: var(--primary);
   color: var(--white);
 }
