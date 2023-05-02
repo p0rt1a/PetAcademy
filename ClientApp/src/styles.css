@@ -20,9 +20,25 @@
 }
 
 section {
-  border: 1px solid blueviolet;
+  padding: 18px 0;
+}
+@media only screen and (min-width: 640px) {
+  section {
+    padding: 30px 0;
+  }
+}
 
-  padding: 30px 0;
+header {
+  text-align: center;
+}
+
+header h1 {
+  color: var(--dark-primary);
+}
+@media only screen and (min-width: 640px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
 }
 
 /* UTILS */
@@ -88,7 +104,7 @@ section {
 
   background-color: var(--grey);
 
-  box-shadow: 5px 10px 10px var(--dark-grey);
+  box-shadow: 5px 10px 8px var(--dark-grey);
 }
 .card-square:hover {
   transform: translateY(-12px);
