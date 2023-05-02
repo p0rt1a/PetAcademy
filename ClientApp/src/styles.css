@@ -47,12 +47,12 @@ select {
   border: 1px solid var(--dark-grey);
   border-radius: 12px;
   font-size: 0.7rem;
+  padding: 6px 12px;
 }
 @media only screen and (min-width: 640px) {
   input,
   select {
-    padding: 8px 15px;
-    width: 200px;
+    padding: 8px 16px;
     font-size: 0.95rem;
   }
 }
@@ -60,8 +60,13 @@ select {
 /* UTILS */
 .flex {
   display: flex;
-  gap: 20px;
+  gap: 12px;
   align-items: center;
+}
+@media only screen and (min-width: 640px) {
+  .flex {
+    gap: 20px;
+  }
 }
 
 .self-align-center {
@@ -175,25 +180,59 @@ select {
 .filter-nav {
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
   gap: 10px;
-  justify-content: space-between;
+  padding: 15px;
 
   background-color: var(--grey);
 }
 @media only screen and (min-width: 640px) {
   .filter-nav {
     padding: 15px 8vw;
+
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.filter-nav h2 {
+  font-size: 1.32rem;
+}
+
+.filter-nav div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+@media only screen and (min-width: 640px) {
+  .filter-nav div {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+.filter-nav input,
+.filter-nav select {
+  width: 60vw;
+}
+@media only screen and (min-width: 640px) {
+  .filter-nav input,
+  .filter-nav select {
+    width: 200px;
   }
 }
 
 .btn {
   border: none;
   border-radius: 10px;
-  padding: 8px 12px;
+  padding: 6px 10px;
   margin: 2px 8px;
   transition: 0.3s;
 
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .btn:hover {
   opacity: 0.9;
@@ -201,6 +240,7 @@ select {
 }
 @media only screen and (min-width: 640px) {
   .btn {
+    padding: 8px 12px;
     font-size: 1rem;
   }
 }
