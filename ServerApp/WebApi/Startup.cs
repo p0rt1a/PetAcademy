@@ -29,9 +29,23 @@ namespace WebApi
         }
 
         public IConfiguration Configuration { get; }
+        private string MyAllowOrigins = "_myAllowOrigins";
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                        name: MyAllowOrigins,
+                        builder =>
+                        {
+                            builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                        }
+                    );
+            });
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
             {
                 opt.TokenValidationParameters = new TokenValidationParameters()
@@ -69,6 +83,8 @@ namespace WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowOrigins);
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
