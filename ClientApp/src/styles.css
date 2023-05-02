@@ -1,1 +1,158 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+:root {
+  --primary: #457b9d;
+  --dark-primary: #1d3557;
+  --fancy: #b314e4;
+  --white: #fff;
+  --icon: #e32d6e;
+  --danger: #d90429;
+  --black: #000000;
+  --grey: #f4f4f4;
+  --dark-grey: #666;
+  --warning: #ffb703;
+  --success: #39b500;
+}
+
+section {
+  border: 1px solid blueviolet;
+
+  padding: 30px 0;
+}
+
+/* UTILS */
+.self-align-center {
+  align-self: center;
+}
+
+.medium-container {
+  margin: 0 auto;
+  width: 95vw;
+}
+@media only screen and (min-width: 640px) {
+  .medium-container {
+    width: 70vw;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  text-align: center;
+  padding: 15px;
+}
+
+.card-head h2 {
+  font-weight: 500;
+
+  font-size: 1.2rem;
+  padding: 6px 0;
+}
+@media only screen and (min-width: 640px) {
+  .card-head h2 {
+    font-size: 1.4rem;
+  }
+}
+
+.card-body p {
+  padding: 5px;
+  font-size: 0.9rem;
+}
+@media only screen and (min-width: 640px) {
+  .card-body p {
+    font-size: 1.1rem;
+  }
+}
+
+.card-square {
+  border-radius: 15px;
+
+  width: 75vw;
+  transition: 0.3s;
+
+  background-color: var(--grey);
+
+  box-shadow: 5px 10px 10px var(--dark-grey);
+}
+.card-square:hover {
+  transform: translateY(-12px);
+  cursor: pointer;
+
+  box-shadow: 5px 15px 10px var(--dark-grey);
+}
+@media only screen and (min-width: 640px) {
+  .card-square {
+    width: 360px;
+  }
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  padding: 2px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  border-radius: 10px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+}
+@media only screen and (min-width: 640px) {
+  .badge {
+    font-size: 0.9rem;
+  }
+}
+
+.badge-fancy {
+  background-color: var(--fancy);
+  color: var(--white);
+}
+
+.badge-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  transition: 0.3s;
+
+  font-size: 0.9rem;
+}
+.btn:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+@media only screen and (min-width: 640px) {
+  .btn {
+    font-size: 1rem;
+  }
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: var(--white);
+}

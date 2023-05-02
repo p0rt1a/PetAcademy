@@ -1,15 +1,21 @@
-<div class="cards">
-  <div class="card-square" *ngFor="let training of trainings">
-    <div class="card-head">
-      <h2>{{ training.title }}</h2>
-      <div class="badges">
-        <small class="badge">{{ training.city }}</small>
-        <small class="badge">{{ training.genre }}</small>
+<!--TODO: Create filter navigation bar here -->
+
+<section>
+  <div class="cards medium-container">
+    <div class="card card-square" *ngFor="let training of trainings">
+      <div class="card-head">
+        <h2>{{ training.title }}</h2>
+        <div class="badges">
+          <small class="badge badge-primary">{{ training.city }}</small>
+          <small class="badge badge-fancy">{{ training.genre }}</small>
+        </div>
       </div>
+      <div class="card-body">
+        <p>{{ training.description }}</p>
+      </div>
+      <button class="btn btn-success self-align-center">
+        Ücret: {{ training.price }} TL
+      </button>
     </div>
-    <div class="card-body">
-      <p>{{ training.description }}</p>
-    </div>
-    <button>{{ training.price }}</button>
   </div>
-</div>
+</section>
