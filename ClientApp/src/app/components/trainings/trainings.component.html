@@ -1,13 +1,13 @@
-<div class="trainings">
-  <div class="training" *ngFor="let training of trainings">
-    <div class="head">
+<div class="cards">
+  <div class="card-square" *ngFor="let training of trainings">
+    <div class="card-head">
       <h2>{{ training.title }}</h2>
       <div class="badges">
         <small class="badge">{{ training.city }}</small>
         <small class="badge">{{ training.genre }}</small>
       </div>
     </div>
-    <div class="body">
+    <div class="card-body">
       <p>{{ training.description }}</p>
     </div>
     <button>{{ training.price }}</button>
