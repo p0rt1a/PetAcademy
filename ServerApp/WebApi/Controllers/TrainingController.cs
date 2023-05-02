@@ -25,9 +25,12 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetTrainings()
+        public IActionResult GetTrainings([FromQuery]string title = default, [FromQuery]string city = default, [FromQuery]string genre = default)
         {
             GetTrainingsQuery query = new(_context, _mapper);
+            query.Title = title;
+            query.City = city;
+            query.Genre = genre;
             var result = query.Handle();
 
             return Ok(result);
