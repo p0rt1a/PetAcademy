@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrainingModel } from '../models/TrainingModel';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TrainingsService {
   url: string = 'https://localhost:5001/trainings';
+  private selectedTrainingIdSubject = new BehaviorSubject(0);
+  selectedTrainingId = this.selectedTrainingIdSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -27,5 +29,9 @@ export class TrainingsService {
 
   getTrainingDetails(id: number) {
     return this.http.get(this.url + '/' + id);
+  }
+
+  setSelectedTrainingId(id: number) {
+    this.selectedTrainingIdSubject.next(id);
   }
 }
