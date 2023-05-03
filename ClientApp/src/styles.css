@@ -61,15 +61,56 @@ header h3 {
 input,
 select {
   border: 1px solid var(--dark-grey);
-  border-radius: 12px;
-  font-size: 0.85rem;
+  border-radius: 9px;
+  font-size: 0.75rem;
   padding: 8px 14px;
 }
 @media only screen and (min-width: 640px) {
   input,
   select {
+    border-radius: 12px;
     padding: 8px 16px;
     font-size: 1rem;
+  }
+}
+
+.custom-form {
+  margin: 0 auto;
+  width: 85vw;
+  padding: 10px;
+}
+@media only screen and (min-width: 640px) {
+  .custom-form {
+    margin: 0;
+    width: 40vw;
+  }
+}
+
+.custom-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px;
+}
+@media only screen and (min-width: 640px) {
+  .custom-form .form-group {
+    padding: 10px;
+
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+.custom-form input,
+.custom-form select {
+  width: 80%;
+}
+@media only screen and (min-width: 640px) {
+  .custom-form input,
+  .custom-form select {
+    width: 60%;
   }
 }
 
@@ -135,10 +176,10 @@ select {
 .btn {
   border: none;
   border-radius: 10px;
-  padding: 6px 12px;
+  padding: 6px 12px !important;
   transition: 0.3s;
 
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
 }
 .btn:hover {
   opacity: 0.9;
@@ -146,24 +187,24 @@ select {
 }
 @media only screen and (min-width: 640px) {
   .btn {
-    padding: 8px 20px;
-    font-size: 1.1rem;
+    padding: 8px 20px !important;
+    font-size: 1.1rem !important;
   }
 }
 
 .btn-default {
-  background-color: var(--grey);
-  color: var(--dark-grey);
+  background-color: var(--grey) !important;
+  color: var(--dark-grey) !important;
 }
 
 .btn-success {
-  background-color: var(--success);
-  color: var(--white);
+  background-color: var(--success) !important;
+  color: var(--white) !important;
 }
 
 .btn-primary {
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
 }
 
 .badges {
@@ -300,54 +341,6 @@ select {
   }
 }
 
-.filter-nav {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  padding: 15px;
-
-  background-color: var(--grey);
-}
-@media only screen and (min-width: 640px) {
-  .filter-nav {
-    padding: 15px 8vw;
-
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-.filter-nav h2 {
-  font-size: 1.32rem;
-}
-
-.filter-nav div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 8px;
-}
-@media only screen and (min-width: 640px) {
-  .filter-nav div {
-    flex-direction: row;
-    gap: 10px;
-  }
-}
-
-.filter-nav input,
-.filter-nav select {
-  width: 60vw;
-}
-@media only screen and (min-width: 640px) {
-  .filter-nav input,
-  .filter-nav select {
-    width: 200px;
-  }
-}
-
 .flexy {
   display: flex;
   flex-direction: column;
@@ -402,30 +395,5 @@ select {
   .flexy p {
     line-height: 25px;
     font-size: 1.2rem;
-  }
-}
-
-.training-detail {
-  padding: 30px;
-}
-@media only screen and (min-width: 640px) {
-  .training-detail {
-    padding: 50px 0;
-  }
-}
-
-.training-detail .info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-}
-@media only screen and (min-width: 640px) {
-  .training-detail .info {
-    align-items: flex-start;
-    text-align: left;
-    padding: 10px;
-    gap: 12px;
   }
 }

@@ -8,6 +8,14 @@
   border-bottom: 1.8px solid var(--dark-grey);
 
   padding: 20px 0;
+
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  z-index: 5;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(2px);
 }
 @media only screen and (min-width: 640px) {
   .main-nav {
