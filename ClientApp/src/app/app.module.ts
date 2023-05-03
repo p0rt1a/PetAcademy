@@ -8,9 +8,10 @@ import { TrainingsComponent } from './components/trainings/trainings.component';
 import { TrainingDetailComponent } from './components/trainings/training-detail/training-detail.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from 'src/routes';
+import { CreateEnrollmentComponent } from './components/enrollments/create-enrollment/create-enrollment.component';
 
 @NgModule({
-  declarations: [AppComponent, TrainingsComponent, TrainingDetailComponent],
+  declarations: [AppComponent, TrainingsComponent, TrainingDetailComponent, CreateEnrollmentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
