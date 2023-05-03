@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TrainingDetailModel } from 'src/app/models/TrainingDetailModel';
 import { TrainingsService } from 'src/app/services/trainings.service';
 
@@ -20,7 +21,10 @@ export class TrainingDetailComponent implements OnInit {
     ''
   );
 
-  constructor(private trainingsService: TrainingsService) {}
+  constructor(
+    private trainingsService: TrainingsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.trainingsService.selectedTrainingId.subscribe((response) => {
@@ -36,5 +40,9 @@ export class TrainingDetailComponent implements OnInit {
       .subscribe((response) => {
         this.training = response;
       });
+  }
+
+  createEnrollment() {
+    this.router.navigate(['/create-enrollment']);
   }
 }

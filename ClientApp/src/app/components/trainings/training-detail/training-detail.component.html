@@ -21,7 +21,9 @@
       <h2>Eğitmen</h2>
       <h3>Adı: {{ training.trainerName }}</h3>
       <h3>İletişim: {{ training.trainerEmail }}</h3>
-      <button class="btn btn-success">Kayıt Ol</button>
+      <button class="btn btn-success" (click)="createEnrollment()">
+        Kayıt Ol
+      </button>
     </div>
   </div>
   <!--TODO: Create comments here-->
