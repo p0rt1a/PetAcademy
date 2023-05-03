@@ -20,6 +20,10 @@
   --success: #39b500;
 }
 
+a {
+  text-decoration: none;
+}
+
 section {
   padding: 18px 0;
 }
@@ -103,6 +107,10 @@ select {
 
 .self-align-center {
   align-self: center;
+}
+
+.justify-start {
+  justify-content: flex-start !important;
 }
 
 .medium-container {

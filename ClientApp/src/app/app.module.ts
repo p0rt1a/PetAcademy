@@ -9,9 +9,10 @@ import { TrainingDetailComponent } from './components/trainings/training-detail/
 import { RouterModule } from '@angular/router';
 import { appRoutes } from 'src/routes';
 import { CreateEnrollmentComponent } from './components/enrollments/create-enrollment/create-enrollment.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, TrainingsComponent, TrainingDetailComponent, CreateEnrollmentComponent],
+  declarations: [AppComponent, TrainingsComponent, TrainingDetailComponent, CreateEnrollmentComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
