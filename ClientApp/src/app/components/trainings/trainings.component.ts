@@ -46,7 +46,6 @@ export class TrainingsComponent implements OnInit {
     this.citiesService.getCities().subscribe((response) => {
       let data: any = response;
       this.cities = data.data;
-      console.log(this.cities);
     });
   }
 
