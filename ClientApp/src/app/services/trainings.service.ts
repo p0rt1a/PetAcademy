@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrainingModel } from '../models/TrainingModel';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { TrainingDetailModel } from '../models/TrainingDetailModel';
 
 @Injectable({
   providedIn: 'root',
@@ -28,8 +29,8 @@ export class TrainingsService {
     );
   }
 
-  getTrainingDetail(id: number) {
-    return this.http.get(this.url + '/' + id);
+  getTrainingDetail(id: number): Observable<TrainingDetailModel> {
+    return this.http.get<TrainingDetailModel>(this.url + '/' + id);
   }
 
   setSelectedTrainingId(id: number) {
