@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CityModel } from 'src/app/models/CityModel';
 import { GenreModel } from 'src/app/models/GenreModel';
 import { TrainingModel } from 'src/app/models/TrainingModel';
@@ -19,7 +20,8 @@ export class TrainingsComponent implements OnInit {
   constructor(
     private trainingService: TrainingsService,
     private genreService: GenresService,
-    private citiesService: CitiesService
+    private citiesService: CitiesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -54,5 +56,10 @@ export class TrainingsComponent implements OnInit {
       .subscribe((response) => {
         this.trainings = response;
       });
+  }
+
+  selectTraining(id: number) {
+    this.trainingService.setSelectedTrainingId(id);
+    this.router.navigate(['/training-detail']);
   }
 }
