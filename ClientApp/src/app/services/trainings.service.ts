@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class TrainingsService {
   url: string = 'https://localhost:5001/trainings';
+  //TODO: Set selected training id to 0
   private selectedTrainingIdSubject = new BehaviorSubject(1);
   selectedTrainingId = this.selectedTrainingIdSubject.asObservable();
 
