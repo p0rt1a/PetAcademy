@@ -15,6 +15,8 @@ export class TrainingDetailComponent implements OnInit {
     this.trainingsService.selectedTrainingId.subscribe((response) => {
       this.selectedTrainingId = response;
     });
+
+    this.getTrainingDetail();
   }
 
   getTrainingDetail() {

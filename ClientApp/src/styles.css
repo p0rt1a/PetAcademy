@@ -103,6 +103,11 @@ select {
   }
 }
 
+.btn-default {
+  background-color: var(--grey);
+  color: var(--dark-grey);
+}
+
 .btn-success {
   background-color: var(--success);
   color: var(--white);
