@@ -27,7 +27,7 @@ export class TrainingsService {
     );
   }
 
-  getTrainingDetails(id: number) {
+  getTrainingDetail(id: number) {
     return this.http.get(this.url + '/' + id);
   }
 

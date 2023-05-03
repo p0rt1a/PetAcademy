@@ -52,7 +52,11 @@
 
 <section>
   <div class="cards medium-container">
-    <div class="card card-square" *ngFor="let training of trainings">
+    <div
+      class="card card-square"
+      *ngFor="let training of trainings"
+      (click)="selectTraining(training.id)"
+    >
       <div class="card-head">
         <h2>{{ training.title }}</h2>
         <div class="badges">
