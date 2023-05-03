@@ -6,7 +6,7 @@ import { CreateEnrollmentModel } from '../models/CreateEnrollmentModel';
   providedIn: 'root',
 })
 export class EnrollmentsService {
-  url: string = 'https://localhost:5001/enrollments';
+  private url: string = 'https://localhost:5001/enrollments';
 
   constructor(private http: HttpClient) {}
 

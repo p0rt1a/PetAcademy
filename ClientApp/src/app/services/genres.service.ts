@@ -7,7 +7,7 @@ import { GenreModel } from '../models/GenreModel';
   providedIn: 'root',
 })
 export class GenresService {
-  url: string = 'https://localhost:5001/genres/';
+  private url: string = 'https://localhost:5001/genres/';
 
   constructor(private http: HttpClient) {}
 
