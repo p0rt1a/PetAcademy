@@ -36,6 +36,7 @@ header {
 header h1 {
   color: var(--dark-primary);
   font-weight: 560;
+  font-size: 1.8rem;
 }
 @media only screen and (min-width: 640px) {
   header h1 {
@@ -94,6 +95,10 @@ select {
 
 .bg-grey {
   background-color: var(--grey);
+}
+
+.text-primary {
+  color: var(--primary);
 }
 
 .self-align-center {
@@ -338,6 +343,7 @@ select {
 .flexy {
   display: flex;
   flex-direction: column;
+  gap: 30px;
 }
 @media only screen and (min-width: 640px) {
   .flexy {
@@ -352,27 +358,47 @@ select {
 .flexy h4 {
   font-weight: 520;
 }
+
+.flexy h1 {
+  font-size: 1.6rem;
+}
 @media only screen and (min-width: 640px) {
   .flexy h1 {
     font-size: 2.4rem;
   }
 }
 
+.flexy h2 {
+  font-size: 1.4rem;
+}
 @media only screen and (min-width: 640px) {
   .flexy h2 {
     font-size: 1.9rem;
   }
 }
 
+.flexy h3 {
+  font-size: 1rem;
+}
+@media only screen and (min-width: 640px) {
+  .flexy h3 {
+    font-size: 1.2rem;
+  }
+}
+
 .flexy p {
+  font-size: 0.9rem;
+  line-height: 20px;
 }
 @media only screen and (min-width: 640px) {
   .flexy p {
     line-height: 25px;
+    font-size: 1.2rem;
   }
 }
 
 .training-detail {
+  padding: 30px;
 }
 @media only screen and (min-width: 640px) {
   .training-detail {
@@ -383,10 +409,14 @@ select {
 .training-detail .info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
 }
 @media only screen and (min-width: 640px) {
   .training-detail .info {
+    align-items: flex-start;
+    text-align: left;
     padding: 10px;
     gap: 12px;
   }

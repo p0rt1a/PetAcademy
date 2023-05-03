@@ -12,15 +12,15 @@
   <div class="small-container flexy training-detail">
     <div class="info flex-3">
       <h1>{{ training.title }}</h1>
-      <h3>{{ training.genre }} için uygundur.</h3>
+      <h3 class="text-primary">{{ training.genre }} için uygundur.</h3>
       <p>{{ training.description }}</p>
       <p>Adres: {{ training.address }} / {{ training.city }}</p>
       <button class="btn btn-primary">Ücret: {{ training.price }}</button>
     </div>
     <div class="info flex-1">
       <h2>Eğitmen</h2>
-      <h3>{{ training.trainerName }}</h3>
-      <h3>{{ training.trainerEmail }}</h3>
+      <h3>Adı: {{ training.trainerName }}</h3>
+      <h3>İletişim: {{ training.trainerEmail }}</h3>
       <button class="btn btn-success">Kayıt Ol</button>
     </div>
   </div>
