@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainingDetailModel } from 'src/app/models/TrainingDetailModel';
 import { TrainingsService } from 'src/app/services/trainings.service';
 
 @Component({
@@ -8,6 +9,16 @@ import { TrainingsService } from 'src/app/services/trainings.service';
 })
 export class TrainingDetailComponent implements OnInit {
   selectedTrainingId: number = 0;
+  training: TrainingDetailModel = new TrainingDetailModel(
+    '',
+    '',
+    '',
+    '',
+    '',
+    0,
+    '',
+    ''
+  );
 
   constructor(private trainingsService: TrainingsService) {}
 
@@ -23,7 +34,7 @@ export class TrainingDetailComponent implements OnInit {
     this.trainingsService
       .getTrainingDetail(this.selectedTrainingId)
       .subscribe((response) => {
-        console.log(response);
+        this.training = response;
       });
   }
 }

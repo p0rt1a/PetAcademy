@@ -35,10 +35,20 @@ header {
 
 header h1 {
   color: var(--dark-primary);
+  font-weight: 560;
 }
 @media only screen and (min-width: 640px) {
   header h1 {
     font-size: 2.2rem;
+  }
+}
+
+header h3 {
+  color: var(--dark-primary);
+}
+@media only screen and (min-width: 640px) {
+  header h3 {
+    font-size: 2rem;
   }
 }
 
@@ -70,6 +80,22 @@ select {
   }
 }
 
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.bg-grey {
+  background-color: var(--grey);
+}
+
 .self-align-center {
   align-self: center;
 }
@@ -84,10 +110,19 @@ select {
   }
 }
 
+.small-container {
+  margin: 0 auto;
+}
+@media only screen and (min-width: 640px) {
+  .small-container {
+    width: 62vw;
+  }
+}
+
 .btn {
   border: none;
   border-radius: 10px;
-  padding: 6px 10px;
+  padding: 6px 12px;
   transition: 0.3s;
 
   font-size: 0.9rem;
@@ -98,7 +133,7 @@ select {
 }
 @media only screen and (min-width: 640px) {
   .btn {
-    padding: 8px 12px;
+    padding: 8px 20px;
     font-size: 1.1rem;
   }
 }
@@ -297,5 +332,62 @@ select {
   .filter-nav input,
   .filter-nav select {
     width: 200px;
+  }
+}
+
+.flexy {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 640px) {
+  .flexy {
+    flex-direction: row;
+    gap: 25px;
+  }
+}
+
+.flexy h1,
+.flexy h2,
+.flexy h3,
+.flexy h4 {
+  font-weight: 520;
+}
+@media only screen and (min-width: 640px) {
+  .flexy h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .flexy h2 {
+    font-size: 1.9rem;
+  }
+}
+
+.flexy p {
+}
+@media only screen and (min-width: 640px) {
+  .flexy p {
+    line-height: 25px;
+  }
+}
+
+.training-detail {
+}
+@media only screen and (min-width: 640px) {
+  .training-detail {
+    padding: 50px 0;
+  }
+}
+
+.training-detail .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media only screen and (min-width: 640px) {
+  .training-detail .info {
+    padding: 10px;
+    gap: 12px;
   }
 }
