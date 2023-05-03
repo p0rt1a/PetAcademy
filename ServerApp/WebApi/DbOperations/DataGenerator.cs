@@ -45,6 +45,36 @@ namespace WebApi.DbOperations
                             Price = 2000,
                             GenreId = 1,
                             UserId = 2
+                        },
+                        new Training()
+                        {
+                            Title = "İtaat Eğitimi",
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                            City = "İzmir",
+                            Address = "Alsancak",
+                            Price = 3750,
+                            GenreId = 1,
+                            UserId = 2
+                        },
+                        new Training()
+                        {
+                            Title = "Komut Eğitimi",
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                            City = "Ankara",
+                            Address = "Şeyhşamil",
+                            Price = 1000,
+                            GenreId = 2,
+                            UserId = 1
+                        },
+                        new Training()
+                        {
+                            Title = "Saldırganlık Eğitimi",
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                            City = "İstanbul",
+                            Address = "Çekmeköy",
+                            Price = 7000,
+                            GenreId = 2,
+                            UserId = 2
                         }
                     );
 
