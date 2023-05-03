@@ -11,14 +11,23 @@ import { appRoutes } from 'src/routes';
 import { CreateEnrollmentComponent } from './components/enrollments/create-enrollment/create-enrollment.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, TrainingsComponent, TrainingDetailComponent, CreateEnrollmentComponent, NavbarComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    TrainingsComponent,
+    TrainingDetailComponent,
+    CreateEnrollmentComponent,
+    NavbarComponent,
+    RegisterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

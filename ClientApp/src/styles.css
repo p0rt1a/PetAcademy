@@ -115,6 +115,10 @@ select {
 }
 
 /* UTILS */
+.error {
+  color: var(--danger);
+}
+
 .flex {
   display: flex;
   gap: 12px;
@@ -205,6 +209,14 @@ select {
 .btn-primary {
   background-color: var(--primary) !important;
   color: var(--white) !important;
+}
+
+.btn-disabled {
+  background-color: var(--dark-grey) !important;
+  color: var(--white) !important;
+}
+.btn-disabled:hover {
+  cursor: not-allowed;
 }
 
 .badges {
