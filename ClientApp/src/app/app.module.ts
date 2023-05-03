@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TrainingsComponent } from './components/trainings/trainings.component';
+import { TrainingDetailComponent } from './components/trainings/training-detail/training-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, TrainingsComponent],
+  declarations: [AppComponent, TrainingsComponent, TrainingDetailComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

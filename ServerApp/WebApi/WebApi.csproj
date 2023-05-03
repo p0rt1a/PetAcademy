@@ -14,8 +14,4 @@
     <PackageReference Include="NSwag.AspNetCore" Version="13.5.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\UserOperations\Commands\" />
-  </ItemGroup>
-
 </Project>
