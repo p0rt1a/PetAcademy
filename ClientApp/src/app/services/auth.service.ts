@@ -11,7 +11,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthService {
   private url: string = 'https://localhost:5001/auth';
   private jwtHelper = new JwtHelperService();
-  decodedToken: any;
 
   constructor(private http: HttpClient) {}
 
@@ -32,6 +31,13 @@ export class AuthService {
           throw err;
         })
       );
+  }
+
+  getUserId(): number {
+    let model: any = localStorage.getItem('token');
+    let decodedToken = this.jwtHelper.decodeToken(model);
+
+    return decodedToken.nameid;
   }
 
   isLoggedIn(): boolean {
