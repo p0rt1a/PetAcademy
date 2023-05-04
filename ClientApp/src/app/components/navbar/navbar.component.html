@@ -7,7 +7,28 @@
     <a href="#">Eğitimler</a>
   </div>
   <div class="flex-2 justify-end">
-    <a href="register" class="btn btn-primary">Üye Ol</a>
-    <a href="login" class="btn btn-success">Giriş Yap</a>
+    <a
+      *ngIf="!isUserLoggedIn() && isTokenExpired()"
+      href="register"
+      class="btn btn-primary"
+      >Üye Ol</a
+    >
+    <a
+      *ngIf="!isUserLoggedIn() && isTokenExpired()"
+      href="login"
+      class="btn btn-success"
+      >Giriş Yap</a
+    >
+    <i
+      *ngIf="isUserLoggedIn() && !isTokenExpired()"
+      [className]="isOperations ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"
+      (click)="isOperations = !isOperations"
+    >
+      <div *ngIf="isOperations" class="user-operations">
+        <a href="#">Hizmetlerim</a>
+        <a href="#">Eğitimlerim</a>
+        <button class="btn btn-danger" (click)="logout()">Çıkış Yap</button>
+      </div>
+    </i>
   </div>
 </nav>

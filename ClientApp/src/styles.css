@@ -251,6 +251,11 @@ select {
   color: var(--white) !important;
 }
 
+.btn-danger {
+  background-color: var(--danger) !important;
+  color: var(--white);
+}
+
 .btn-disabled {
   background-color: var(--dark-grey) !important;
   color: var(--white) !important;

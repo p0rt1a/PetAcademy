@@ -26,12 +26,21 @@ export class AuthService {
       .post(this.url + '/login', model, { observe: 'response' })
       .pipe(
         map((response: any) => {
-          localStorage.setItem('token', response.accessToken);
-          this.decodedToken = this.jwtHelper.decodeToken(response.accessToken);
+          localStorage.setItem('token', response.body.accessToken);
         }),
         catchError((err) => {
           throw err;
         })
       );
+  }
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('token') ? true : false;
+
+    return token;
+  }
+
+  isTokenExpired(): boolean {
+    return this.jwtHelper.isTokenExpired(localStorage.getItem('token'));
   }
 }
