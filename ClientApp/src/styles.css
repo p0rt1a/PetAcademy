@@ -141,6 +141,15 @@ select {
   }
 }
 
+.custom-form label {
+  font-size: 1rem;
+}
+@media only screen and (min-width: 640px) {
+  .custom-form label {
+    font-size: 1.3rem;
+  }
+}
+
 /* UTILS */
 .error {
   color: var(--danger);

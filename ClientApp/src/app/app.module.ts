@@ -12,6 +12,7 @@ import { CreateEnrollmentComponent } from './components/enrollments/create-enrol
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     CreateEnrollmentComponent,
     NavbarComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

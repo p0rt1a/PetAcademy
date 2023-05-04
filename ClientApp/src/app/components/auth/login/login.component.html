@@ -1,0 +1,40 @@
+<section>
+  <form class="custom-form" #form="ngForm" (submit)="login()">
+    <div class="form-header">
+      <h2>Giriş Yap</h2>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        #email="ngModel"
+        name="email"
+        [(ngModel)]="loginModel.email"
+        type="email"
+        placeholder="example@hotmail.com"
+        required
+        email
+      />
+    </div>
+    <div class="form-group">
+      <label>Şifre</label>
+      <input
+        #password="ngModel"
+        name="password"
+        [(ngModel)]="loginModel.password"
+        type="password"
+        required
+        minlength="8"
+      />
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="form.invalid"
+        [ngClass]="{ 'btn-disabled': form.invalid }"
+      >
+        Giriş Yap
+      </button>
+    </div>
+  </form>
+</section>
