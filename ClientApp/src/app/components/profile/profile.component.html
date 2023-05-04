@@ -1,0 +1,25 @@
+<section>
+  <div class="flexy">
+    <form class="custom-form">
+      <div class="form-header">
+        <h2>Profil Bilgilerim</h2>
+      </div>
+      <div class="form-group">
+        <label>İsim</label>
+        <input type="text" [placeholder]="user.name" [value]="user.name" />
+      </div>
+      <div class="form-group">
+        <label>Soyisim</label>
+        <input
+          type="text"
+          [placeholder]="user.surname"
+          [value]="user.surname"
+        />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [placeholder]="user.email" [value]="user.email" />
+      </div>
+    </form>
+  </div>
+</section>
