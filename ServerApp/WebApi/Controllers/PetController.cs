@@ -8,11 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Application.PetOperations.Commands.CreatePet;
 using WebApi.Application.PetOperations.Commands.UpdatePet;
+using WebApi.Application.PetOperations.Queries.PetDetail;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class PetController : ControllerBase
@@ -24,6 +24,17 @@ namespace WebApi.Controllers
         {
             _context = context;
             _mapper = mapper;
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetPetDetail(int id)
+        {
+            PetDetailQuery query = new(_context, _mapper);
+            query.PetId = id;
+
+            var result = query.Handle();
+
+            return Ok(result);
         }
 
         [HttpPost]
