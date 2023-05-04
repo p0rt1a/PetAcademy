@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Application.UserOperations.Queries.GetUserDetail;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class UserController : ControllerBase
@@ -26,7 +26,12 @@ namespace WebApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetUserDetail(int id)
         {
-            return Ok();
+            GetUserDetailQuery query = new(_context, _mapper);
+            query.UserId = id;
+
+            var result = query.Handle();
+
+            return Ok(result);
         }
     }
 }
