@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Application.UserOperations.Queries.GetPets;
 using WebApi.Application.UserOperations.Queries.GetUserDetail;
 using WebApi.DbOperations;
 
@@ -27,6 +28,17 @@ namespace WebApi.Controllers
         public IActionResult GetUserDetail(int id)
         {
             GetUserDetailQuery query = new(_context, _mapper);
+            query.UserId = id;
+
+            var result = query.Handle();
+
+            return Ok(result);
+        }
+
+        [HttpGet("{id}/pets")]
+        public IActionResult GetPets(int id)
+        {
+            GetPetsQuery query = new(_context, _mapper);
             query.UserId = id;
 
             var result = query.Handle();
