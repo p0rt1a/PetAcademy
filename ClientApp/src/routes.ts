@@ -4,6 +4,7 @@ import { TrainingsComponent } from './app/components/trainings/trainings.compone
 import { CreateEnrollmentComponent } from './app/components/enrollments/create-enrollment/create-enrollment.component';
 import { RegisterComponent } from './app/components/auth/register/register.component';
 import { LoginComponent } from './app/components/auth/login/login.component';
+import { ProfileComponent } from './app/components/profile/profile.component';
 
 export const appRoutes: Routes = [
   { path: 'trainings', component: TrainingsComponent },
@@ -11,4 +12,5 @@ export const appRoutes: Routes = [
   { path: 'create-enrollment', component: CreateEnrollmentComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
 ];
