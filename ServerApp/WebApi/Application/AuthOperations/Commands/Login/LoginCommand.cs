@@ -29,7 +29,7 @@ namespace WebApi.Application.AuthOperations.Commands.Login
                 throw new InvalidOperationException("Email ya da şifre hatalı");
 
             TokenHandler tokenHandler = new(_configuration);
-            Token token = tokenHandler.CreateAccessToken();
+            Token token = tokenHandler.CreateAccessToken(user);
 
             user.RefreshToken = token.RefreshToken;
             user.RefreshTokenExpireDate = token.ExpirationDate.AddMinutes(45);

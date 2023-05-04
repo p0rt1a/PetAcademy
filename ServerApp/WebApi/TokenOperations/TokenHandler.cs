@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using WebApi.Entities;
 using WebApi.TokenOperations.Models;
 
 namespace WebApi.TokenOperations
@@ -19,7 +21,7 @@ namespace WebApi.TokenOperations
             Configuration = configuration;
         }
 
-        public Token CreateAccessToken()
+        public Token CreateAccessToken(User user)
         {
             Token tokenModel = new();
 
@@ -28,15 +30,19 @@ namespace WebApi.TokenOperations
 
             tokenModel.ExpirationDate = DateTime.Now.AddHours(1);
 
-            JwtSecurityToken token = new(
-                    issuer: Configuration["Token:Issuer"],
-                    audience: Configuration["Token:Audience"],
-                    notBefore: DateTime.Now,
-                    expires: tokenModel.ExpirationDate,
-                    signingCredentials: signingCredentials
-                );
+            SecurityTokenDescriptor tokenDescriptor = new()
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                }),
+                Expires = DateTime.Now.AddHours(1),
+                SigningCredentials = signingCredentials
+            };
 
             JwtSecurityTokenHandler tokenHandler = new();
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
 
             tokenModel.AccessToken = tokenHandler.WriteToken(token);
             tokenModel.RefreshToken = CreateRefreshToken();
