@@ -32,7 +32,7 @@ namespace WebApi.Application.AuthOperations.Commands.Login
             Token token = tokenHandler.CreateAccessToken();
 
             user.RefreshToken = token.RefreshToken;
-            user.RefreshTokenExpirenDate = token.ExpirationDate.AddMinutes(45);
+            user.RefreshTokenExpireDate = token.ExpirationDate.AddMinutes(45);
 
             _dbContext.SaveChanges();
 
