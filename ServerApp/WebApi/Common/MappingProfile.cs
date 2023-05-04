@@ -7,6 +7,7 @@ using WebApi.Application.AuthOperations.Commands.Register;
 using WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
 using WebApi.Application.PetOperations.Commands.CreatePet;
+using WebApi.Application.PetOperations.Queries.PetDetail;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
@@ -44,6 +45,7 @@ namespace WebApi.Common
 
             #region Pet Mappings
             CreateMap<CreatePetModel, Pet>();
+            CreateMap<Pet, UserPetViewModel>();
             CreateMap<Pet, PetViewModel>()
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
             #endregion
