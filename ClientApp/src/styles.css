@@ -25,11 +25,11 @@ a {
 }
 
 section {
-  padding: 18px 0;
+  padding: 30px 0;
 }
 @media only screen and (min-width: 640px) {
   section {
-    padding: 30px 0;
+    padding: 50px 0;
   }
 }
 
@@ -182,8 +182,8 @@ select {
   background-color: var(--grey);
 }
 
-.text-primary {
-  color: var(--primary);
+.text-danger {
+  color: var(--danger);
 }
 
 .self-align-center {
@@ -256,6 +256,12 @@ select {
   color: var(--white);
 }
 
+.btn-info {
+  background-color: var(--info);
+  color: var(--black);
+  font-weight: 550;
+}
+
 .btn-disabled {
   background-color: var(--dark-grey) !important;
   color: var(--white) !important;
@@ -293,6 +299,11 @@ select {
 
 .badge-primary {
   background-color: var(--primary);
+  color: var(--white);
+}
+
+.badge-info {
+  background-color: var(--info);
   color: var(--white);
 }
 
@@ -452,5 +463,38 @@ select {
   .flexy p {
     line-height: 25px;
     font-size: 1.2rem;
+  }
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--dark-grey);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 35px 0;
+
+  gap: 15px;
+}
+@media only screen and (min-width: 640px) {
+  footer {
+    padding: 60px 0;
+
+    gap: 25px;
+
+    font-size: 1.2rem;
+  }
+}
+
+footer span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+@media only screen and (min-width: 640px) {
+  footer span {
+    font-size: 1.5rem;
   }
 }
