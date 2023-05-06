@@ -19,10 +19,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['#']);
   }
 
-  isUserLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
-  }
-
   isTokenExpired(): boolean {
     return this.authService.isTokenExpired();
   }

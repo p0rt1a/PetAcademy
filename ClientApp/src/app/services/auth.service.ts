@@ -42,11 +42,15 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token') ? true : false;
-
+    console.log('Token: ' + token);
     return token;
   }
 
   isTokenExpired(): boolean {
+    console.log(
+      'Token Expire: ' +
+        this.jwtHelper.isTokenExpired(localStorage.getItem('token'))
+    );
     return this.jwtHelper.isTokenExpired(localStorage.getItem('token'));
   }
 }
