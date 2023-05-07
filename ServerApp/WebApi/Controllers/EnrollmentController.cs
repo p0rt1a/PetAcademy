@@ -2,12 +2,13 @@
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class EnrollmentController : ControllerBase
@@ -19,6 +20,15 @@ namespace WebApi.Controllers
         {
             _context = context;
             _mapper = mapper;
+        }
+
+        //TODO: Delete this method before product
+        [HttpGet]
+        public IActionResult GetEnrollments()
+        {
+            var result = _context.Enrollments.ToList();
+
+            return Ok(result);
         }
         
         [HttpPost]
