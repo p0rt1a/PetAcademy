@@ -46,5 +46,6 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainingDetail
         public string TrainerName { get; set; }
         public string TrainerEmail { get; set; }
         public decimal Price { get; set; }
+        public int MaxPetCount { get; set; }
     }
 }
