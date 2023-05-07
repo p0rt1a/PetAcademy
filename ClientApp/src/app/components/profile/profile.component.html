@@ -21,5 +21,140 @@
         <input type="email" [placeholder]="user.email" [value]="user.email" />
       </div>
     </form>
+    <div>
+      <form class="custom-form" #form="ngForm">
+        <div class="form-header">
+          <h2>Evcil Hayvanım</h2>
+        </div>
+        <div class="form-group">
+          <label>Seçtiğim Hayvanım</label>
+          <select
+            #selectedPetId
+            (change)="getPetDetail(selectedPetId.value); isPetIdSelected = true"
+          >
+            <option selected hidden>Seçiniz...</option>
+            <option [value]="pet.id" *ngFor="let pet of pets">
+              {{ pet.name }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group" *ngIf="isPetIdSelected">
+          <label>İsim</label>
+          <input
+            #name="ngModel"
+            name="name"
+            [(ngModel)]="updatePetModel.name"
+            type="text"
+            [placeholder]="pet.name"
+            [value]="pet.name"
+            required
+            minlength="2"
+          />
+          <div *ngIf="name.invalid && (name.touched || name.dirty)">
+            <small *ngIf="name.errors?.['required']" class="error"
+              >Bu alan zorunludur!</small
+            >
+            <small *ngIf="name.errors?.['minlength']" class="error"
+              >İsim en az 2 karakter uzunluğunda olmalıdır!</small
+            >
+          </div>
+        </div>
+        <div class="form-group" *ngIf="isPetIdSelected">
+          <label>Yaş</label>
+          <input
+            #age="ngModel"
+            name="age"
+            [(ngModel)]="updatePetModel.age"
+            type="number"
+            [placeholder]="pet.age"
+            [valueAsNumber]="pet.age"
+            required
+            min="0"
+            max="20"
+          />
+          <div *ngIf="age.invalid && (age.touched || age.dirty)">
+            <small *ngIf="age.errors?.['required']" class="error"
+              >Bu alan zorunludur!</small
+            >
+            <small *ngIf="age.errors?.['min']" class="error"
+              >Yaş 0'dan büyük olmalıdır!</small
+            >
+            <small *ngIf="age.errors?.['max']" class="error"
+              >Yaş 20'den büyük olamaz!</small
+            >
+          </div>
+        </div>
+        <div class="form-group" *ngIf="isPetIdSelected">
+          <label>Cins</label>
+          <input type="text" [placeholder]="pet.genre" />
+        </div>
+        <div class="form-group">
+          <label>İsim</label>
+          <input
+            #name="ngModel"
+            name="name"
+            [(ngModel)]="createPetModel.name"
+            type="text"
+            placeholder="İsim giriniz..."
+            required
+            minlength="2"
+          />
+        </div>
+        <div class="form-group">
+          <label>Yaş</label>
+          <input
+            #age="ngModel"
+            name="age"
+            [(ngModel)]="createPetModel.age"
+            type="number"
+            min="1"
+            max="20"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Cins</label>
+          <select
+            #genreId="ngModel"
+            name="genreId"
+            [(ngModel)]="createPetModel.genreId"
+            required
+          >
+            <option selected hidden>Tür Seçiniz...</option>
+            <option [value]="genre.id" *ngFor="let genre of genres">
+              {{ genre.name }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <button
+            class="btn btn-success"
+            [disabled]="form.invalid"
+            [ngClass]="{ 'btn-disabled': form.invalid }"
+            (click)="createPet()"
+          >
+            Ekle
+          </button>
+        </div>
+        <div class="flex" *ngIf="isPetIdSelected">
+          <button
+            class="btn btn-success"
+            [ngClass]="{ 'btn-disabled': form.invalid }"
+            (click)="updatePet(selectedPetId.value)"
+            [disabled]="form.invalid"
+          >
+            Güncelle
+          </button>
+          <button
+            class="btn btn-danger"
+            (click)="deletePet(selectedPetId.value)"
+            [ngClass]="{ 'btn-disabled': !isPetIdSelected }"
+            [disabled]="!isPetIdSelected"
+          >
+            Sil
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>

@@ -11,6 +11,6 @@ export class EnrollmentsService {
   constructor(private http: HttpClient) {}
 
   createEnrollment(model: CreateEnrollmentModel) {
-    this.http.post(this.url, model, { observe: 'response' });
+    return this.http.post(this.url, model, { observe: 'response' });
   }
 }

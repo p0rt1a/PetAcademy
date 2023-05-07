@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PetViewModel } from '../models/PetViewModel';
 import { CreatePetModel } from '../models/CreatePetModel';
+import { UpdatePetModel } from '../models/UpdatePetModel';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,10 @@ export class PetsService {
   }
 
   deletePet(id: number) {
-    return this.http.delete(this.url + '/' + id);
+    return this.http.delete(this.url + '/' + id, { observe: 'response' });
+  }
+
+  updatePet(id: number, model: UpdatePetModel) {
+    return this.http.put(this.url + '/' + id, model, { observe: 'response' });
   }
 }

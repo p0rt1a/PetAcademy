@@ -1,1 +1,49 @@
-<p>create-enrollment works!</p>
+<div class="jumbotron">
+  <h1>Eğitim Kaydı</h1>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, aliquam
+    reiciendis! Provident quia corporis, quo officiis voluptates eveniet quos
+    tempore autem iure obcaecati vitae pariatur eius ullam molestiae et ut cum
+    vero.
+  </p>
+  <button class="btn btn-success">Şimdi Kaydet!</button>
+</div>
+
+<section>
+  <form class="custom-form">
+    <div class="form-header">
+      <h2>Detaylar</h2>
+    </div>
+    <div class="form-group">
+      <label>Kaydı Yapılacak Hayvanım</label>
+      <select #petId (change)="isPetSelected = true">
+        <option selected hidden>Seçiniz...</option>
+        <option [value]="pet.id" *ngFor="let pet of pets">
+          {{ pet.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Kullanıcı</label>
+      <input
+        type="text"
+        [placeholder]="user.name + ' ' + user.surname"
+        disabled
+      />
+    </div>
+    <div class="form-group">
+      <label>İletişim</label>
+      <input type="email" [placeholder]="user.email" disabled />
+    </div>
+    <div class="form-group">
+      <button
+        class="btn btn-success"
+        (click)="createEnrollment(petId.value)"
+        [ngClass]="{ 'btn-disabled': !isPetSelected }"
+        [disabled]="!isPetSelected"
+      >
+        Ödeme Yap ({{ training.price }} TL)
+      </button>
+    </div>
+  </form>
+</section>

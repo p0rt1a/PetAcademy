@@ -162,7 +162,7 @@ select {
 }
 @media only screen and (min-width: 640px) {
   .flex {
-    gap: 20px;
+    gap: 16px;
   }
 }
 
