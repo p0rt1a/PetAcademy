@@ -37,7 +37,7 @@ export class AuthService {
     let model: any = localStorage.getItem('token');
     let decodedToken = this.jwtHelper.decodeToken(model);
 
-    return decodedToken.nameid;
+    return parseInt(decodedToken.nameid);
   }
 
   isLoggedIn(): boolean {
