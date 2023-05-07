@@ -2,13 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 using WebApi.Application.AuthOperations.Commands.Register;
+using WebApi.Application.CommentOperations.Commands.CreateComment;
 using WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
 using WebApi.Application.PetOperations.Commands.CreatePet;
 using WebApi.Application.PetOperations.Queries.PetDetail;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
+using WebApi.Application.TrainingOperations.Queries.GetComments;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.Application.UserOperations.Queries.GetPets;
@@ -53,6 +56,13 @@ namespace WebApi.Common
 
             #region User Mappings
             CreateMap<User, UserDetailViewModel>();
+            #endregion
+
+            #region Comment Mappings
+            CreateMap<Comment, TrainingCommentViewModel>()
+                .ForMember(dest => dest.User, opt => opt.MapFrom(src => $"{src.User.Name} {src.User.Surname}"))
+                .ForMember(dest => dest.Date, opt => opt.MapFrom(src => src.Date.ToString("dd/MM/yyyy")));
+            CreateMap<CreateCommentModel, Comment>();
             #endregion
         }
     }
