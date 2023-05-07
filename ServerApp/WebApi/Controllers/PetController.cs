@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Application.PetOperations.Commands.CreatePet;
+using WebApi.Application.PetOperations.Commands.DeletePet;
 using WebApi.Application.PetOperations.Commands.UpdatePet;
 using WebApi.Application.PetOperations.Queries.PetDetail;
 using WebApi.DbOperations;
@@ -59,6 +60,20 @@ namespace WebApi.Controllers
             command.Model = model;
 
             UpdatePetCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
+
+            command.Handle();
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeletePet(int id)
+        {
+            DeletePetCommand command = new(_context);
+            command.PetId = id;
+
+            DeletePetCommandValidator validator = new();
             validator.ValidateAndThrow(command);
 
             command.Handle();
