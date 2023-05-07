@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { TrainingModel } from '../models/TrainingModel';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TrainingDetailModel } from '../models/TrainingDetailModel';
+import { TrainingCommentViewModel } from '../models/TrainingCommentViewModel';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +36,11 @@ export class TrainingsService {
 
   setSelectedTrainingId(id: number) {
     this.selectedTrainingIdSubject.next(id);
+  }
+
+  getTrainingComments(id: number): Observable<TrainingCommentViewModel[]> {
+    return this.http.get<TrainingCommentViewModel[]>(
+      this.url + '/' + id + '/comments'
+    );
   }
 }
