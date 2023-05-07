@@ -22,7 +22,8 @@ export class TrainingDetailComponent implements OnInit {
     '',
     0,
     '',
-    ''
+    '',
+    0
   );
   comments: TrainingCommentViewModel[] = [];
   isUserHaveComment: boolean = false;
