@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UserDetailViewModel } from '../models/UserDetailViewModel';
 import { PetViewModel } from '../models/PetViewModel';
 import { UserPetViewModel } from '../models/UserPetViewModel';
+import { TrainingModel } from '../models/TrainingModel';
 
 @Injectable({
   providedIn: 'root',
@@ -19,5 +20,9 @@ export class UsersService {
 
   getUserPets(id: number): Observable<UserPetViewModel[]> {
     return this.http.get<PetViewModel[]>(this.url + '/' + id + '/pets');
+  }
+
+  getUserTrainings(id: number): Observable<TrainingModel[]> {
+    return this.http.get<TrainingModel[]>(this.url + '/' + id + '/trainings');
   }
 }
