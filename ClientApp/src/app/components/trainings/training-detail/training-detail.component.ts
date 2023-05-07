@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CreateCommentModel } from 'src/app/models/CreateCommentModel';
+import { TrainingCommentViewModel } from 'src/app/models/TrainingCommentViewModel';
 import { TrainingDetailModel } from 'src/app/models/TrainingDetailModel';
+import { AuthService } from 'src/app/services/auth.service';
+import { CommentsService } from 'src/app/services/comments.service';
 import { TrainingsService } from 'src/app/services/trainings.service';
 
 @Component({
@@ -20,9 +24,14 @@ export class TrainingDetailComponent implements OnInit {
     '',
     ''
   );
+  comments: TrainingCommentViewModel[] = [];
+  isUserHaveComment: boolean = false;
+  createCommentModel: CreateCommentModel = new CreateCommentModel(0, '', 0);
 
   constructor(
     private trainingsService: TrainingsService,
+    private authService: AuthService,
+    private commentsService: CommentsService,
     private router: Router
   ) {}
 
@@ -32,6 +41,18 @@ export class TrainingDetailComponent implements OnInit {
     });
 
     this.getTrainingDetail();
+
+    this.trainingsService
+      .getTrainingComments(this.selectedTrainingId)
+      .subscribe((response) => {
+        this.comments = response;
+
+        response.forEach((item) => {
+          if (item.userId == this.authService.getUserId()) {
+            this.isUserHaveComment = true;
+          }
+        });
+      });
   }
 
   getTrainingDetail() {
@@ -44,5 +65,21 @@ export class TrainingDetailComponent implements OnInit {
 
   createEnrollment() {
     this.router.navigate(['/create-enrollment']);
+  }
+
+  createComment() {
+    this.createCommentModel.trainingId = this.selectedTrainingId;
+    this.createCommentModel.userId = this.authService.getUserId();
+
+    console.log(this.createCommentModel);
+
+    this.commentsService.createComment(this.createCommentModel).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
