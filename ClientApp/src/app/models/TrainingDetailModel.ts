@@ -7,6 +7,7 @@ export class TrainingDetailModel {
   price: number;
   trainerName: string;
   trainerEmail: string;
+  maxPetCount: number;
 
   constructor(
     title: string,
@@ -16,7 +17,8 @@ export class TrainingDetailModel {
     genre: string,
     price: number,
     trainerName: string,
-    trainerEmail: string
+    trainerEmail: string,
+    maxPetCount: number
   ) {
     this.title = title;
     this.description = description;
@@ -26,5 +28,6 @@ export class TrainingDetailModel {
     this.price = price;
     this.trainerName = trainerName;
     this.trainerEmail = trainerEmail;
+    this.maxPetCount = maxPetCount;
   }
 }
