@@ -48,18 +48,32 @@ header h1 {
   }
 }
 
+header h2 {
+  color: var(--dark-primary);
+  font-weight: 560;
+  font-size: 1.6rem;
+}
+@media only screen and (min-width: 640px) {
+  header h2 {
+    font-size: 2rem;
+  }
+}
+
 header h3 {
   color: var(--dark-primary);
+  font-weight: 560;
+  font-size: 1.4rem;
 }
 @media only screen and (min-width: 640px) {
   header h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
 /* FORMS */
 input,
-select {
+select,
+textarea {
   border: 1px solid var(--dark-grey);
   border-radius: 9px;
   font-size: 0.75rem;
@@ -67,7 +81,8 @@ select {
 }
 @media only screen and (min-width: 640px) {
   input,
-  select {
+  select,
+  textarea {
     border-radius: 12px;
     padding: 8px 16px;
     font-size: 1rem;
@@ -111,6 +126,15 @@ select {
   .custom-form input,
   .custom-form select {
     width: 60%;
+  }
+}
+
+.custom-form textarea {
+  width: 85%;
+}
+@media only screen and (min-width: 640px) {
+  .custom-form textarea {
+    width: 100%;
   }
 }
 
@@ -196,6 +220,16 @@ select {
 
 .justify-end {
   justify-content: flex-end !important;
+}
+
+.big-container {
+  margin: 0 auto;
+  width: 98vw;
+}
+@media only screen and (min-width: 640px) {
+  .big-container {
+    width: 85vw;
+  }
 }
 
 .medium-container {
@@ -360,9 +394,6 @@ select {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  text-align: center;
-  padding: 15px;
 }
 
 .card-head h2 {
@@ -390,12 +421,16 @@ select {
 .card-square {
   border-radius: 15px;
 
+  text-align: center;
+
   width: 75vw;
   transition: 0.3s;
 
   background-color: var(--grey);
 
   box-shadow: 5px 10px 8px var(--dark-grey);
+
+  padding: 15px;
 }
 .card-square:hover {
   transform: translateY(-12px);
@@ -407,6 +442,14 @@ select {
   .card-square {
     width: 320px;
   }
+}
+
+.card-rectangle {
+  border-bottom: 2px solid var(--dark-grey);
+  border-top: 1px solid var(--dark-grey);
+  border-radius: 12px;
+
+  padding: 25px 15px;
 }
 
 .flexy {
