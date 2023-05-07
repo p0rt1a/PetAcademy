@@ -24,7 +24,8 @@ export class CreateEnrollmentComponent implements OnInit {
     '',
     0,
     '',
-    ''
+    '',
+    0
   );
   selectedTrainingId: number = 0;
   isPetSelected: boolean = false;
