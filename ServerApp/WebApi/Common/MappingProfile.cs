@@ -45,7 +45,8 @@ namespace WebApi.Common
 
             #region Pet Mappings
             CreateMap<CreatePetModel, Pet>();
-            CreateMap<Pet, UserPetViewModel>();
+            CreateMap<Pet, UserPetViewModel>()
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name.ToString()));
             CreateMap<Pet, PetViewModel>()
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
             #endregion
