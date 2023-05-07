@@ -1,0 +1,37 @@
+<div class="jumbotron">
+  <h1>Eğitim Ekle/Sil/Güncelle</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti in, nobis
+    recusandae repellendus commodi, at, ullam dolorum quae aut cumque rem veniam
+    itaque porro iste assumenda officiis error ut quam iure excepturi.
+  </p>
+  <button class="btn btn-primary">Hemen Başla!</button>
+</div>
+
+<section>
+  <header>
+    <h1>EĞİTİMLERİM</h1>
+  </header>
+</section>
+
+<section>
+  <button class="btn btn-success">Eğitim Ekle</button>
+  <div class="cards big-container">
+    <div class="card card-square" *ngFor="let training of trainings">
+      <div class="card-head">
+        <h2>{{ training.title }}</h2>
+        <div class="badges">
+          <small class="badge badge-info">{{ training.city }}</small>
+          <small class="badge badge-fancy">{{ training.genre }}</small>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>{{ training.description }}</p>
+      </div>
+      <button class="btn btn-warning" (click)="updateTrainings(training.id)">
+        Düzenle
+      </button>
+      <button class="btn btn-danger">Sil</button>
+    </div>
+  </div>
+</section>
