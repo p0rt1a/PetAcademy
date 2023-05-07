@@ -14,6 +14,7 @@ namespace WebApi.DbOperations
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         public override int SaveChanges()
         {

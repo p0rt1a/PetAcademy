@@ -11,6 +11,7 @@ namespace WebApi.DbOperations
         DbSet<Pet> Pets { get; set; }
         DbSet<Enrollment> Enrollments { get; set; }
         DbSet<User> Users { get; set; }
+        DbSet<Comment> Comments { get; set; }
         int SaveChanges();
     }
 }
