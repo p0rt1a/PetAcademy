@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Commands.DeleteTraining;
 using WebApi.Application.TrainingOperations.Commands.UpdateTraining;
+using WebApi.Application.TrainingOperations.Queries.GetComments;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.DbOperations;
@@ -50,7 +51,17 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [Authorize]
+        [HttpGet("{id}/comments")]
+        public IActionResult GetTrainingComments(int id)
+        {
+            GetCommentsQuery query = new(_context, _mapper);
+            query.TrainingId = id;
+
+            var result = query.Handle();
+
+            return Ok(result);
+        }
+
         [HttpPost]
         public IActionResult CreateTraining([FromBody]CreateTrainingModel model)
         {
@@ -65,7 +76,6 @@ namespace WebApi.Controllers
             return Ok();
         }
 
-        [Authorize]
         [HttpPut("{id}")]
         public IActionResult UpdateTraining(int id, [FromBody]UpdateTrainingModel model)
         {
@@ -81,7 +91,6 @@ namespace WebApi.Controllers
             return Ok();
         }
 
-        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult DeleteTraining(int id)
         {
