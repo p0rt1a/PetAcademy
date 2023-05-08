@@ -1,1 +1,71 @@
-<p>create-training works!</p>
+<section>
+  <form
+    [formGroup]="createTrainingForm"
+    class="custom-form"
+    (submit)="createTraining(createTrainingForm)"
+  >
+    <div class="form-header">
+      <h2>Eğitim Ekle</h2>
+    </div>
+    <div class="form-group">
+      <label>Başlık</label>
+      <input
+        formControlName="title"
+        type="text"
+        placeholder="Eğitim başlığı..."
+      />
+    </div>
+    <div class="form-group">
+      <label>Açıklama</label>
+      <textarea
+        formControlName="description"
+        cols="30"
+        rows="10"
+        placeholder="Eğitim açıklaması giriniz..."
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label>Şehir</label>
+      <select formControlName="city">
+        <option [value]="city.name" *ngFor="let city of cities">
+          {{ city.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Adres</label>
+      <textarea
+        formControlName="address"
+        placeholder="XXX Sokak, XXX Mahallesi, 000 Sokak..."
+        cols="20"
+        rows="5"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label>Tür</label>
+      <select formControlName="genre">
+        <option [value]="genre.id" *ngFor="let genre of genres">
+          {{ genre.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Kursiyer Limiti</label>
+      <input formControlName="maxPetCount" type="number" placeholder="0" />
+    </div>
+    <div class="form-group">
+      <label>Ücret (TL)</label>
+      <input formControlName="price" type="number" placeholder="0" />
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-success"
+        [ngClass]="{ 'btn-disabled': !createTrainingForm.valid }"
+        [disabled]="!createTrainingForm.valid"
+      >
+        Eğitim Ekle
+      </button>
+    </div>
+  </form>
+</section>
