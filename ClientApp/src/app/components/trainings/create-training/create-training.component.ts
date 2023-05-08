@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { CityModel } from 'src/app/models/CityModel';
-import { CreateCommentModel } from 'src/app/models/CreateCommentModel';
 import { CreateTrainingModel } from 'src/app/models/CreateTrainingModel';
 import { GenreModel } from 'src/app/models/GenreModel';
 import { AuthService } from 'src/app/services/auth.service';

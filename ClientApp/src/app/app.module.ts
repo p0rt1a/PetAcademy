@@ -11,9 +11,12 @@ import { appRoutes } from 'src/routes';
 import { CreateEnrollmentComponent } from './components/enrollments/create-enrollment/create-enrollment.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/auth/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MyTrainingsComponent } from './components/trainings/my-trainings/my-trainings.component';
+import { UpdateTrainingComponent } from './components/trainings/update-training/update-training.component';
+import { CreateTrainingComponent } from './components/trainings/create-training/create-training.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
+    MyTrainingsComponent,
+    UpdateTrainingComponent,
+    CreateTrainingComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +38,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -14,6 +14,20 @@
         type="text"
         placeholder="Eğitim başlığı..."
       />
+      <div
+        *ngIf="
+          !createTrainingForm.get('title')?.valid &&
+          (createTrainingForm.get('title')?.touched ||
+            createTrainingForm.get('title')?.dirty)
+        "
+      >
+        <small
+          *ngIf="createTrainingForm.get('title')?.errors?.['required']"
+          class="error"
+        >
+          Bu alan zorunludur!
+        </small>
+      </div>
     </div>
     <div class="form-group">
       <label>Açıklama</label>
@@ -23,6 +37,24 @@
         rows="10"
         placeholder="Eğitim açıklaması giriniz..."
       ></textarea>
+      <div
+        *ngIf="
+          !createTrainingForm.get('description')?.valid &&
+          (createTrainingForm.get('description')?.touched ||
+            createTrainingForm.get('description')?.dirty)
+        "
+      >
+        <small
+          *ngIf="createTrainingForm.get('description')?.errors?.['required']"
+          class="error"
+          >Bu alan zorunludur!</small
+        >
+        <small
+          *ngIf="createTrainingForm.get('description')?.errors?.['minlength']"
+          class="error"
+          >Açıklama 10 karakterden kısa olamaz!</small
+        >
+      </div>
     </div>
     <div class="form-group">
       <label>Şehir</label>
@@ -31,6 +63,19 @@
           {{ city.name }}
         </option>
       </select>
+      <div
+        *ngIf="
+          !createTrainingForm.get('city')?.valid &&
+          (createTrainingForm.get('city')?.touched ||
+            createTrainingForm.get('city')?.dirty)
+        "
+      >
+        <small
+          *ngIf="createTrainingForm.get('city')?.errors?.['required']"
+          class="error"
+          >Bu alan zorunludur!</small
+        >
+      </div>
     </div>
     <div class="form-group">
       <label>Adres</label>
@@ -40,6 +85,24 @@
         cols="20"
         rows="5"
       ></textarea>
+      <div
+        *ngIf="
+          !createTrainingForm.get('address')?.valid &&
+          (createTrainingForm.get('address')?.touched ||
+            createTrainingForm.get('address')?.dirty)
+        "
+      >
+        <small
+          *ngIf="createTrainingForm.get('address')?.errors?.['required']"
+          class="error"
+          >Bu alan zorunludur!</small
+        >
+        <small
+          *ngIf="createTrainingForm.get('address')?.errors?.['minlength']"
+          class="error"
+          >Adres 5 karakterden kısa olamaz!</small
+        >
+      </div>
     </div>
     <div class="form-group">
       <label>Tür</label>
@@ -48,14 +111,63 @@
           {{ genre.name }}
         </option>
       </select>
+      <div
+        *ngIf="
+          !createTrainingForm.get('genre')?.valid &&
+          (createTrainingForm.get('genre')?.dirty ||
+            createTrainingForm.get('genre')?.touched)
+        "
+      >
+        <small
+          *ngIf="createTrainingForm.get('genre')?.errors?.['required']"
+          class="error"
+          >Bu alan zorunludur!</small
+        >
+      </div>
     </div>
     <div class="form-group">
       <label>Kursiyer Limiti</label>
       <input formControlName="maxPetCount" type="number" placeholder="0" />
+      <div
+        *ngIf="
+          !createTrainingForm.get('maxPetCount')?.valid &&
+          (createTrainingForm.get('maxPetCount')?.dirty ||
+            createTrainingForm.get('maxPetCount')?.touched)
+        "
+      >
+        <small
+          *ngIf="createTrainingForm.get('maxPetCount')?.errors?.['required']"
+          class="error"
+          >Bu alan zorunludur!</small
+        >
+        <small
+          *ngIf="createTrainingForm.get('maxPetCount')?.errors?.['min']"
+          class="error"
+          >Kursiyer limiti 0'dan büyük olmalıdır!</small
+        >
+      </div>
     </div>
     <div class="form-group">
       <label>Ücret (TL)</label>
       <input formControlName="price" type="number" placeholder="0" />
+      <div
+        *ngIf="
+          !createTrainingForm.get('price')?.valid &&
+          (createTrainingForm.get('price')?.dirty ||
+            createTrainingForm.get('price')?.touched)
+        "
+      >
+        <small
+          *ngIf="createTrainingForm.get('price')?.errors?.['required']"
+          class="error"
+          >Bu alan zorunludur!</small
+        >
+        <small
+          *ngIf="createTrainingForm.get('price')?.errors?.['min']"
+          class="error"
+          >Ücret limiti 0'dan küçük olamaz!</small
+        >
+      </div>
     </div>
     <div class="form-group">
       <button
