@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,14 @@ namespace WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment
         public void Handle()
         {
             var enrollment = _dbContext.Enrollments.SingleOrDefault(x => x.PetId == Model.PetId && x.TrainingId == Model.TrainingId);
+            var pet = _dbContext.Pets.Include(x => x.Genre).SingleOrDefault(x => x.Id == Model.PetId);
+            var training = _dbContext.Trainings.Include(x => x.Genre).SingleOrDefault(x => x.Id == Model.TrainingId);
 
             if (enrollment is not null)
-                throw new InvalidOperationException("Evcil hayvan zaten bu eğitimde mevcut");
+                throw new InvalidOperationException("Evcil hayvan zaten bu eğitimde mevcut.");
+
+            if (pet.Genre.Name != training.Genre.Name)
+                throw new InvalidOperationException("Evcil hayvan türü, eğitim türü için uygun değil.");
 
             enrollment = _mapper.Map<Enrollment>(Model);
 
