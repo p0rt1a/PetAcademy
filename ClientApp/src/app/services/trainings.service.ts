@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { TrainingDetailModel } from '../models/TrainingDetailModel';
 import { TrainingCommentViewModel } from '../models/TrainingCommentViewModel';
 import { CreateTrainingModel } from '../models/CreateTrainingModel';
+import { TrainingPetViewModel } from '../models/TrainingPetViewModel';
 
 @Injectable({
   providedIn: 'root',
@@ -47,5 +48,9 @@ export class TrainingsService {
 
   createTraining(model: CreateTrainingModel) {
     return this.http.post(this.url, model, { observe: 'response' });
+  }
+
+  getTrainingPets(id: number): Observable<TrainingPetViewModel[]> {
+    return this.http.get<TrainingPetViewModel[]>(this.url + '/' + id + '/pets');
   }
 }

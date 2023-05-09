@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MyTrainingsComponent } from './components/trainings/my-trainings/my-trainings.component';
 import { UpdateTrainingComponent } from './components/trainings/update-training/update-training.component';
 import { CreateTrainingComponent } from './components/trainings/create-training/create-training.component';
+import { ViewTrainingComponent } from './components/trainings/view-training/view-training.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CreateTrainingComponent } from './components/trainings/create-training/
     MyTrainingsComponent,
     UpdateTrainingComponent,
     CreateTrainingComponent,
+    ViewTrainingComponent,
   ],
   imports: [
     BrowserModule,
