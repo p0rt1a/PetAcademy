@@ -24,7 +24,8 @@ namespace WebApi.DbOperations
                             Address = "Karşıyaka",
                             Price = 1350,
                             GenreId = 1,
-                            UserId = 1
+                            UserId = 1,
+                            MaxPetCount = 10
                         },
                         new Training()
                         {
@@ -34,7 +35,8 @@ namespace WebApi.DbOperations
                             Address = "Çankaya",
                             Price = 1250,
                             GenreId = 2,
-                            UserId = 2
+                            UserId = 2,
+                            MaxPetCount = 5
                         },
                         new Training()
                         {
@@ -44,7 +46,8 @@ namespace WebApi.DbOperations
                             Address = "Albayrak",
                             Price = 2000,
                             GenreId = 1,
-                            UserId = 2
+                            UserId = 2,
+                            MaxPetCount = 10
                         },
                         new Training()
                         {
@@ -54,7 +57,8 @@ namespace WebApi.DbOperations
                             Address = "Alsancak",
                             Price = 3750,
                             GenreId = 1,
-                            UserId = 2
+                            UserId = 2,
+                            MaxPetCount = 12
                         },
                         new Training()
                         {
@@ -64,7 +68,8 @@ namespace WebApi.DbOperations
                             Address = "Şeyhşamil",
                             Price = 1000,
                             GenreId = 2,
-                            UserId = 1
+                            UserId = 1,
+                            MaxPetCount = 10
                         },
                         new Training()
                         {
@@ -74,7 +79,8 @@ namespace WebApi.DbOperations
                             Address = "Çekmeköy",
                             Price = 7000,
                             GenreId = 2,
-                            UserId = 2
+                            UserId = 2,
+                            MaxPetCount = 10
                         }
                     );
 
@@ -146,10 +152,10 @@ namespace WebApi.DbOperations
                         },
                         new User()
                         {
-                            Name = "Hilal",
-                            Surname = "Polat",
-                            Email = "hilal@hotmail.com",
-                            Password = "Hilal.123",
+                            Name = "Kerem",
+                            Surname = "Yılmaz",
+                            Email = "kerem@hotmail.com",
+                            Password = "Kerem.123",
                             BirthOfDate = new DateTime(1999, 10, 13)
                         }
                     );
