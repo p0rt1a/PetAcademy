@@ -7,6 +7,7 @@ using WebApi.Application.TrainingOperations.Commands.DeleteTraining;
 using WebApi.Application.TrainingOperations.Commands.UpdateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetComments;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
+using WebApi.Application.TrainingOperations.Queries.GetTrainingPets;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.DbOperations;
 
@@ -45,6 +46,17 @@ namespace WebApi.Controllers
 
             GetTrainingDetailQueryValidator validator = new();
             validator.ValidateAndThrow(query);
+
+            var result = query.Handle();
+
+            return Ok(result);
+        }
+
+        [HttpGet("{id}/pets")]
+        public IActionResult GetTrainingPets(int id)
+        {
+            GetTrainingPetsQuery query = new(_context, _mapper);
+            query.TrainingId = id;
 
             var result = query.Handle();
 
