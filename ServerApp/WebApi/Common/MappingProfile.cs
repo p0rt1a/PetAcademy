@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using WebApi.Application.PetOperations.Queries.PetDetail;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetComments;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
+using WebApi.Application.TrainingOperations.Queries.GetTrainingPets;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.Application.UserOperations.Queries.GetPets;
 using WebApi.Application.UserOperations.Queries.GetUserDetail;
@@ -40,6 +42,11 @@ namespace WebApi.Common
 
             #region Enrollment Mappings
             CreateMap<CreateEnrollmentModel, Enrollment>();
+            CreateMap<Enrollment, TrainingPetViewModel>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Pet.Name))
+                .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.Pet.Age))
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Pet.Genre.Name))
+                .ForMember(dest => dest.UserEmail, opt => opt.MapFrom(src => src.Pet.User.Email));
             #endregion
 
             #region Auth Mappings
