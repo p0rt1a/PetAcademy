@@ -38,7 +38,7 @@ import { ViewTrainingComponent } from './components/trainings/view-training/view
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }),
     FormsModule,
     ReactiveFormsModule,
   ],

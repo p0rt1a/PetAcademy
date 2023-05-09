@@ -1,59 +1,42 @@
-<form class="custom-form" #form="ngForm" (submit)="updateTraining()">
+<form
+  class="custom-form"
+  [formGroup]="updateTrainingForm"
+  (submit)="updateTraining(updateTrainingForm)"
+>
   <div class="form-header">
     <h2>Eğitim Bilgileri</h2>
   </div>
   <div class="form-group">
     <label>Başlık</label>
-    <input
-      type="text"
-      [placeholder]="training.title"
-      [value]="training.title"
-      disabled
-    />
+    <input type="text" [value]="training.title" disabled />
   </div>
   <div class="form-group">
     <label>Açıklama</label>
     <textarea
-      #description="ngModel"
-      name="description"
-      [(ngModel)]="updateTrainingModel.description"
       cols="30"
       rows="10"
-      [placeholder]="training.description"
-      required
-      minlength="10"
+      [value]="training.description"
+      formControlName="description"
     ></textarea>
   </div>
   <div class="form-group">
     <label>Şehir</label>
-    <input type="text" [placeholder]="training.city" disabled />
+    <input type="text" [value]="training.city" disabled />
   </div>
   <div class="form-group">
     <label>Adres</label>
-    <input type="text" [placeholder]="training.address" disabled />
+    <input type="text" [value]="training.address" disabled />
   </div>
   <div class="form-group">
     <label>Ücret</label>
-    <input
-      #price="ngModel"
-      name="price"
-      [(ngModel)]="updateTrainingModel.price"
-      type="number"
-      [value]="training.price"
-      required
-      min="0"
-    />
+    <input type="number" [value]="training.price" formControlName="price" />
   </div>
   <div class="form-group">
     <label>Kursiyer Limiti</label>
     <input
-      #maxPetCount="ngModel"
-      name="maxPetCount"
-      [(ngModel)]="updateTrainingModel.maxPetCount"
       type="number"
       [value]="training.maxPetCount"
-      required
-      min="1"
+      formControlName="maxPetCount"
     />
   </div>
   <div class="form-group">

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { LoginModel } from 'src/app/models/LoginModel';
 import { AuthService } from 'src/app/services/auth.service';
 
+declare let alertify: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,11 +20,13 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.loginModel).subscribe(
       () => {
-        console.log('Başarılı');
-        this.router.navigate(['trainings']);
+        this.router.navigate(['/trainings']);
       },
       (error) => {
-        console.log(error);
+        alertify.error(error.error.error);
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate(['/login']);
       }
     );
   }

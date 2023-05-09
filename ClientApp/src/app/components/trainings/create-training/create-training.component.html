@@ -54,6 +54,11 @@
           class="error"
           >Açıklama 10 karakterden kısa olamaz!</small
         >
+        <small
+          *ngIf="createTrainingForm.get('description')?.errors?.['maxlength']"
+          class="error"
+          >Açıklama 30 karakterden uzun olamaz!</small
+        >
       </div>
     </div>
     <div class="form-group">

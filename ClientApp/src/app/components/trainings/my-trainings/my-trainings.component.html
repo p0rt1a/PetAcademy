@@ -39,7 +39,10 @@
           <i class="fa-regular fa-pen-to-square"></i>
         </button>
         <button class="btn btn-danger">
-          <i class="fa-regular fa-trash-can"></i>
+          <i
+            class="fa-regular fa-trash-can"
+            (click)="deleteTraining(training.id)"
+          ></i>
         </button>
       </div>
     </div>

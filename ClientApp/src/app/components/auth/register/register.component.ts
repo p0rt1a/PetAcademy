@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RegisterModel } from 'src/app/models/RegisterModel';
 import { AuthService } from 'src/app/services/auth.service';
+
+declare let alertify: any;
 
 @Component({
   selector: 'app-register',
@@ -10,19 +13,20 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent implements OnInit {
   registerModel: RegisterModel = new RegisterModel('', '', '', '');
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   register() {
     this.authService.register(this.registerModel).subscribe(
       (response) => {
-        //TODO: Create success alertify here:
-        console.log(response.statusText);
+        if (response.status == 200) {
+          alertify.success('Kayıt işlemi başarılı.');
+          this.router.navigate(['/login']);
+        }
       },
       (error) => {
-        //TODO: Create failed alertify here:
-        console.log(error.error.error);
+        alertify.error(error.error.error);
       }
     );
   }

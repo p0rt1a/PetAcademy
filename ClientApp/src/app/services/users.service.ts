@@ -28,6 +28,6 @@ export class UsersService {
   }
 
   updateUser(id: number, model: UpdateUserModel) {
-    return this.http.put(this.url + '/' + id, model);
+    return this.http.put(this.url + '/' + id, model, { observe: 'response' });
   }
 }

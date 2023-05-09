@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CityModel } from 'src/app/models/CityModel';
 import { CreateTrainingModel } from 'src/app/models/CreateTrainingModel';
 import { GenreModel } from 'src/app/models/GenreModel';
@@ -12,6 +13,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { CitiesService } from 'src/app/services/cities.service';
 import { GenresService } from 'src/app/services/genres.service';
 import { TrainingsService } from 'src/app/services/trainings.service';
+
+declare let alertify: any;
 
 @Component({
   selector: 'app-create-training',
@@ -46,7 +49,8 @@ export class CreateTrainingComponent implements OnInit {
     private formBuilder: FormBuilder,
     private trainingsService: TrainingsService,
     private citiesService: CitiesService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -56,7 +60,14 @@ export class CreateTrainingComponent implements OnInit {
 
     this.createTrainingForm = this.formBuilder.group({
       title: [, Validators.required],
-      description: [, [Validators.required, Validators.minLength(10)]],
+      description: [
+        ,
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(30),
+        ],
+      ],
       genre: [, Validators.required],
       city: [, Validators.required],
       address: [, [Validators.required, Validators.minLength(5)]],
@@ -76,16 +87,19 @@ export class CreateTrainingComponent implements OnInit {
     this.createTrainingModel.city = form.value.city;
     this.createTrainingModel.address = form.value.address;
     this.createTrainingModel.maxPetCount = form.value.maxPetCount;
-    this.createTrainingModel.genreId = form.value.genreId;
+    this.createTrainingModel.genreId = form.value.genre;
     this.createTrainingModel.userId = this.authService.getUserId();
     this.createTrainingModel.price = form.value.price;
 
     this.trainingsService.createTraining(this.createTrainingModel).subscribe(
       (response) => {
-        //TODO: Create successfull method here:
+        if (response.status == 200) {
+          alertify.success('Eğitim başarıyla eklendi.');
+          this.router.navigate(['my-trainings']);
+        }
       },
       (error) => {
-        //TODO: Create failed method here:
+        alertify.error(error.error.error);
       }
     );
   }

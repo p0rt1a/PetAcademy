@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 import { CreateEnrollmentModel } from 'src/app/models/CreateEnrollmentModel';
 import { TrainingDetailModel } from 'src/app/models/TrainingDetailModel';
 import { UserDetailViewModel } from 'src/app/models/UserDetailViewModel';
@@ -7,6 +14,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { EnrollmentsService } from 'src/app/services/enrollments.service';
 import { TrainingsService } from 'src/app/services/trainings.service';
 import { UsersService } from 'src/app/services/users.service';
+
+declare let alertify: any;
 
 @Component({
   selector: 'app-create-enrollment',
@@ -29,15 +38,28 @@ export class CreateEnrollmentComponent implements OnInit {
   );
   selectedTrainingId: number = 0;
   isPetSelected: boolean = false;
+  selectPetForm: FormGroup = new FormGroup({
+    petId: new FormControl(),
+  });
+  createEnrollmentModel: CreateEnrollmentModel = new CreateEnrollmentModel(
+    0,
+    0
+  );
 
   constructor(
     private trainingsService: TrainingsService,
     private enrollmentsService: EnrollmentsService,
     private usersService: UsersService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    this.selectPetForm = this.formBuilder.group({
+      petId: [, Validators.required],
+    });
+
     this.usersService
       .getUserDetail(this.authService.getUserId())
       .subscribe((response) => {
@@ -52,36 +74,32 @@ export class CreateEnrollmentComponent implements OnInit {
       .getTrainingDetail(this.selectedTrainingId)
       .subscribe((response) => {
         this.training = response;
+        console.log(this.training);
       });
 
     this.usersService
       .getUserPets(this.authService.getUserId())
       .subscribe((response) => {
-        response.forEach((element) => {
-          if (
-            element.genre.toLowerCase() == this.training.genre.toLowerCase()
-          ) {
-            this.pets.push(element);
-          }
-        });
+        this.pets = response;
       });
   }
 
-  createEnrollment(petId: any) {
-    let model = new CreateEnrollmentModel(
-      parseInt(petId),
-      this.selectedTrainingId
-    );
+  createEnrollment(form: FormGroup) {
+    this.createEnrollmentModel.petId = parseInt(form.value.petId);
+    this.createEnrollmentModel.trainingId = this.selectedTrainingId;
 
-    console.log(model);
-
-    this.enrollmentsService.createEnrollment(model).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.enrollmentsService
+      .createEnrollment(this.createEnrollmentModel)
+      .subscribe(
+        (response) => {
+          if (response.status == 200) {
+            alertify.success('Kayıt işlemi başarıyla tamamlandı.');
+            this.router.navigate(['/trainings']);
+          }
+        },
+        (error) => {
+          alertify.error(error.error.error);
+        }
+      );
   }
 }

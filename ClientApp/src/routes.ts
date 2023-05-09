@@ -11,7 +11,7 @@ import { CreateTrainingComponent } from './app/components/trainings/create-train
 import { ViewTrainingComponent } from './app/components/trainings/view-training/view-training.component';
 
 export const appRoutes: Routes = [
-  { path: '', component: TrainingsComponent },
+  { path: 'trainings', component: TrainingsComponent },
   { path: 'training-detail', component: TrainingDetailComponent },
   { path: 'create-enrollment', component: CreateEnrollmentComponent },
   { path: 'register', component: RegisterComponent },

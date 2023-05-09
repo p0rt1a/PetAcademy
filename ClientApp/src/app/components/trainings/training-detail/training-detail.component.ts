@@ -7,6 +7,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { CommentsService } from 'src/app/services/comments.service';
 import { TrainingsService } from 'src/app/services/trainings.service';
 
+declare let alertify: any;
+
 @Component({
   selector: 'app-training-detail',
   templateUrl: './training-detail.component.html',
@@ -76,10 +78,15 @@ export class TrainingDetailComponent implements OnInit {
 
     this.commentsService.createComment(this.createCommentModel).subscribe(
       (response) => {
-        console.log(response);
+        if (response.status == 200) {
+          alertify.success('Yorum başarıyla eklendi.');
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/training-detail']);
+        }
       },
       (error) => {
-        console.log(error);
+        alertify.error(error.error.error);
       }
     );
   }

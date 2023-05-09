@@ -10,14 +10,17 @@
 </div>
 
 <section>
-  <form class="custom-form">
+  <form
+    class="custom-form"
+    [formGroup]="selectPetForm"
+    (submit)="createEnrollment(selectPetForm)"
+  >
     <div class="form-header">
       <h2>Detaylar</h2>
     </div>
     <div class="form-group">
       <label>Kaydı Yapılacak Hayvanım</label>
-      <select #petId (change)="isPetSelected = true">
-        <option selected hidden>Seçiniz...</option>
+      <select formControlName="petId">
         <option [value]="pet.id" *ngFor="let pet of pets">
           {{ pet.name }}
         </option>
@@ -25,22 +28,17 @@
     </div>
     <div class="form-group">
       <label>Kullanıcı</label>
-      <input
-        type="text"
-        [placeholder]="user.name + ' ' + user.surname"
-        disabled
-      />
+      <input type="text" [value]="user.name + ' ' + user.surname" disabled />
     </div>
     <div class="form-group">
       <label>İletişim</label>
-      <input type="email" [placeholder]="user.email" disabled />
+      <input type="email" [value]="user.email" disabled />
     </div>
     <div class="form-group">
       <button
         class="btn btn-success"
-        (click)="createEnrollment(petId.value)"
-        [ngClass]="{ 'btn-disabled': !isPetSelected }"
-        [disabled]="!isPetSelected"
+        [ngClass]="{ 'btn-disabled': !selectPetForm.valid }"
+        [disabled]="!selectPetForm.valid"
       >
         Ödeme Yap ({{ training.price }} TL)
       </button>

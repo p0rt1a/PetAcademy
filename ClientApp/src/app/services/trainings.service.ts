@@ -6,14 +6,14 @@ import { TrainingDetailModel } from '../models/TrainingDetailModel';
 import { TrainingCommentViewModel } from '../models/TrainingCommentViewModel';
 import { CreateTrainingModel } from '../models/CreateTrainingModel';
 import { TrainingPetViewModel } from '../models/TrainingPetViewModel';
+import { UpdateTrainingModel } from '../models/UpdateTrainingModel';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TrainingsService {
   private url: string = 'https://localhost:5001/trainings';
-  //TODO: Set selected training id to 0
-  private selectedTrainingIdSubject = new BehaviorSubject(1);
+  private selectedTrainingIdSubject = new BehaviorSubject(0);
   selectedTrainingId = this.selectedTrainingIdSubject.asObservable();
 
   constructor(private http: HttpClient) {}
@@ -40,6 +40,10 @@ export class TrainingsService {
     this.selectedTrainingIdSubject.next(id);
   }
 
+  updateTraining(id: number, model: UpdateTrainingModel) {
+    return this.http.put(this.url + '/' + id, model, { observe: 'response' });
+  }
+
   getTrainingComments(id: number): Observable<TrainingCommentViewModel[]> {
     return this.http.get<TrainingCommentViewModel[]>(
       this.url + '/' + id + '/comments'
@@ -52,5 +56,9 @@ export class TrainingsService {
 
   getTrainingPets(id: number): Observable<TrainingPetViewModel[]> {
     return this.http.get<TrainingPetViewModel[]>(this.url + '/' + id + '/pets');
+  }
+
+  deleteTraining(id: number) {
+    return this.http.delete(this.url + '/' + id, { observe: 'response' });
   }
 }

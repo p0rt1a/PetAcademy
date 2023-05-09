@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CreatePetModel } from 'src/app/models/CreatePetModel';
 import { GenreModel } from 'src/app/models/GenreModel';
 import { PetViewModel } from 'src/app/models/PetViewModel';
@@ -16,6 +17,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { GenresService } from 'src/app/services/genres.service';
 import { PetsService } from 'src/app/services/pets.service';
 import { UsersService } from 'src/app/services/users.service';
+
+declare let alertify: any;
 
 @Component({
   selector: 'app-profile',
@@ -51,7 +54,8 @@ export class ProfileComponent implements OnInit {
     private usersService: UsersService,
     private authService: AuthService,
     private genresService: GenresService,
-    private petsService: PetsService
+    private petsService: PetsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -93,10 +97,15 @@ export class ProfileComponent implements OnInit {
 
     this.petsService.updatePet(id, this.updatePetModel).subscribe(
       (response) => {
-        console.log(response);
+        if (response.status == 200) {
+          alertify.success('Güncelleme başarıyla tamamlandı.');
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/profile']);
+        }
       },
       (error) => {
-        console.log(error);
+        alertify.error(error.error.error);
       }
     );
   }
@@ -107,12 +116,12 @@ export class ProfileComponent implements OnInit {
     let userId: number = this.authService.getUserId();
     this.usersService.updateUser(userId, this.updateUserModel).subscribe(
       (response) => {
-        //TODO: Create success method here:
-        console.log('Güncelleme başarılı');
+        if (response.status == 200) {
+          alertify.success('Güncelleme işlemi başarılı.');
+        }
       },
       (error) => {
-        //TODO: Create fail method here:
-        console.log(error.error.error);
+        alertify.error(error.error.error);
       }
     );
   }
@@ -125,10 +134,15 @@ export class ProfileComponent implements OnInit {
 
     this.petsService.createPet(this.createPetModel).subscribe(
       (response) => {
-        //TODO: Create successfull method here:
+        if (response.status == 200) {
+          alertify.success('Ekleme işlemi başarılı.');
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/profile']);
+        }
       },
       (error) => {
-        //TODO: Create failed method here:
+        alertify.error(error.error.error);
       }
     );
   }
@@ -137,11 +151,14 @@ export class ProfileComponent implements OnInit {
     this.petsService.deletePet(id).subscribe(
       (response) => {
         if (response.status == 200) {
-          console.log('Silme işlemi başarılı');
+          alertify.success('Silme işlemi başarılı.');
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/profile']);
         }
       },
       (error) => {
-        console.log(error);
+        alertify.error(error.error.error);
       }
     );
   }
