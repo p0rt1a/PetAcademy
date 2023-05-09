@@ -1,159 +1,183 @@
+<div class="jumbotron">
+  <h1>Kişisel Bilgilerim</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, laborum
+    adipisci. Voluptate eius fugiat, exercitationem quod praesentium, rerum
+    repudiandae autem at perferendis magnam fugit assumenda veritatis recusandae
+    quia vero quos. Autem doloremque dignissimos architecto hic perferendis
+    laboriosam.
+  </p>
+  <button class="btn btn-default">Hemen Başla!</button>
+</div>
+
+<section>
+  <header>
+    <h2>PROFİL BİLGİLERİM</h2>
+  </header>
+</section>
+
 <section>
   <div class="flexy">
-    <form class="custom-form">
+    <form
+      class="custom-form"
+      [formGroup]="updateUserForm"
+      (submit)="updateUser(updateUserForm)"
+    >
       <div class="form-header">
-        <h2>Profil Bilgilerim</h2>
+        <h2>Kişisel Bilgiler</h2>
       </div>
       <div class="form-group">
         <label>İsim</label>
-        <input type="text" [placeholder]="user.name" [value]="user.name" />
+        <input type="text" [value]="user.name" />
       </div>
       <div class="form-group">
         <label>Soyisim</label>
-        <input
-          type="text"
-          [placeholder]="user.surname"
-          [value]="user.surname"
-        />
+        <input type="text" [value]="user.surname" />
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" [placeholder]="user.email" [value]="user.email" />
+        <input type="email" formControlName="email" [value]="user.email" />
+        <div
+          *ngIf="
+            !updateUserForm.get('email')?.valid &&
+            (updateUserForm.get('email')?.dirty ||
+              updateUserForm.get('email')?.touched)
+          "
+        >
+          <small
+            *ngIf="updateUserForm.get('email')?.errors?.['email']"
+            class="error"
+            >Geçerli bir email adresi giriniz!</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [ngClass]="{ 'btn-disabled': !updateUserForm.valid }"
+          [disabled]="!updateUserForm.valid"
+        >
+          Güncelle
+        </button>
       </div>
     </form>
     <div>
-      <form class="custom-form" #form="ngForm">
+      <form class="custom-form">
         <div class="form-header">
           <h2>Evcil Hayvanım</h2>
         </div>
         <div class="form-group">
-          <label>Seçtiğim Hayvanım</label>
+          <label>Seçim Yapınız:</label>
           <select
-            #selectedPetId
-            (change)="getPetDetail(selectedPetId.value); isPetIdSelected = true"
+            #petId
+            (change)="isUpdatingPet = true; getPetDetail(petId.value)"
           >
-            <option selected hidden>Seçiniz...</option>
-            <option [value]="pet.id" *ngFor="let pet of pets">
+            <option selected hidden>Hayvan Seçiniz</option>
+            <option *ngFor="let pet of pets" [value]="pet.id">
               {{ pet.name }}
             </option>
           </select>
         </div>
-        <div class="form-group" *ngIf="isPetIdSelected">
-          <label>İsim</label>
-          <input
-            #name="ngModel"
-            name="name"
-            [(ngModel)]="updatePetModel.name"
-            type="text"
-            [placeholder]="pet.name"
-            [value]="pet.name"
-            required
-            minlength="2"
-          />
-          <div *ngIf="name.invalid && (name.touched || name.dirty)">
-            <small *ngIf="name.errors?.['required']" class="error"
-              >Bu alan zorunludur!</small
-            >
-            <small *ngIf="name.errors?.['minlength']" class="error"
-              >İsim en az 2 karakter uzunluğunda olmalıdır!</small
-            >
+        <form
+          [formGroup]="updatePetForm"
+          class="custom-form"
+          (submit)="updatePet(petId.value)"
+          *ngIf="isUpdatingPet"
+        >
+          <div class="form-group">
+            <label>İsim</label>
+            <input formControlName="name" type="text" [value]="pet.name" />
           </div>
-        </div>
-        <div class="form-group" *ngIf="isPetIdSelected">
-          <label>Yaş</label>
-          <input
-            #age="ngModel"
-            name="age"
-            [(ngModel)]="updatePetModel.age"
-            type="number"
-            [placeholder]="pet.age"
-            [valueAsNumber]="pet.age"
-            required
-            min="0"
-            max="20"
-          />
-          <div *ngIf="age.invalid && (age.touched || age.dirty)">
-            <small *ngIf="age.errors?.['required']" class="error"
-              >Bu alan zorunludur!</small
-            >
-            <small *ngIf="age.errors?.['min']" class="error"
-              >Yaş 0'dan büyük olmalıdır!</small
-            >
-            <small *ngIf="age.errors?.['max']" class="error"
-              >Yaş 20'den büyük olamaz!</small
-            >
+          <div class="form-group">
+            <label>Yaş</label>
+            <input formControlName="age" type="number" [value]="pet.age" />
           </div>
-        </div>
-        <div class="form-group" *ngIf="isPetIdSelected">
-          <label>Cins</label>
-          <input type="text" [placeholder]="pet.genre" />
-        </div>
-        <div class="form-group">
-          <label>İsim</label>
-          <input
-            #name="ngModel"
-            name="name"
-            [(ngModel)]="createPetModel.name"
-            type="text"
-            placeholder="İsim giriniz..."
-            required
-            minlength="2"
-          />
-        </div>
-        <div class="form-group">
-          <label>Yaş</label>
-          <input
-            #age="ngModel"
-            name="age"
-            [(ngModel)]="createPetModel.age"
-            type="number"
-            min="1"
-            max="20"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label>Cins</label>
-          <select
-            #genreId="ngModel"
-            name="genreId"
-            [(ngModel)]="createPetModel.genreId"
-            required
-          >
-            <option selected hidden>Tür Seçiniz...</option>
-            <option [value]="genre.id" *ngFor="let genre of genres">
-              {{ genre.name }}
-            </option>
-          </select>
-        </div>
-        <div>
-          <button
-            class="btn btn-success"
-            [disabled]="form.invalid"
-            [ngClass]="{ 'btn-disabled': form.invalid }"
-            (click)="createPet()"
-          >
-            Ekle
-          </button>
-        </div>
-        <div class="flex" *ngIf="isPetIdSelected">
-          <button
-            class="btn btn-success"
-            [ngClass]="{ 'btn-disabled': form.invalid }"
-            (click)="updatePet(selectedPetId.value)"
-            [disabled]="form.invalid"
-          >
-            Güncelle
-          </button>
-          <button
-            class="btn btn-danger"
-            (click)="deletePet(selectedPetId.value)"
-            [ngClass]="{ 'btn-disabled': !isPetIdSelected }"
-            [disabled]="!isPetIdSelected"
-          >
-            Sil
-          </button>
-        </div>
+          <div class="form-group">
+            <div class="flex">
+              <button type="submit" class="btn btn-success">Güncelle</button>
+              <button class="btn btn-danger" (click)="deletePet(petId.value)">
+                Sil
+              </button>
+            </div>
+          </div>
+        </form>
+        <form
+          [formGroup]="createPetForm"
+          class="custom-form"
+          (submit)="createPet(createPetForm)"
+          *ngIf="!isUpdatingPet"
+        >
+          <div class="form-group">
+            <label>İsim</label>
+            <input formControlName="name" type="text" />
+            <div
+              *ngIf="
+                !createPetForm.get('name')?.valid &&
+                (createPetForm.get('name')?.dirty ||
+                  createPetForm.get('name')?.touched)
+              "
+            >
+              <small
+                *ngIf="createPetForm.get('name')?.errors?.['required']"
+                class="error"
+                >Bu alan zorunludur!</small
+              >
+              <small
+                *ngIf="createPetForm.get('name')?.errors?.['minlength']"
+                class="error"
+                >İsim 2 karakterden kısa olamaz!</small
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tür</label>
+            <select formControlName="genre">
+              <option [value]="genre.id" *ngFor="let genre of genres">
+                {{ genre.name }}
+              </option>
+            </select>
+            <div *ngIf="!createPetForm.get('genre')?.valid">
+              <small
+                *ngIf="createPetForm.get('genre')?.errors?.['required']"
+                class="error"
+                >Bu alan boş bırakılamaz!</small
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Yaş</label>
+            <input formControlName="age" type="number" />
+            <div
+              *ngIf="
+                !createPetForm.get('age')?.valid &&
+                (createPetForm.get('age')?.dirty ||
+                  createPetForm.get('age')?.touched)
+              "
+            >
+              <small
+                *ngIf="createPetForm.get('age')?.errors?.['required']"
+                class="error"
+                >Bu alan zorunludur!</small
+              >
+              <small
+                *ngIf="createPetForm.get('age')?.errors?.['min']"
+                class="error"
+                >Yaş 0'dan küçük olamaz!</small
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [ngClass]="{ 'btn-disabled': !createPetForm.valid }"
+              [disabled]="!createPetForm.valid"
+            >
+              Ekle
+            </button>
+          </div>
+        </form>
       </form>
     </div>
   </div>
