@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <h1>{{ training.title }}</h1>
+  <p>{{ training.description }}</p>
+  <p>{{ training.address }} / {{ training.city }}</p>
+  <button class="btn btn-success">{{ training.price }} TL</button>
+</div>
+
+<section>
+  <header>
+    <h2>KURSİYERLER</h2>
+  </header>
+</section>
+
+<section>
+  <table>
+    <tr>
+      <th>İsim</th>
+      <th>Yaş</th>
+      <th>Tür</th>
+      <th>İletişim</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let pet of pets">
+      <td>{{ pet.name }}</td>
+      <td>{{ pet.age }}</td>
+      <td>{{ pet.genre }}</td>
+      <td>{{ pet.userEmail }}</td>
+      <td><button class="btn btn-danger">Sil</button></td>
+    </tr>
+  </table>
+</section>

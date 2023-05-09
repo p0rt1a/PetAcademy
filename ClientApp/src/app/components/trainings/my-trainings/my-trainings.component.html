@@ -28,7 +28,11 @@
         <p>{{ training.description }}</p>
       </div>
       <div class="badges">
-        <button class="btn btn-primary">
+        <button
+          href="/view-training"
+          class="btn btn-primary"
+          (click)="viewTraining(training.id)"
+        >
           <i class="fa-regular fa-eye"></i>
         </button>
         <button class="btn btn-warning" (click)="updateTrainings(training.id)">

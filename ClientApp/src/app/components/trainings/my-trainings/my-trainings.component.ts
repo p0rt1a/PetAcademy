@@ -33,4 +33,9 @@ export class MyTrainingsComponent implements OnInit {
     this.trainingsService.setSelectedTrainingId(id);
     this.router.navigate(['/update-training']);
   }
+
+  viewTraining(id: any) {
+    this.trainingsService.setSelectedTrainingId(id);
+    this.router.navigate(['/view-training']);
+  }
 }
