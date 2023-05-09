@@ -8,9 +8,10 @@ import { ProfileComponent } from './app/components/profile/profile.component';
 import { MyTrainingsComponent } from './app/components/trainings/my-trainings/my-trainings.component';
 import { UpdateTrainingComponent } from './app/components/trainings/update-training/update-training.component';
 import { CreateTrainingComponent } from './app/components/trainings/create-training/create-training.component';
+import { ViewTrainingComponent } from './app/components/trainings/view-training/view-training.component';
 
 export const appRoutes: Routes = [
-  { path: 'trainings', component: TrainingsComponent },
+  { path: '', component: TrainingsComponent },
   { path: 'training-detail', component: TrainingDetailComponent },
   { path: 'create-enrollment', component: CreateEnrollmentComponent },
   { path: 'register', component: RegisterComponent },
@@ -19,4 +20,5 @@ export const appRoutes: Routes = [
   { path: 'my-trainings', component: MyTrainingsComponent },
   { path: 'update-training', component: UpdateTrainingComponent },
   { path: 'create-training', component: CreateTrainingComponent },
+  { path: 'view-training', component: ViewTrainingComponent },
 ];
