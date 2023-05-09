@@ -5,6 +5,7 @@ import { UserDetailViewModel } from '../models/UserDetailViewModel';
 import { PetViewModel } from '../models/PetViewModel';
 import { UserPetViewModel } from '../models/UserPetViewModel';
 import { TrainingModel } from '../models/TrainingModel';
+import { UpdateUserModel } from '../models/UpdateUserModel';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,9 @@ export class UsersService {
 
   getUserTrainings(id: number): Observable<TrainingModel[]> {
     return this.http.get<TrainingModel[]>(this.url + '/' + id + '/trainings');
+  }
+
+  updateUser(id: number, model: UpdateUserModel) {
+    return this.http.put(this.url + '/' + id, model);
   }
 }
