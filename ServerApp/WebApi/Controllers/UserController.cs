@@ -37,6 +37,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpGet("{id}/pets")]
         public IActionResult GetPets(int id)
         {
@@ -48,6 +49,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpGet("{id}/trainings")]
         public IActionResult GetTrainings(int id)
         {
@@ -59,6 +61,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult UpdateUser(int id, [FromBody]UpdateUserModel model)
         {

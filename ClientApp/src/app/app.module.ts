@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,13 @@ import { MyTrainingsComponent } from './components/trainings/my-trainings/my-tra
 import { UpdateTrainingComponent } from './components/trainings/update-training/update-training.component';
 import { CreateTrainingComponent } from './components/trainings/create-training/create-training.component';
 import { ViewTrainingComponent } from './components/trainings/view-training/view-training.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuard } from './guards/auth-guard';
+import { TokenIntercaptor } from './services/token.intercaptor';
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -38,11 +45,24 @@ import { ViewTrainingComponent } from './components/trainings/view-training/view
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5000'],
+        disallowedRoutes: ['locahost:5000/api/auth'],
+      },
+    }),
     RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }),
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenIntercaptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

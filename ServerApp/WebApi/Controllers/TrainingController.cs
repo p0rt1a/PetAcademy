@@ -52,6 +52,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpGet("{id}/pets")]
         public IActionResult GetTrainingPets(int id)
         {
@@ -74,6 +75,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult CreateTraining([FromBody]CreateTrainingModel model)
         {
@@ -88,6 +90,7 @@ namespace WebApi.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult UpdateTraining(int id, [FromBody]UpdateTrainingModel model)
         {
@@ -103,6 +106,7 @@ namespace WebApi.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult DeleteTraining(int id)
         {

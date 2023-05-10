@@ -34,7 +34,9 @@ namespace WebApi.TokenOperations
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Aud, Configuration["Token:Audience"]),
+                    new Claim(JwtRegisteredClaimNames.Iss, Configuration["Token:Issuer"])
                 }),
                 Expires = DateTime.Now.AddHours(1),
                 SigningCredentials = signingCredentials

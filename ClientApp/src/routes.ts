@@ -9,16 +9,37 @@ import { MyTrainingsComponent } from './app/components/trainings/my-trainings/my
 import { UpdateTrainingComponent } from './app/components/trainings/update-training/update-training.component';
 import { CreateTrainingComponent } from './app/components/trainings/create-training/create-training.component';
 import { ViewTrainingComponent } from './app/components/trainings/view-training/view-training.component';
+import { AuthGuard } from './app/guards/auth-guard';
 
 export const appRoutes: Routes = [
   { path: 'trainings', component: TrainingsComponent },
   { path: 'training-detail', component: TrainingDetailComponent },
-  { path: 'create-enrollment', component: CreateEnrollmentComponent },
+  {
+    path: 'create-enrollment',
+    component: CreateEnrollmentComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'my-trainings', component: MyTrainingsComponent },
-  { path: 'update-training', component: UpdateTrainingComponent },
-  { path: 'create-training', component: CreateTrainingComponent },
-  { path: 'view-training', component: ViewTrainingComponent },
+  {
+    path: 'my-trainings',
+    component: MyTrainingsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'update-training',
+    component: UpdateTrainingComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'create-training',
+    component: CreateTrainingComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'view-training',
+    component: ViewTrainingComponent,
+    canActivate: [AuthGuard],
+  },
 ];
