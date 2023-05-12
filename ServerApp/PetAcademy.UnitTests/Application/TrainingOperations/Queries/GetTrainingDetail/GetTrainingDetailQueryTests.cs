@@ -33,5 +33,20 @@ namespace PetAcademy.UnitTests.Application.TrainingOperations.Queries.GetTrainin
                 .Invoking(() => query.Handle())
                 .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Eğitim bulunamadı");
         }
+
+        [Fact]
+        public void WhenExistTrainingIdIsGiven_Training_ShouldBeReturn()
+        {
+            GetTrainingDetailQuery query = new(_context, _mapper);
+            query.TrainingId = 1;
+
+            var training = FluentActions.Invoking(() => query.Handle()).Invoke();
+
+            training.Title.Should().NotBeNullOrEmpty();
+            training.Description.Should().NotBeNullOrEmpty();
+            training.Price.Should().BeGreaterThan(0);
+            training.MaxPetCount.Should().BeGreaterThan(0);
+            training.Genre.Should().NotBeNullOrEmpty();
+        }
     }
 }
