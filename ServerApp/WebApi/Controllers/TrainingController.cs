@@ -59,6 +59,9 @@ namespace WebApi.Controllers
             GetTrainingPetsQuery query = new(_context, _mapper);
             query.TrainingId = id;
 
+            GetTrainingPetsQueryValidator validator = new();
+            validator.ValidateAndThrow(query);
+
             var result = query.Handle();
 
             return Ok(result);
