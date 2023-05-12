@@ -23,14 +23,14 @@ namespace WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment
 
         public void Handle()
         {
-            var enrollment = _dbContext.Enrollments.SingleOrDefault(x => x.PetId == Model.PetId && x.TrainingId == Model.TrainingId);
-            var pet = _dbContext.Pets.Include(x => x.Genre).SingleOrDefault(x => x.Id == Model.PetId);
-            var training = _dbContext.Trainings.Include(x => x.Genre).SingleOrDefault(x => x.Id == Model.TrainingId);
+            var enrollment = _dbContext.Enrollments.FirstOrDefault(x => x.PetId == Model.PetId && x.TrainingId == Model.TrainingId);
+            var pet = _dbContext.Pets.SingleOrDefault(x => x.Id == Model.PetId);
+            var training = _dbContext.Trainings.SingleOrDefault(x => x.Id == Model.TrainingId);
 
             if (enrollment is not null)
                 throw new InvalidOperationException("Evcil hayvan zaten bu eğitimde mevcut.");
 
-            if (pet.Genre.Name != training.Genre.Name)
+            if (pet.GenreId != training.GenreId)
                 throw new InvalidOperationException("Evcil hayvan türü, eğitim türü için uygun değil.");
 
             enrollment = _mapper.Map<Enrollment>(Model);

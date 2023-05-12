@@ -21,12 +21,12 @@ namespace PetAcademy.UnitTests.TestSetup
                         new Enrollment()
                         {
                             TrainingId = 2,
-                            PetId = 1
+                            PetId = 2
                         },
                         new Enrollment()
                         {
                             TrainingId = 2,
-                            PetId = 2
+                            PetId = 3
                         }
                     );
         }

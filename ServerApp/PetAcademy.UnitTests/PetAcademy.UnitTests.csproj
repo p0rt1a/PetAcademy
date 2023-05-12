@@ -24,4 +24,8 @@
     <ProjectReference Include="..\WebApi\WebApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\EnrollmentOperations\Queries\" />
+  </ItemGroup>
+
 </Project>
