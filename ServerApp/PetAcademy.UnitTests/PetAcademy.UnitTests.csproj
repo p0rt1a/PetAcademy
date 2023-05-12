@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application\CommentOperations\Queries\" />
     <Folder Include="Application\EnrollmentOperations\Queries\" />
   </ItemGroup>
 
