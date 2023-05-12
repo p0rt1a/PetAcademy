@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApi.Common;
 using WebApi.DbOperations;
 
 namespace PetAcademy.UnitTests.TestSetup
@@ -20,7 +21,14 @@ namespace PetAcademy.UnitTests.TestSetup
             Context = new AcademyDbContext(options);
 
             Context.Database.EnsureCreated();
-            
+            Context.AddTrainings();
+            Context.AddGenres();
+            Context.AddUsers();
+            Context.AddPets();
+            Context.AddEnrollments();
+            Context.AddComments();
+
+            Mapper = new MapperConfiguration(config => { config.AddProfile<MappingProfile>(); }).CreateMapper();
         }
     }
 }

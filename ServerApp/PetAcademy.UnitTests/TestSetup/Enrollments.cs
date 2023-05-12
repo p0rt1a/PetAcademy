@@ -10,7 +10,7 @@ namespace PetAcademy.UnitTests.TestSetup
 {
     public static class Enrollments
     {
-        public static void CreateEnrollments(this AcademyDbContext context)
+        public static void AddEnrollments(this AcademyDbContext context)
         {
             context.Enrollments.AddRange(
                         new Enrollment()

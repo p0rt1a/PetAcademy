@@ -53,3 +53,5 @@ C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\Microsoft.Id
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\refint\WebApi.dll
 >>>>>>> parent of 93ff1dd (Fix user email & password check if statement in login command)
+C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\bin\Debug\net5.0\ref\WebApi.dll
+C:\Users\alper\Desktop\PetAcademy\ServerApp\WebApi\obj\Debug\net5.0\staticwebassets\WebApi.StaticWebAssets.xml
