@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32901.82
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi.csproj", "{A2C49EDE-98B8-42BF-AB12-3B6F2A1C0E5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi.csproj", "{A2C49EDE-98B8-42BF-AB12-3B6F2A1C0E5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5B565B49-3571-4C58-9CBC-093694391EB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetAcademy.UnitTests", "..\PetAcademy.UnitTests\PetAcademy.UnitTests.csproj", "{B315BEA7-A153-4A28-9E86-E9AEB2DF2CD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{A2C49EDE-98B8-42BF-AB12-3B6F2A1C0E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2C49EDE-98B8-42BF-AB12-3B6F2A1C0E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2C49EDE-98B8-42BF-AB12-3B6F2A1C0E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B315BEA7-A153-4A28-9E86-E9AEB2DF2CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B315BEA7-A153-4A28-9E86-E9AEB2DF2CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B315BEA7-A153-4A28-9E86-E9AEB2DF2CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B315BEA7-A153-4A28-9E86-E9AEB2DF2CD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B315BEA7-A153-4A28-9E86-E9AEB2DF2CD2} = {5B565B49-3571-4C58-9CBC-093694391EB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C5A89938-D83C-4CC1-B609-7DBEA68A3573}
