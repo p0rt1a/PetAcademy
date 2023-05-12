@@ -12,6 +12,7 @@ namespace WebApi.Application.CommentOperations.Commands.CreateComment
         {
             RuleFor(command => command.Model.UserId).GreaterThan(0);
             RuleFor(command => command.Model.TrainingId).GreaterThan(0);
+            RuleFor(command => command.Model.Body.Trim()).MinimumLength(5);
         }
     }
 }
