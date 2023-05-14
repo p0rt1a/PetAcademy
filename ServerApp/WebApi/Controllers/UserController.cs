@@ -73,6 +73,9 @@ namespace WebApi.Controllers
             command.UserId = id;
             command.Model = model;
 
+            UpdateUserCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
+
             command.Handle();
 
             return Ok();
