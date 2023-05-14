@@ -17,7 +17,7 @@ using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingPets;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.Application.UserOperations.Queries.GetPets;
-using WebApi.Application.UserOperations.Queries.GetUserDetail;
+using WebApi.Application.UserOperations.Queries.UserDetail;
 using WebApi.Entities;
 
 namespace WebApi.Common

@@ -15,7 +15,6 @@ C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.0\PetAcademy.UnitTests.runtimeconfig.json
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.0\PetAcademy.UnitTests.runtimeconfig.dev.json
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.0\PetAcademy.UnitTests.dll
-C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.0\ref\PetAcademy.UnitTests.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.0\PetAcademy.UnitTests.pdb
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
@@ -137,3 +136,4 @@ C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\obj\Debug\net5.
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\obj\Debug\net5.0\ref\PetAcademy.UnitTests.dll
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\obj\Debug\net5.0\PetAcademy.UnitTests.pdb
 C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\obj\Debug\net5.0\PetAcademy.UnitTests.genruntimeconfig.cache
+C:\Users\alper\Desktop\PetAcademy\ServerApp\PetAcademy.UnitTests\bin\Debug\net5.0\ref\PetAcademy.UnitTests.dll

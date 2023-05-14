@@ -27,7 +27,6 @@
   <ItemGroup>
     <Folder Include="Application\CommentOperations\Queries\" />
     <Folder Include="Application\EnrollmentOperations\Queries\" />
-    <Folder Include="Application\UserOperations\Commands\" />
   </ItemGroup>
 
 </Project>
