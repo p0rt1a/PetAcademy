@@ -8,15 +8,15 @@ using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.DbOperations;
 using WebApi.Entities;
 
-namespace WebApi.Application.UserOperations.Queries.GetUserTrainings
+namespace WebApi.Application.UserOperations.Queries.UserTrainings
 {
-    public class GetUserTrainingsQuery
+    public class UserTrainingsQuery
     {
         private readonly IAcademyDbContext _dbContext;
         private readonly IMapper _mapper;
         public int UserId { get; set; }
 
-        public GetUserTrainingsQuery(IAcademyDbContext dbContext, IMapper mapper)
+        public UserTrainingsQuery(IAcademyDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;

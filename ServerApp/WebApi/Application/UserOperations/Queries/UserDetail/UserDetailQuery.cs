@@ -5,15 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
 
-namespace WebApi.Application.UserOperations.Queries.GetUserDetail
+namespace WebApi.Application.UserOperations.Queries.UserDetail
 {
-    public class GetUserDetailQuery
+    public class UserDetailQuery
     {
         private readonly IAcademyDbContext _dbContext;
         private readonly IMapper _mapper;
         public int UserId { get; set; }
 
-        public GetUserDetailQuery(IAcademyDbContext dbContext, IMapper mapper)
+        public UserDetailQuery(IAcademyDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;

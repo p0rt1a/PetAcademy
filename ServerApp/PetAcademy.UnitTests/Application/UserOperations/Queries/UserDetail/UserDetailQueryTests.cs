@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebApi.Application.UserOperations.Queries.GetUserDetail;
+using WebApi.Application.UserOperations.Queries.UserDetail;
 using WebApi.DbOperations;
 using Xunit;
 
@@ -26,7 +26,7 @@ namespace PetAcademy.UnitTests.Application.UserOperations.Queries.UserDetail
         [Fact]
         public void WhenDoesNotExistUserIdIsGiven_InvalidOperationException_ShouldBeReturn()
         {
-            GetUserDetailQuery query = new(_context, _mapper);
+            UserDetailQuery query = new(_context, _mapper);
             query.UserId = 0;
 
             FluentActions.Invoking(() => query.Handle())
@@ -36,7 +36,7 @@ namespace PetAcademy.UnitTests.Application.UserOperations.Queries.UserDetail
         [Fact]
         public void WhenAlreadyExistUserIdIsGiven_User_ShouldBeReturn()
         {
-            GetUserDetailQuery query = new(_context, _mapper);
+            UserDetailQuery query = new(_context, _mapper);
             query.UserId = 1;
 
             var result = FluentActions.Invoking(() => query.Handle()).Invoke();
