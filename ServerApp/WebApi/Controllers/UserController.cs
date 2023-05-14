@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -31,6 +32,9 @@ namespace WebApi.Controllers
         {
             UserDetailQuery query = new(_context, _mapper);
             query.UserId = id;
+
+            UserDetailQueryValidator validator = new();
+            validator.ValidateAndThrow(query);
 
             var result = query.Handle();
 
