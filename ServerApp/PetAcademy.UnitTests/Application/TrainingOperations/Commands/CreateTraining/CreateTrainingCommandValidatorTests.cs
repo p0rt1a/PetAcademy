@@ -20,6 +20,8 @@ namespace PetAcademy.UnitTests.Application.TrainingOperations.Commands.CreateTra
         [InlineData("Invalid", "Valid Description Sample", "Valid City Sample", " ", 1, 1)]
         [InlineData("Valid Title Sample", "   ", "   ", "Valid Address", 1, 1)]
         [InlineData("Invalid", "Valid Description Sample", "Valid City Sample", "Valid Address", 1, 1)]
+        [InlineData("Valid Title Sample", "Valid Description Sample", "Valid City Sample", "Valid Address", -2, -7)]
+        [InlineData("      ", "Valid Description Sample", "       ", "      ", 2, -3)]
         public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturnErrors(string title, string description, string city, string address, decimal price, int userId)
         {
             CreateTrainingCommand command = new(null, null);
