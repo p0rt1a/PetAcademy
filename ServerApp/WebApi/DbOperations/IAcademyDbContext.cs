@@ -12,6 +12,7 @@ namespace WebApi.DbOperations
         DbSet<Enrollment> Enrollments { get; set; }
         DbSet<User> Users { get; set; }
         DbSet<Comment> Comments { get; set; }
+        DbSet<Certificate> Certificates { get; set; }
         int SaveChanges();
     }
 }
