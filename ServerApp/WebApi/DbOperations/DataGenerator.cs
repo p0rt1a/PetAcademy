@@ -195,6 +195,21 @@ namespace WebApi.DbOperations
                         }
                     );
 
+                context.Certificates.AddRange(
+                        new Certificate()
+                        {
+                            PetId = 1,
+                            TrainingId = 1,
+                            Date = DateTime.Now.Date
+                        },
+                        new Certificate()
+                        {
+                            PetId = 2,
+                            TrainingId = 2,
+                            Date = DateTime.Now.Date
+                        }
+                    );
+
                 context.SaveChanges();
             }
         }

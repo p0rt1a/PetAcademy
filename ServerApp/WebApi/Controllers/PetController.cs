@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using WebApi.Application.PetOperations.Commands.CreatePet;
 using WebApi.Application.PetOperations.Commands.DeletePet;
 using WebApi.Application.PetOperations.Commands.UpdatePet;
+using WebApi.Application.PetOperations.Queries.PetCertificates;
 using WebApi.Application.PetOperations.Queries.PetDetail;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class PetController : ControllerBase
@@ -36,6 +37,17 @@ namespace WebApi.Controllers
 
             PetDetailQueryValidator validator = new();
             validator.ValidateAndThrow(query);
+
+            var result = query.Handle();
+
+            return Ok(result);
+        }
+
+        [HttpGet("{id}/certificates")]
+        public IActionResult GetPetCertificates(int id)
+        {
+            PetCertificatesQuery query = new(_context, _mapper);
+            query.PetId = id;
 
             var result = query.Handle();
 

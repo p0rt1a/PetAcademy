@@ -10,6 +10,7 @@ using WebApi.Application.CommentOperations.Commands.CreateComment;
 using WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
 using WebApi.Application.PetOperations.Commands.CreatePet;
+using WebApi.Application.PetOperations.Queries.PetCertificates;
 using WebApi.Application.PetOperations.Queries.PetDetail;
 using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetComments;
@@ -59,6 +60,10 @@ namespace WebApi.Common
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name.ToString()));
             CreateMap<Pet, PetViewModel>()
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
+            CreateMap<Certificate, PetCertificateViewModel>()
+                .ForMember(dest => dest.GraduateDate, opt => opt.MapFrom(src => src.Date.ToString("dd/MM/yyyy")))
+                .ForMember(dest => dest.TrainingTitle, opt => opt.MapFrom(src => src.Training.Title))
+                .ForMember(dest => dest.PetName, opt => opt.MapFrom(src => src.Pet.Name));
             #endregion
 
             #region User Mappings
