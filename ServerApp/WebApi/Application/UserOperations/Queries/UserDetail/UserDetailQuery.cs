@@ -34,6 +34,7 @@ namespace WebApi.Application.UserOperations.Queries.UserDetail
 
     public class UserDetailViewModel
     {
+        public string Image { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }

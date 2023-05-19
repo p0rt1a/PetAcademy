@@ -39,6 +39,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetComments
         public int UserId { get; set; }
         public string Body { get; set; }
         public string User { get; set; }
+        public string UserImage { get; set; }
         public string Date { get; set; }
     }
 }

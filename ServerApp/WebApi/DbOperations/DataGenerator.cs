@@ -144,6 +144,7 @@ namespace WebApi.DbOperations
                 context.Users.AddRange(
                         new User()
                         {
+                            Image = "user_1.jpg",
                             Name = "Alperen",
                             Surname = "Polat",
                             Email = "alperen@hotmail.com",
@@ -152,6 +153,7 @@ namespace WebApi.DbOperations
                         },
                         new User()
                         {
+                            Image = "user_2.jpg",
                             Name = "Kerem",
                             Surname = "Yılmaz",
                             Email = "kerem@hotmail.com",

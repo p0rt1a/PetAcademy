@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Threading.Tasks;
@@ -67,15 +68,31 @@ namespace WebApi.Common
             #endregion
 
             #region User Mappings
-            CreateMap<User, UserDetailViewModel>();
+            CreateMap<User, UserDetailViewModel>()
+                .ForMember(dest => dest.Image, opt => opt.MapFrom(src => ConvertImageToBase64(src.Image)));
             #endregion
 
             #region Comment Mappings
             CreateMap<Comment, TrainingCommentViewModel>()
                 .ForMember(dest => dest.User, opt => opt.MapFrom(src => $"{src.User.Name} {src.User.Surname}"))
-                .ForMember(dest => dest.Date, opt => opt.MapFrom(src => src.Date.ToString("dd/MM/yyyy")));
+                .ForMember(dest => dest.Date, opt => opt.MapFrom(src => src.Date.ToString("dd/MM/yyyy")))
+                .ForMember(dest => dest.UserImage, opt => opt.MapFrom(src => ConvertImageToBase64(src.User.Image)));
             CreateMap<CreateCommentModel, Comment>();
             #endregion
+        }
+
+        public string ConvertImageToBase64(string imagePath)
+        {
+            if (imagePath is null or "")
+                return "";
+
+            string localPath = "Images";
+            string localFilePath = Path.Combine(localPath, imagePath);
+
+            byte[] imageBytes = File.ReadAllBytes(localFilePath);
+            string base64string = "data:image/png;base64," + Convert.ToBase64String(imageBytes);
+
+            return base64string;
         }
     }
 }
