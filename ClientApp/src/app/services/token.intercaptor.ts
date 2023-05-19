@@ -8,6 +8,8 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 
+declare let alertify: any;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -26,7 +28,7 @@ export class TokenIntercaptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.log(error);
+        alertify.error(error.error.error);
 
         return throwError('Error occured');
       })

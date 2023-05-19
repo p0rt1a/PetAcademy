@@ -27,12 +27,21 @@
         <h2>Kişisel Bilgiler</h2>
       </div>
       <div class="form-group">
+        <img
+          [src]="imgUrl"
+          [width]="imgUrl ? 200 : 0"
+          [height]="imgUrl ? 200 : 0"
+        />
+        <label>Fotoğraf</label>
+        <input type="file" (change)="onFileLoaded($event)" />
+      </div>
+      <div class="form-group">
         <label>İsim</label>
-        <input type="text" [value]="user.name" />
+        <input type="text" [value]="user.name" disabled />
       </div>
       <div class="form-group">
         <label>Soyisim</label>
-        <input type="text" [value]="user.surname" />
+        <input type="text" [value]="user.surname" disabled />
       </div>
       <div class="form-group">
         <label>Email</label>

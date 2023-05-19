@@ -23,7 +23,7 @@ declare let alertify: any;
   styleUrls: ['./create-enrollment.component.css'],
 })
 export class CreateEnrollmentComponent implements OnInit {
-  user: UserDetailViewModel = new UserDetailViewModel('', '', '');
+  user: UserDetailViewModel = new UserDetailViewModel('', '', '', '');
   pets: UserPetViewModel[] = [];
   training: TrainingDetailModel = new TrainingDetailModel(
     '',

@@ -38,8 +38,13 @@
   <div class="cards big-container">
     <div class="card card-rectangle" *ngFor="let comment of comments">
       <div class="card-head">
-        <h2>{{ comment.user }}</h2>
-        <small class="badge badge-fancy">{{ comment.date }}</small>
+        <div class="flex">
+          <img class="user-image" [src]="comment.userImage" />
+          <div>
+            <h2>{{ comment.user }}</h2>
+            <small class="badge badge-fancy">{{ comment.date }}</small>
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <p>{{ comment.body }}</p>

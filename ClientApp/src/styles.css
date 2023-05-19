@@ -70,6 +70,18 @@ header h3 {
   }
 }
 
+.user-image {
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+}
+@media only screen and (min-width: 640px) {
+  .user-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 /* FORMS */
 input,
 select,

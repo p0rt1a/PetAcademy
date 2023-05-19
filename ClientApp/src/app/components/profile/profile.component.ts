@@ -42,8 +42,9 @@ export class ProfileComponent implements OnInit {
     name: new FormControl(),
     age: new FormControl(),
   });
-  user: UserDetailViewModel = new UserDetailViewModel('', '', '');
-  updateUserModel: UpdateUserModel = new UpdateUserModel('');
+  user: UserDetailViewModel = new UserDetailViewModel('', '', '', '');
+  updateUserModel: UpdateUserModel = new UpdateUserModel('', '');
+  imgUrl: string = '';
 
   updateUserForm: FormGroup = new FormGroup({
     email: new FormControl(),
@@ -86,6 +87,40 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  onFileLoaded(event: any) {
+    var file: File = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataURL = reader.result as string;
+      this.convertToImageBitmap(dataURL);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  convertToImageBitmap(dataURL: string) {
+    fetch(dataURL)
+      .then((response) => response.blob())
+      .then((blob) => createImageBitmap(blob))
+      .then((imageBitmap) => {
+        this.convertImageToBase64(imageBitmap);
+      })
+      .catch((error) => console.timeLog(error));
+  }
+
+  convertImageToBase64(image: ImageBitmap) {
+    const img = image;
+    const canvas = document.createElement('canvas');
+    const cts = canvas.getContext('2d');
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    cts?.drawImage(img, 0, 0);
+
+    const dataURL = canvas.toDataURL('image/png');
+    this.imgUrl = dataURL;
+  }
+
   getPetDetail(id: any) {
     this.petsService.getPetDetail(id).subscribe((response) => {
       this.pet = response;
@@ -111,13 +146,20 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser(form: FormGroup) {
+    form.value.email =
+      form.value.email != null ? form.value.email : this.user.email;
     this.updateUserModel.email = form.value.email;
+    this.updateUserModel.image =
+      this.imgUrl != '' ? this.imgUrl.split(',', 2)[1] : '';
 
     let userId: number = this.authService.getUserId();
     this.usersService.updateUser(userId, this.updateUserModel).subscribe(
       (response) => {
         if (response.status == 200) {
           alertify.success('Güncelleme işlemi başarılı.');
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/profile']);
         }
       },
       (error) => {

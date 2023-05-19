@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/trainings']);
       },
       (error) => {
-        alertify.error(error.error.error);
         this.router.routeReuseStrategy.shouldReuseRoute = () => false;
         this.router.onSameUrlNavigation = 'reload';
         this.router.navigate(['/login']);
