@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CreateCertificateModel } from 'src/app/models/CreateCertificateModel';
 import { TrainingDetailModel } from 'src/app/models/TrainingDetailModel';
 import { TrainingPetViewModel } from 'src/app/models/TrainingPetViewModel';
+import { CertificateService } from 'src/app/services/certificate.service';
 import { TrainingsService } from 'src/app/services/trainings.service';
+
+declare let alertify: any;
 
 @Component({
   selector: 'app-view-training',
@@ -23,7 +28,11 @@ export class ViewTrainingComponent implements OnInit {
   );
   pets: TrainingPetViewModel[] = [];
 
-  constructor(private trainingsService: TrainingsService) {}
+  constructor(
+    private trainingsService: TrainingsService,
+    private certificatesService: CertificateService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.trainingsService.selectedTrainingId.subscribe((res) => {
@@ -41,5 +50,24 @@ export class ViewTrainingComponent implements OnInit {
       .subscribe((response) => {
         this.training = response;
       });
+  }
+
+  graduate(petId: number) {
+    let model: CreateCertificateModel = new CreateCertificateModel(
+      petId,
+      this.selectedTrainingId
+    );
+
+    this.certificatesService.createCertificate(model).subscribe(
+      (response) => {
+        if (response.status == 200) {
+          alertify.success('Mezun etme işlemi başarılı!');
+          this.router.navigate(['/my-trainings']);
+        }
+      },
+      (error) => {
+        alertify.alertify(error.error.error);
+      }
+    );
   }
 }

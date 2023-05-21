@@ -18,14 +18,19 @@
       <th>Yaş</th>
       <th>Tür</th>
       <th>İletişim</th>
-      <th></th>
+      <th>İşlem</th>
     </tr>
     <tr *ngFor="let pet of pets">
       <td>{{ pet.name }}</td>
       <td>{{ pet.age }}</td>
       <td>{{ pet.genre }}</td>
       <td>{{ pet.userEmail }}</td>
-      <td><button class="btn btn-danger">Sil</button></td>
+      <td>
+        <button class="btn btn-success" (click)="graduate(pet.petId)">
+          Mezun Et
+        </button>
+        <button class="btn btn-danger">Sil</button>
+      </td>
     </tr>
   </table>
 </section>
