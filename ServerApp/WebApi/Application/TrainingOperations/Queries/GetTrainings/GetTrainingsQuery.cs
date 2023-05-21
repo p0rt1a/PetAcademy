@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using WebApi.DbOperations;
 using WebApi.Entities;
@@ -27,6 +28,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
         {
             var trainings = _dbContext.Trainings
                 .Include(x => x.Genre)
+                .Where(x => x.Enrollments.Count < x.MaxPetCount)
                 .ToList<Training>();
 
             if (Title != default)

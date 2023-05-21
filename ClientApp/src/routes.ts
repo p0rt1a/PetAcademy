@@ -10,6 +10,7 @@ import { UpdateTrainingComponent } from './app/components/trainings/update-train
 import { CreateTrainingComponent } from './app/components/trainings/create-training/create-training.component';
 import { ViewTrainingComponent } from './app/components/trainings/view-training/view-training.component';
 import { AuthGuard } from './app/guards/auth-guard';
+import { CertificateComponent } from './app/components/certificate/certificate.component';
 
 export const appRoutes: Routes = [
   { path: 'trainings', component: TrainingsComponent },
@@ -41,5 +42,9 @@ export const appRoutes: Routes = [
     path: 'view-training',
     component: ViewTrainingComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'certificate',
+    component: CertificateComponent,
   },
 ];
