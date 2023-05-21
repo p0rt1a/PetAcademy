@@ -43,6 +43,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainingPets
 
     public class TrainingPetViewModel
     {
+        public int PetId { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public string Genre { get; set; }

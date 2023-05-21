@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Threading.Tasks;
 using WebApi.Application.AuthOperations.Commands.Register;
+using WebApi.Application.CertificateOperations.Commands.CreateCertificate;
 using WebApi.Application.CommentOperations.Commands.CreateComment;
 using WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
@@ -78,6 +79,10 @@ namespace WebApi.Common
                 .ForMember(dest => dest.Date, opt => opt.MapFrom(src => src.Date.ToString("dd/MM/yyyy")))
                 .ForMember(dest => dest.UserImage, opt => opt.MapFrom(src => ConvertImageToBase64(src.User.Image)));
             CreateMap<CreateCommentModel, Comment>();
+            #endregion
+
+            #region Certificate Mappings
+            CreateMap<CreateCertificateModel, Certificate>();
             #endregion
         }
 
