@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
@@ -8,9 +9,11 @@ import jsPDF from 'jspdf';
   styleUrls: ['./certificate.component.css'],
 })
 export class CertificateComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.convertToPdf('certificate');
+  }
 
   convertToPdf(elementId: string) {
     const element = document.getElementById(elementId);
@@ -26,6 +29,7 @@ export class CertificateComponent implements OnInit {
 
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
         pdf.save('certificate.pdf');
+        this.router.navigateByUrl('');
       });
     }
   }
