@@ -2,6 +2,9 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { PetCertificateViewModel } from 'src/app/models/PetCertificateViewModel';
+import { CertificateService } from 'src/app/services/certificate.service';
+import { PetsService } from 'src/app/services/pets.service';
 
 @Component({
   selector: 'app-certificate',
@@ -9,10 +12,21 @@ import jsPDF from 'jspdf';
   styleUrls: ['./certificate.component.css'],
 })
 export class CertificateComponent implements OnInit {
-  constructor(private router: Router) {}
+  certificate: PetCertificateViewModel = new PetCertificateViewModel(
+    '',
+    '',
+    ''
+  );
+
+  constructor(
+    private router: Router,
+    private certificateService: CertificateService
+  ) {}
 
   ngOnInit(): void {
-    this.convertToPdf('certificate');
+    this.certificateService.certificate.subscribe((response) => {
+      this.certificate = response;
+    });
   }
 
   convertToPdf(elementId: string) {
@@ -29,7 +43,6 @@ export class CertificateComponent implements OnInit {
 
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
         pdf.save('certificate.pdf');
-        this.router.navigateByUrl('');
       });
     }
   }

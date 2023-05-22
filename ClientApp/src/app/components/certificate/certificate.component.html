@@ -1,4 +1,8 @@
 <section>
+  <button class="btn btn-success" (click)="convertToPdf('certificate')">
+    İndir
+  </button>
+
   <div id="certificate" class="certificate-border">
     <div class="content">
       <div class="head">
@@ -6,13 +10,15 @@
       </div>
       <div class="body">
         <h3>Bu belgeyi</h3>
-        <p>XX.XX.XXXX</p>
+        <p>{{ certificate.graduateDate }}</p>
         <h3>
           tarihinde,
-          <span style="color: var(--primary)">XXXXX</span> eğitimindeki başarısı
-          ile
+          <span style="color: var(--primary)">{{
+            certificate.trainingTitle
+          }}</span>
+          eğitimindeki başarısı ile
         </h3>
-        <p>XXXXX</p>
+        <p>{{ certificate.petName }}</p>
         <h3>almaya hak kazanmıştır.</h3>
         <h3 class="pet-academy">PetAcademy</h3>
       </div>

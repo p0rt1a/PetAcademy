@@ -210,7 +210,18 @@
       <div class="card-body">
         <p>{{ certificate.petName }}</p>
       </div>
-      <button class="btn btn-success">Sertifika İndir</button>
+      <button
+        class="btn btn-success"
+        (click)="
+          getCertificate(
+            certificate.trainingTitle,
+            certificate.petName,
+            certificate.graduateDate
+          )
+        "
+      >
+        Sertifika İndir
+      </button>
     </div>
   </div>
 </section>

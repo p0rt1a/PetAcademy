@@ -15,6 +15,7 @@ import { UpdateUserModel } from 'src/app/models/UpdateUserModel';
 import { UserDetailViewModel } from 'src/app/models/UserDetailViewModel';
 import { UserPetViewModel } from 'src/app/models/UserPetViewModel';
 import { AuthService } from 'src/app/services/auth.service';
+import { CertificateService } from 'src/app/services/certificate.service';
 import { GenresService } from 'src/app/services/genres.service';
 import { PetsService } from 'src/app/services/pets.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -58,7 +59,8 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     private genresService: GenresService,
     private petsService: PetsService,
-    private router: Router
+    private router: Router,
+    private certificateService: CertificateService
   ) {}
 
   ngOnInit(): void {
@@ -131,6 +133,17 @@ export class ProfileComponent implements OnInit {
     this.petsService.getPetCertificates(id).subscribe((response) => {
       this.certificates = response;
     });
+  }
+
+  getCertificate(trainingTitle: string, petName: string, graduateDate: string) {
+    let model: PetCertificateViewModel = new PetCertificateViewModel(
+      trainingTitle,
+      graduateDate,
+      petName
+    );
+    this.certificateService.setCertificate(model);
+
+    this.router.navigate(['certificate']);
   }
 
   updatePet(id: any) {
