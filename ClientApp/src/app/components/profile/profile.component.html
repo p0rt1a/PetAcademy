@@ -191,3 +191,26 @@
     </div>
   </div>
 </section>
+
+<header *ngIf="isUpdatingPet">
+  <h2>SERTİFİKALAR</h2>
+</header>
+
+<section>
+  <div class="cards">
+    <div class="card card-square" *ngFor="let certificate of certificates">
+      <div class="card-head">
+        <h2>{{ certificate.trainingTitle }}</h2>
+        <div class="badges">
+          <small class="badge badge-fancy">{{
+            certificate.graduateDate
+          }}</small>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>{{ certificate.petName }}</p>
+      </div>
+      <button class="btn btn-success">Sertifika İndir</button>
+    </div>
+  </div>
+</section>

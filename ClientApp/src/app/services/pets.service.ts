@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { PetViewModel } from '../models/PetViewModel';
 import { CreatePetModel } from '../models/CreatePetModel';
 import { UpdatePetModel } from '../models/UpdatePetModel';
+import { PetCertificateViewModel } from '../models/PetCertificateViewModel';
 
 @Injectable({
   providedIn: 'root',
@@ -17,12 +18,20 @@ export class PetsService {
     return this.http.get<PetViewModel>(this.url + '/' + id);
   }
 
+  getPetCertificates(id: number): Observable<PetCertificateViewModel[]> {
+    return this.http.get<PetCertificateViewModel[]>(
+      this.url + '/' + id + '/certificates'
+    );
+  }
+
   createPet(model: CreatePetModel) {
     return this.http.post(this.url, model, { observe: 'response' });
   }
 
   deletePet(id: number) {
-    return this.http.delete(this.url + '/' + id, { observe: 'response' });
+    return this.http.delete(this.url + '/' + id, {
+      observe: 'response',
+    });
   }
 
   updatePet(id: number, model: UpdatePetModel) {

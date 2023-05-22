@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { CreatePetModel } from 'src/app/models/CreatePetModel';
 import { GenreModel } from 'src/app/models/GenreModel';
+import { PetCertificateViewModel } from 'src/app/models/PetCertificateViewModel';
 import { PetViewModel } from 'src/app/models/PetViewModel';
 import { UpdatePetModel } from 'src/app/models/UpdatePetModel';
 import { UpdateUserModel } from 'src/app/models/UpdateUserModel';
@@ -49,6 +50,7 @@ export class ProfileComponent implements OnInit {
   updateUserForm: FormGroup = new FormGroup({
     email: new FormControl(),
   });
+  certificates: PetCertificateViewModel[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -124,6 +126,10 @@ export class ProfileComponent implements OnInit {
   getPetDetail(id: any) {
     this.petsService.getPetDetail(id).subscribe((response) => {
       this.pet = response;
+    });
+
+    this.petsService.getPetCertificates(id).subscribe((response) => {
+      this.certificates = response;
     });
   }
 
