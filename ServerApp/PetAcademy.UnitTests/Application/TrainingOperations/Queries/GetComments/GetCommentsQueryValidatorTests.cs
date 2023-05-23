@@ -25,5 +25,17 @@ namespace PetAcademy.UnitTests.Application.TrainingOperations.Queries.GetComment
 
             result.Errors.Count.Should().BeGreaterThan(0);
         }
+
+        [Fact]
+        public void WhenValidTrainingIdIsGiven_Validator_ShouldNotBeReturnError()
+        {
+            GetCommentsQuery query = new(null, null);
+            query.TrainingId = 0;
+
+            GetCommentsQueryValidator validator = new();
+            var result = validator.Validate(query);
+
+            result.Errors.Count.Should().Equals(0);
+        }
     }
 }
