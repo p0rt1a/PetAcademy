@@ -15,7 +15,7 @@ namespace PetAcademy.UnitTests.Application.TrainingOperations.Queries.GetComment
     public class GetCommentsQueryValidatorTests
     {
         [Fact]
-        public void WhenınvalidTrainingIdIsGiven_Validator_ShouldBeReturnError()
+        public void WhenInvalidTrainingIdIsGiven_Validator_ShouldBeReturnError()
         {
             GetCommentsQuery query = new(null, null);
             query.TrainingId = 0;

@@ -23,6 +23,11 @@ namespace WebApi.Application.TrainingOperations.Queries.GetComments
 
         public List<TrainingCommentViewModel> Handle()
         {
+            var training = _dbContext.Trainings.SingleOrDefault(x => x.Id == TrainingId);
+
+            if (training is null)
+                throw new InvalidOperationException("Eğitim mevcut değil!");
+
             var comments = _dbContext.Comments
                 .Include(x => x.User)
                 .Where(x => x.TrainingId == TrainingId)
