@@ -23,6 +23,11 @@ namespace WebApi.Application.PetOperations.Queries.PetCertificates
 
         public List<PetCertificateViewModel> Handle()
         {
+            var pet = _dbContext.Pets.SingleOrDefault(x => x.Id == PetId);
+
+            if (pet is null)
+                throw new InvalidOperationException("Evcil hayvan bulunamadı!");
+
             var certificates = _dbContext.Certificates
                 .Include(x => x.Pet)
                 .Include(x => x.Training)
