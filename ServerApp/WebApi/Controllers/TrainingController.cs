@@ -6,6 +6,7 @@ using WebApi.Application.TrainingOperations.Commands.CreateTraining;
 using WebApi.Application.TrainingOperations.Commands.DeleteTraining;
 using WebApi.Application.TrainingOperations.Commands.UpdateTraining;
 using WebApi.Application.TrainingOperations.Queries.GetComments;
+using WebApi.Application.TrainingOperations.Queries.GetRunningOutTrainings;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingPets;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
@@ -33,6 +34,15 @@ namespace WebApi.Controllers
             query.Title = title;
             query.City = city;
             query.Genre = genre;
+            var result = query.Handle();
+
+            return Ok(result);
+        }
+
+        [HttpGet("runningout")]
+        public IActionResult GetRunningOutTrainings()
+        {
+            GetRunningOutTrainingsQuery query = new(_context, _mapper);
             var result = query.Handle();
 
             return Ok(result);
