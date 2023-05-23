@@ -23,6 +23,11 @@ namespace WebApi.Application.UserOperations.Queries.GetPets
 
         public List<UserPetViewModel> Handle()
         {
+            var user = _dbContext.Users.SingleOrDefault(x => x.Id == UserId);
+
+            if (user is null)
+                throw new InvalidOperationException("Kullanıcı mevcut değil!");
+
             var pets = _dbContext.Pets
                 .Include(x => x.Genre)
                 .Where(x => x.UserId == UserId)
