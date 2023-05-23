@@ -11,8 +11,10 @@ import { CreateTrainingComponent } from './app/components/trainings/create-train
 import { ViewTrainingComponent } from './app/components/trainings/view-training/view-training.component';
 import { AuthGuard } from './app/guards/auth-guard';
 import { CertificateComponent } from './app/components/certificate/certificate.component';
+import { HomeComponent } from './app/components/home/home.component';
 
 export const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'trainings', component: TrainingsComponent },
   { path: 'training-detail', component: TrainingDetailComponent },
   {

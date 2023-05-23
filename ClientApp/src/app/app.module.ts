@@ -22,6 +22,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './guards/auth-guard';
 import { TokenIntercaptor } from './services/token.intercaptor';
 import { CertificateComponent } from './components/certificate/certificate.component';
+import { HomeComponent } from './components/home/home.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -42,6 +43,7 @@ export function tokenGetter() {
     CreateTrainingComponent,
     ViewTrainingComponent,
     CertificateComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

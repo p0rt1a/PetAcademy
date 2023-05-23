@@ -1,0 +1,86 @@
+<div class="hero">
+  <div class="light-shadow"></div>
+  <div class="content">
+    <h2>PetAcademy</h2>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga provident
+      sequi similique. Aut hic nam molestias a. Dolor animi harum tempore optio
+      reiciendis, dolorem rerum fugiat laborum.
+    </p>
+    <button class="btn btn-success">Keşfetmeye Başla!</button>
+  </div>
+</div>
+
+<div class="about-us">
+  <div class="content">
+    <h2>PetAcademy Nedir?</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed perferendis
+      error velit, dolorem possimus maiores et neque consectetur accusamus.
+      Temporibus ullam vel adipisci, voluptate eius nemo modi possimus, autem
+      veritatis, quisquam vitae sit explicabo perspiciatis!
+    </p>
+  </div>
+  <img src="../../../assets/images/about-us-icon.png" />
+</div>
+
+<section class="bg-primary data">
+  <header>
+    <h2>ANLIK OLARAK;</h2>
+  </header>
+
+  <div class="info">
+    <div class="info-card">
+      <h2>{{ genres.length }}</h2>
+      <h3>çeşit evcil hayvana</h3>
+    </div>
+    <div class="info-card">
+      <h2>{{ trainings.length }}</h2>
+      <h3>adet eğitim sunuyoruz..</h3>
+    </div>
+  </div>
+</section>
+
+<section>
+  <header>
+    <h2>POPÜLER EĞİTİMLERİMİZ</h2>
+  </header>
+</section>
+
+<div class="cards big-container">
+  <div
+    class="card card-square"
+    *ngFor="let training of runningOutTrainings"
+    (click)="selectTraining(training.id)"
+  >
+    <div class="card-head">
+      <h3 class="running-out-warning">TÜKENMEK ÜZERE!</h3>
+      <h2>{{ training.title }}</h2>
+      <div class="badges">
+        <small class="badge badge-info">{{ training.city }}</small>
+        <small class="badge badge-fancy">{{ training.genre }}</small>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>{{ training.description }}</p>
+      <button class="btn btn-success self-align-center">
+        Ücret: {{ training.price }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="contacts">
+  <header>
+    <h3>BİZİ TAKİP EDİN</h3>
+  </header>
+  <div class="contact">
+    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+    <a href=""><i class="fa-brands fa-twitter"></i></a>
+    <a href=""><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://github.com/p0rt1a/PetAcademy" target="_blank"
+      ><i class="fa-brands fa-github"></i
+    ></a>
+    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+  </div>
+</div>

@@ -72,14 +72,13 @@ header h3 {
 }
 
 .user-image {
-  border-radius: 50%;
-  width: 65px;
-  height: 65px;
+  border-radius: 8px;
+  width: 80px;
+  height: 100%;
 }
 @media only screen and (min-width: 640px) {
   .user-image {
-    width: 100px;
-    height: 100px;
+    width: 120px;
   }
 }
 
@@ -188,6 +187,43 @@ textarea {
 }
 
 /* UTILS */
+.github-link:visited {
+  color: black;
+}
+
+.github-icon {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+
+  z-index: 4;
+
+  transition: 0.3s;
+
+  font-size: 3rem;
+}
+.github-icon:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+@media only screen and (min-width: 640px) {
+  .github-icon {
+    right: 50px;
+    bottom: 50px;
+
+    font-size: 5rem;
+  }
+}
+
+.light-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
 .error {
   color: var(--danger);
 }
@@ -399,6 +435,10 @@ textarea {
   }
 }
 
+.bg-primary {
+  background-color: var(--primary);
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -423,6 +463,18 @@ textarea {
 @media only screen and (min-width: 640px) {
   .card-head h2 {
     font-size: 1.4rem;
+  }
+}
+
+.card-head h3 {
+  font-weight: 500;
+
+  font-size: 0.8rem;
+  padding: 4px 0;
+}
+@media only screen and (min-width: 640px) {
+  .card-head h3 {
+    font-size: 1rem;
   }
 }
 
@@ -530,33 +582,68 @@ textarea {
 
 /* FOOTER */
 footer {
-  background-color: var(--dark-grey);
-  color: var(--white);
+  background-color: var(--grey);
+  color: var(--black);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  padding: 35px 0;
-
+  height: 10rem;
   gap: 15px;
 }
 @media only screen and (min-width: 640px) {
   footer {
-    padding: 50px 0;
-
-    gap: 18px;
+    height: 13rem;
+    gap: 25px;
 
     font-size: 1.2rem;
   }
 }
 
 footer span {
+  color: var(--icon) !important;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 @media only screen and (min-width: 640px) {
   footer span {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
+}
+
+footer > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer i {
+  font-size: 1.4rem;
+}
+@media only screen and (min-width: 640px) {
+  footer i {
+    font-size: 2rem;
+  }
+}
+
+.fa-facebook-f {
+  color: #4267b2;
+}
+
+.fa-twitter {
+  color: #1da1f2;
+}
+
+.fa-instagram {
+  color: #cd486b;
+}
+
+.fa-github {
+  color: #333;
+}
+
+.fa-linkedin {
+  color: #0a66c2;
 }
