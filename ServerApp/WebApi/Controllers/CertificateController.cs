@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -29,6 +30,9 @@ namespace WebApi.Controllers
         {
             CreateCertificateCommand command = new(_context, _mapper);
             command.Model = model;
+
+            CreateCertificateCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
 
             command.Handle();
 
