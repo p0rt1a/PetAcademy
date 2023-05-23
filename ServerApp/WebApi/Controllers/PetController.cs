@@ -49,6 +49,9 @@ namespace WebApi.Controllers
             PetCertificatesQuery query = new(_context, _mapper);
             query.PetId = id;
 
+            PetCertificatesQueryValidator validator = new();
+            validator.ValidateAndThrow(query);
+
             var result = query.Handle();
 
             return Ok(result);
