@@ -40,7 +40,8 @@ namespace PetAcademy.UnitTests.Application.UserOperations.Commands.UpdateUser
             command.UserId = 1;
             command.Model = new UpdateUserModel()
             {
-                Email = "WhenAlreadyExistUserIdIsGiven_User_ShouldBeUpdated@hotmail.com"
+                Email = "WhenAlreadyExistUserIdIsGiven_User_ShouldBeUpdated@hotmail.com",
+                Image = ""
             };
             
             FluentActions.Invoking(() => command.Handle()).Invoke();
