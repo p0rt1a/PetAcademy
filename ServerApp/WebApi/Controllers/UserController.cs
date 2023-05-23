@@ -48,6 +48,9 @@ namespace WebApi.Controllers
             GetPetsQuery query = new(_context, _mapper);
             query.UserId = id;
 
+            GetPetsQueryValidator validator = new();
+            validator.ValidateAndThrow(query);
+
             var result = query.Handle();
 
             return Ok(result);
