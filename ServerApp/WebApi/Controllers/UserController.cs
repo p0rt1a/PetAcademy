@@ -63,6 +63,9 @@ namespace WebApi.Controllers
             UserTrainingsQuery query = new(_context, _mapper);
             query.UserId = id;
 
+            UserTrainingsQueryValidator validator = new();
+            validator.ValidateAndThrow(query);
+
             var result = query.Handle();
 
             return Ok(result);
