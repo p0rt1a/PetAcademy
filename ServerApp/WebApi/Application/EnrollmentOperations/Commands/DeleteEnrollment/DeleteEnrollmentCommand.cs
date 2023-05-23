@@ -11,8 +11,7 @@ namespace WebApi.Application.EnrollmentOperations.Commands.DeleteEnrollment
     {
         private readonly IAcademyDbContext _dbContext;
         private readonly IMapper _mapper;
-        public int TrainingId { get; set; }
-        public int PetId { get; set; }
+        public DeleteEnrollmentModel Model { get; set; }
 
         public DeleteEnrollmentCommand(IAcademyDbContext dbContext, IMapper mapper)
         {
@@ -23,7 +22,7 @@ namespace WebApi.Application.EnrollmentOperations.Commands.DeleteEnrollment
         public void Handle()
         {
             var enrollment = _dbContext.Enrollments
-                .FirstOrDefault(x => x.PetId == PetId && x.TrainingId == TrainingId);
+                .FirstOrDefault(x => x.PetId == Model.PetId && x.TrainingId == Model.TrainingId);
 
             if (enrollment is null)
                 throw new InvalidOperationException("Evcil hayvan bu eğitime üye değil!");
@@ -31,5 +30,11 @@ namespace WebApi.Application.EnrollmentOperations.Commands.DeleteEnrollment
             _dbContext.Enrollments.Remove(enrollment);
             _dbContext.SaveChanges();
         }
+    }
+
+    public class DeleteEnrollmentModel
+    {
+        public int PetId { get; set; }
+        public int TrainingId { get; set; }
     }
 }
