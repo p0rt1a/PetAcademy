@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebApi.Application.PetOperations.Commands.DeletePet;
 using WebApi.DbOperations;
+using WebApi.Entities;
 using Xunit;
 
 namespace PetAcademy.UnitTests.Application.PetOperations.Command.DeletePet
@@ -35,6 +36,14 @@ namespace PetAcademy.UnitTests.Application.PetOperations.Command.DeletePet
         [Fact]
         public void WhenAlreadyExistPetIdIsGiven_Pet_ShouldBeDeleted()
         {
+            var newPet = new Pet()
+            {
+                Age = 2,
+                GenreId = 1,
+                Name = "WhenAlreadyExistPetIdIsGiven_Pet_ShouldBeDeleted",
+                UserId = 1
+            };
+
             DeletePetCommand command = new(_context);
             command.PetId = _context.Pets.Count();
 

@@ -32,7 +32,7 @@ namespace WebApi.Application.CertificateOperations.Commands.CreateCertificate
             if (training is null)
                 throw new InvalidOperationException("Eğitim bulunamadı!");
 
-            var enrollment = _dbContext.Enrollments.SingleOrDefault(x => x.PetId == Model.PetId && x.TrainingId == Model.TrainingId);
+            var enrollment = _dbContext.Enrollments.FirstOrDefault(x => x.PetId == Model.PetId && x.TrainingId == Model.TrainingId);
 
             if (enrollment is null)
                 throw new InvalidOperationException("Evcil hayvan bu eğitime kayıtlı değil!");

@@ -27,6 +27,7 @@ namespace PetAcademy.UnitTests.TestSetup
             Context.AddPets();
             Context.AddEnrollments();
             Context.AddComments();
+            Context.AddCertificates();
             Context.SaveChanges();
 
             Mapper = new MapperConfiguration(config => { config.AddProfile<MappingProfile>(); }).CreateMapper();
