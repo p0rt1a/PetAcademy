@@ -24,6 +24,11 @@ namespace WebApi.Application.UserOperations.Queries.UserTrainings
 
         public List<TrainingViewModel> Handle()
         {
+            var user = _dbContext.Users.SingleOrDefault(x => x.Id == UserId);
+
+            if (user is null)
+                throw new InvalidOperationException("Kullanıcı mevcut değil!");
+
             var trainings = _dbContext.Trainings
                 .Include(x => x.Genre)
                 .Where(x => x.UserId == UserId)
