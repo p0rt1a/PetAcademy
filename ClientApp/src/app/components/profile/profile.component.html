@@ -91,7 +91,7 @@
         <form
           [formGroup]="updatePetForm"
           class="custom-form"
-          (submit)="updatePet(petId.value)"
+          (submit)="updatePet(petId.value, updatePetForm)"
           *ngIf="isUpdatingPet"
         >
           <div class="form-group">

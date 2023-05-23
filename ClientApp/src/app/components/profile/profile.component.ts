@@ -146,8 +146,13 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['certificate']);
   }
 
-  updatePet(id: any) {
+  updatePet(id: any, form: FormGroup) {
     this.updatePetModel.userId = this.authService.getUserId();
+    form.value.name = form.value.name == null ? '' : form.value.name;
+    form.value.age = form.value.age == null ? 0 : form.value.age;
+
+    this.updatePetModel.name = form.value.name;
+    this.updatePetModel.age = form.value.age;
 
     this.petsService.updatePet(id, this.updatePetModel).subscribe(
       (response) => {

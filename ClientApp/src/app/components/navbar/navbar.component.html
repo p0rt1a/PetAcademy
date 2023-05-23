@@ -4,8 +4,8 @@
     <a href="#" class="head">PetAcademy</a>
   </div>
   <div class="justify-start flex-3">
-    <a href="#">Ana Sayfa</a>
-    <a routerLink="trainings">Eğitimler</a>
+    <a routerLink="/home">Ana Sayfa</a>
+    <a routerLink="/trainings">Eğitimler</a>
   </div>
   <div class="flex-2 justify-end">
     <a *ngIf="isTokenExpired()" href="register" class="btn btn-primary"
@@ -20,9 +20,8 @@
       (click)="isOperations = !isOperations"
     >
       <div *ngIf="isOperations" class="user-operations">
-        <a routerLink="profile">Profilim</a>
-        <a routerLink="my-trainings">Hizmetlerim</a>
-        <a href="#">Eğitimlerim</a>
+        <a routerLink="/profile">Profilim</a>
+        <a routerLink="/my-trainings">Hizmetlerim</a>
         <button class="btn btn-danger" (click)="logout()">Çıkış Yap</button>
       </div>
     </i>

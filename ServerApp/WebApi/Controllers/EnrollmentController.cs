@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment;
+using WebApi.Application.EnrollmentOperations.Commands.DeleteEnrollment;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
@@ -33,6 +34,18 @@ namespace WebApi.Controllers
             validator.ValidateAndThrow(command);
 
             command.Handle();
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteEnrollment([FromBody]DeleteEnrollmentModel model)
+        {
+            DeleteEnrollmentCommand command = new(_context, _mapper);
+            command.Model = model;
+
+            DeleteEnrollmentCommandValidator validator = new();
+            validator.ValidateAndThrow(command);
 
             return Ok();
         }
