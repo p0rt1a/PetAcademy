@@ -17,7 +17,7 @@
 </section>
 
 <section>
-  <div class="flexy">
+  <div class="profile-form">
     <form
       class="custom-form"
       [formGroup]="updateUserForm"
@@ -29,8 +29,8 @@
       <div class="form-group">
         <img
           [src]="imgUrl ? imgUrl : user.image"
-          [width]="300"
-          [height]="200"
+          [width]="240"
+          [height]="180"
         />
         <label>Fotoğraf</label>
         <input type="file" (change)="onFileLoaded($event)" />

@@ -1,0 +1,17 @@
+.profile-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (min-width: 640px) {
+  .profile-form {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.profile-form .custom-form {
+  margin: 0 !important;
+}
