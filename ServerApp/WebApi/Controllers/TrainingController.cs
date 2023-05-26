@@ -49,7 +49,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpGet("/full")]
+        [HttpGet("full")]
         public IActionResult GetFullTrainings()
         {
             GetFullTrainingsQuery query = new(_context, _mapper);

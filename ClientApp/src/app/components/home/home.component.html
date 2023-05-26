@@ -70,6 +70,31 @@
   </div>
 </div>
 
+<section>
+  <header>
+    <h2>KAYDI DOLMUŞ EĞİTİMLERİMİZ</h2>
+  </header>
+</section>
+
+<div class="cards big-container">
+  <div class="card card-square" *ngFor="let training of fullTrainings">
+    <div class="card-head">
+      <h2>{{ training.title }}</h2>
+      <div class="badges">
+        <small class="badge badge-info">{{ training.city }}</small>
+        <small class="badge badge-fancy">{{ training.genre }}</small>
+      </div>
+      <h3 class="card-warning">KAYITLAR TÜKENDİ!</h3>
+    </div>
+    <div class="card-body">
+      <p>{{ training.description }}</p>
+      <button class="btn btn-success self-align-center">
+        Ücret: {{ training.price }}
+      </button>
+    </div>
+  </div>
+</div>
+
 <div class="contacts">
   <header>
     <h3>BİZİ TAKİP EDİN</h3>

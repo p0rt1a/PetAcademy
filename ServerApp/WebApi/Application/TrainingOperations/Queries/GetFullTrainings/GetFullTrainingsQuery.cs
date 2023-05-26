@@ -25,6 +25,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetFullTrainings
         {
             var trainings = _dbContext.Trainings
                 .Include(x => x.Enrollments)
+                .Include(x => x.Genre)
                 .Where(x => x.MaxPetCount <= x.Enrollments.Count)
                 .ToList<Training>();
 

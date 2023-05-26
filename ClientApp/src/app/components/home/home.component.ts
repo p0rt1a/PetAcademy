@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   genres: GenreModel[] = [];
   trainings: TrainingModel[] = [];
   runningOutTrainings: TrainingModel[] = [];
+  fullTrainings: TrainingModel[] = [];
 
   constructor(
     private trainingsService: TrainingsService,
@@ -32,7 +33,10 @@ export class HomeComponent implements OnInit {
 
     this.trainingsService.getRunningOutTrainings().subscribe((response) => {
       this.runningOutTrainings = response;
-      console.log(response);
+    });
+
+    this.trainingsService.getFullTrainings().subscribe((response) => {
+      this.fullTrainings = response;
     });
   }
 
