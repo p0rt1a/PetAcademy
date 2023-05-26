@@ -42,7 +42,7 @@ namespace PetAcademy.UnitTests.Application.TrainingOperations.Commands.DeleteTra
             FluentActions.Invoking(() => command.Handle()).Invoke();
 
             var training = _context.Trainings.SingleOrDefault(x => x.Id == command.TrainingId);
-            training.Should().BeNull();
+            training.IsActive.Should().BeFalse();
         }
     }
 }

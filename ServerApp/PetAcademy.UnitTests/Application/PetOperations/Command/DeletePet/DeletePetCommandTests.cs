@@ -50,7 +50,7 @@ namespace PetAcademy.UnitTests.Application.PetOperations.Command.DeletePet
             FluentActions.Invoking(() => command.Handle()).Invoke();
 
             var pet = _context.Pets.SingleOrDefault(x => x.Id == command.PetId);
-            pet.Should().BeNull();
+            pet.IsActive.Should().BeFalse();
         }
     }
 }
