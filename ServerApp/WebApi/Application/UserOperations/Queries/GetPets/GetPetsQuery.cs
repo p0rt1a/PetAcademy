@@ -31,6 +31,7 @@ namespace WebApi.Application.UserOperations.Queries.GetPets
             var pets = _dbContext.Pets
                 .Include(x => x.Genre)
                 .Where(x => x.UserId == UserId)
+                .Where(x => x.IsActive)
                 .ToList<Pet>();
 
             var vm = _mapper.Map<List<UserPetViewModel>>(pets);

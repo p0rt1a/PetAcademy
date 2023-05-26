@@ -30,7 +30,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainingPets
                 .Include(x => x.Pet)
                 .ThenInclude(x => x.User)
                 .Where(x => x.TrainingId == TrainingId)
-                .Where(x => x.IsActive)
+                .Where(x => x.Pet.IsActive && x.Training.IsActive)
                 .ToList<Enrollment>();
 
             if (enrollments is null)
