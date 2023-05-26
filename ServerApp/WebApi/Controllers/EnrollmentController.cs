@@ -39,13 +39,16 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete]
-        public IActionResult DeleteEnrollment([FromBody]DeleteEnrollmentModel model)
+        public IActionResult DeleteEnrollment([FromQuery]int petId, [FromQuery]int trainingId)
         {
             DeleteEnrollmentCommand command = new(_context, _mapper);
-            command.Model = model;
+            command.PetId = petId;
+            command.TrainingId = trainingId;
 
             DeleteEnrollmentCommandValidator validator = new();
             validator.ValidateAndThrow(command);
+
+            command.Handle();
 
             return Ok();
         }

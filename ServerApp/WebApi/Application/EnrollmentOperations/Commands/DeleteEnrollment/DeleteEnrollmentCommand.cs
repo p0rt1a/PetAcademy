@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace WebApi.Application.EnrollmentOperations.Commands.DeleteEnrollment
     {
         private readonly IAcademyDbContext _dbContext;
         private readonly IMapper _mapper;
-        public DeleteEnrollmentModel Model { get; set; }
+        public int PetId { get; set; }
+        public int TrainingId { get; set; }
 
         public DeleteEnrollmentCommand(IAcademyDbContext dbContext, IMapper mapper)
         {
@@ -22,19 +24,13 @@ namespace WebApi.Application.EnrollmentOperations.Commands.DeleteEnrollment
         public void Handle()
         {
             var enrollment = _dbContext.Enrollments
-                .FirstOrDefault(x => x.PetId == Model.PetId && x.TrainingId == Model.TrainingId);
+                .SingleOrDefault(x => x.PetId == PetId && x.TrainingId == TrainingId);
 
             if (enrollment is null)
-                throw new InvalidOperationException("Evcil hayvan bu eğitime üye değil!");
+                throw new InvalidOperationException("Evcil hayvan bu eğitime kayıtlı değil!");
 
             _dbContext.Enrollments.Remove(enrollment);
             _dbContext.SaveChanges();
         }
-    }
-
-    public class DeleteEnrollmentModel
-    {
-        public int PetId { get; set; }
-        public int TrainingId { get; set; }
     }
 }

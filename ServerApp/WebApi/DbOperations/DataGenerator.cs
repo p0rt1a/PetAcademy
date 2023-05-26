@@ -132,12 +132,17 @@ namespace WebApi.DbOperations
                         new Enrollment()
                         {
                             TrainingId = 2,
-                            PetId = 1
+                            PetId = 2
                         },
                         new Enrollment()
                         {
                             TrainingId = 2,
-                            PetId = 2
+                            PetId = 5
+                        },
+                        new Enrollment()
+                        {
+                            TrainingId = 4,
+                            PetId = 1
                         }
                     );
 

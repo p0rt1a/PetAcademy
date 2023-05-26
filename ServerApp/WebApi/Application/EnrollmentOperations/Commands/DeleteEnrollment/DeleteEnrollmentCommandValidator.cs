@@ -10,8 +10,8 @@ namespace WebApi.Application.EnrollmentOperations.Commands.DeleteEnrollment
     {
         public DeleteEnrollmentCommandValidator()
         {
-            RuleFor(command => command.Model.PetId).GreaterThan(0);
-            RuleFor(command => command.Model.TrainingId).GreaterThan(0);
+            RuleFor(command => command.PetId).GreaterThan(0);
+            RuleFor(command => command.TrainingId).GreaterThan(0);
         }
     }
 }

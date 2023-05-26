@@ -33,6 +33,9 @@ namespace WebApi.Application.EnrollmentOperations.Commands.CreateEnrollment
             if (pet.GenreId != training.GenreId)
                 throw new InvalidOperationException("Evcil hayvan türü, eğitim türü için uygun değil.");
 
+            if (training is null)
+                throw new InvalidOperationException("Eğitim mevcut değil!");
+
             enrollment = _mapper.Map<Enrollment>(Model);
 
             _dbContext.Enrollments.Add(enrollment);

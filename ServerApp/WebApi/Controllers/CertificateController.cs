@@ -11,7 +11,7 @@ using WebApi.DbOperations;
 
 namespace WebApi.Controllers
 {
-    //TODO: Add Authorize attribute here:
+    [Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class CertificateController : ControllerBase

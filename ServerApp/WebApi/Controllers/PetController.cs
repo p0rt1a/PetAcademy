@@ -15,7 +15,7 @@ using WebApi.DbOperations;
 
 namespace WebApi.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class PetController : ControllerBase
