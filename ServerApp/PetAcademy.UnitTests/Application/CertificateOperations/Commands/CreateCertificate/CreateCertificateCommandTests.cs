@@ -72,8 +72,8 @@ namespace PetAcademy.UnitTests.Application.CertificateOperations.Commands.Create
             CreateCertificateCommand command = new(_context, _mapper);
             command.Model = new CreateCertificateModel()
             {
-                PetId = 3,
-                TrainingId = 2
+                PetId = 1,
+                TrainingId = 1
             };
 
             FluentActions.Invoking(() => command.Handle()).Invoke();

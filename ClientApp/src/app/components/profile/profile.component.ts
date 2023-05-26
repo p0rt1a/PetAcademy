@@ -214,17 +214,25 @@ export class ProfileComponent implements OnInit {
   }
 
   deletePet(id: any) {
-    this.petsService.deletePet(id).subscribe(
-      (response) => {
-        if (response.status == 200) {
-          alertify.success('Silme işlemi başarılı.');
-          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-          this.router.onSameUrlNavigation = 'reload';
-          this.router.navigate(['/profile']);
-        }
+    alertify.confirm(
+      'Evcil hayvan silinecektir, onaylıyor musunuz?',
+      () => {
+        this.petsService.deletePet(id).subscribe(
+          (response) => {
+            if (response.status == 200) {
+              alertify.success('Silme işlemi başarılı.');
+              this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+              this.router.onSameUrlNavigation = 'reload';
+              this.router.navigate(['profile']);
+            }
+          },
+          (error) => {
+            alertify.error(error.error.error);
+          }
+        );
       },
-      (error) => {
-        alertify.error(error.error.error);
+      () => {
+        alertify.error('Cancel');
       }
     );
   }
