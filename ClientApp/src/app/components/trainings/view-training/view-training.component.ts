@@ -4,6 +4,7 @@ import { CreateCertificateModel } from 'src/app/models/CreateCertificateModel';
 import { TrainingDetailModel } from 'src/app/models/TrainingDetailModel';
 import { TrainingPetViewModel } from 'src/app/models/TrainingPetViewModel';
 import { CertificateService } from 'src/app/services/certificate.service';
+import { EnrollmentsService } from 'src/app/services/enrollments.service';
 import { TrainingsService } from 'src/app/services/trainings.service';
 
 declare let alertify: any;
@@ -31,7 +32,8 @@ export class ViewTrainingComponent implements OnInit {
   constructor(
     private trainingsService: TrainingsService,
     private certificatesService: CertificateService,
-    private router: Router
+    private router: Router,
+    private enrollmentsService: EnrollmentsService
   ) {}
 
   ngOnInit(): void {
@@ -69,5 +71,21 @@ export class ViewTrainingComponent implements OnInit {
         alertify.alertify(error.error.error);
       }
     );
+  }
+
+  deleteEnrollment(petId: number) {
+    this.enrollmentsService
+      .deleteEnrollment(petId, this.selectedTrainingId)
+      .subscribe(
+        (response) => {
+          if (response.status == 200) {
+            alertify.success('Kayıt silme işlemi başarılı');
+            this.router.navigate(['/my-trainings']);
+          }
+        },
+        (error) => {
+          alertify.error(error.error.error);
+        }
+      );
   }
 }

@@ -29,7 +29,9 @@
         <button class="btn btn-success" (click)="graduate(pet.petId)">
           Mezun Et
         </button>
-        <button class="btn btn-danger">Sil</button>
+        <button class="btn btn-danger" (click)="deleteEnrollment(pet.petId)">
+          Sil
+        </button>
       </td>
     </tr>
   </table>

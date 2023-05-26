@@ -28,9 +28,9 @@
       </div>
       <div class="form-group">
         <img
-          [src]="imgUrl"
-          [width]="imgUrl ? 200 : 0"
-          [height]="imgUrl ? 200 : 0"
+          [src]="imgUrl ? imgUrl : user.image"
+          [width]="300"
+          [height]="200"
         />
         <label>Fotoğraf</label>
         <input type="file" (change)="onFileLoaded($event)" />
