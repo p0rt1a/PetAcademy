@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Application.UserOperations.Commands.UpdateUser;
 using WebApi.Application.UserOperations.Queries.GetPets;
+using WebApi.Application.UserOperations.Queries.GetUsers;
 using WebApi.Application.UserOperations.Queries.UserDetail;
 using WebApi.Application.UserOperations.Queries.UserTrainings;
 using WebApi.DbOperations;
@@ -25,6 +26,15 @@ namespace WebApi.Controllers
         {
             _context = context;
             _mapper = mapper;
+        }
+
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            GetUsersQuery query = new(_context, _mapper);
+            var result = query.Handle();
+
+            return Ok(result);
         }
 
         [HttpGet("{id}")]

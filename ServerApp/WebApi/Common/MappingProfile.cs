@@ -20,6 +20,7 @@ using WebApi.Application.TrainingOperations.Queries.GetTrainingDetail;
 using WebApi.Application.TrainingOperations.Queries.GetTrainingPets;
 using WebApi.Application.TrainingOperations.Queries.GetTrainings;
 using WebApi.Application.UserOperations.Queries.GetPets;
+using WebApi.Application.UserOperations.Queries.GetUsers;
 using WebApi.Application.UserOperations.Queries.UserDetail;
 using WebApi.Entities;
 
@@ -72,6 +73,7 @@ namespace WebApi.Common
             #region User Mappings
             CreateMap<User, UserDetailViewModel>()
                 .ForMember(dest => dest.Image, opt => opt.MapFrom(src => ConvertImageToBase64(src.Image)));
+            CreateMap<User, UserViewModel>();
             #endregion
 
             #region Comment Mappings
