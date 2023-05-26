@@ -1,11 +1,11 @@
 <nav class="main-nav">
   <div class="flex-1">
     <img src="../../../assets/images/logo.png" />
-    <a href="#" class="head">PetAcademy</a>
+    <a href="home" class="head">PetAcademy</a>
   </div>
   <div class="justify-start flex-3">
-    <a routerLink="/home">Ana Sayfa</a>
-    <a routerLink="/trainings">Eğitimler</a>
+    <a href="home">Ana Sayfa</a>
+    <a href="trainings">Eğitimler</a>
   </div>
   <div class="flex-2 justify-end">
     <a *ngIf="isTokenExpired()" href="register" class="btn btn-primary"

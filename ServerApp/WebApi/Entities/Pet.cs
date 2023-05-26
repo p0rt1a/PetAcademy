@@ -17,5 +17,6 @@ namespace WebApi.Entities
         public int UserId { get; set; }
         public User User { get; set; }
         public ICollection<Enrollment> Enrollments { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

@@ -14,7 +14,7 @@ import { CertificateComponent } from './app/components/certificate/certificate.c
 import { HomeComponent } from './app/components/home/home.component';
 
 export const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'trainings', component: TrainingsComponent },
   { path: 'training-detail', component: TrainingDetailComponent },
   {
@@ -24,7 +24,7 @@ export const appRoutes: Routes = [
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   {
     path: 'my-trainings',
     component: MyTrainingsComponent,
@@ -48,5 +48,6 @@ export const appRoutes: Routes = [
   {
     path: 'certificate',
     component: CertificateComponent,
+    canActivate: [AuthGuard],
   },
 ];
