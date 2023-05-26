@@ -60,15 +60,15 @@ namespace PetAcademy.UnitTests.Application.EnrollmentOperations.Commands.CreateE
             CreateEnrollmentCommand command = new(_context, _mapper);
             command.Model = new CreateEnrollmentModel()
             {
-                PetId = 1,
-                TrainingId = 4
+                PetId = 2,
+                TrainingId = 6
             };
 
             FluentActions.Invoking(() => command.Handle()).Invoke();
 
-            var enrollment = _context.Enrollments.SingleOrDefault(x => x.PetId == 1 && x.TrainingId == 4);
-            enrollment.PetId.Should().Be(1);
-            enrollment.TrainingId.Should().Be(4);
+            var enrollment = _context.Enrollments.SingleOrDefault(x => x.PetId == command.Model.PetId && x.TrainingId == command.Model.TrainingId);
+            enrollment.PetId.Should().Be(command.Model.PetId);
+            enrollment.TrainingId.Should().Be(command.Model.TrainingId);
         }
     }
 }
