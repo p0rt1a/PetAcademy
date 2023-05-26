@@ -63,6 +63,7 @@
           <small class="badge badge-info">{{ training.city }}</small>
           <small class="badge badge-fancy">{{ training.genre }}</small>
         </div>
+        <h3 *ngIf="training.isFull" class="card-warning">KAYITLAR DOLU</h3>
       </div>
       <div class="card-body">
         <p>{{ training.description }}</p>

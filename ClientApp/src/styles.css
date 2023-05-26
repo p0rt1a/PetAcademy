@@ -187,34 +187,6 @@ textarea {
 }
 
 /* UTILS */
-.github-link:visited {
-  color: black;
-}
-
-.github-icon {
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-
-  z-index: 4;
-
-  transition: 0.3s;
-
-  font-size: 3rem;
-}
-.github-icon:hover {
-  cursor: pointer;
-  opacity: 0.9;
-}
-@media only screen and (min-width: 640px) {
-  .github-icon {
-    right: 50px;
-    bottom: 50px;
-
-    font-size: 5rem;
-  }
-}
-
 .light-shadow {
   position: absolute;
   width: 100%;
@@ -452,6 +424,8 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  position: relative;
 }
 
 .card-head h2 {
@@ -475,6 +449,19 @@ textarea {
 @media only screen and (min-width: 640px) {
   .card-head h3 {
     font-size: 1rem;
+  }
+}
+
+.card-warning {
+  background-color: var(--danger);
+  border-radius: 12px;
+  color: var(--white);
+
+  padding: 5px;
+}
+@media only screen and (min-width: 640px) {
+  .card-warning {
+    padding: 10px;
   }
 }
 

@@ -5,6 +5,7 @@ export class TrainingModel {
   city: string;
   genre: string;
   price: number;
+  isFull: boolean;
 
   constructor(
     id: number,
@@ -12,7 +13,8 @@ export class TrainingModel {
     description: string,
     city: string,
     genre: string,
-    price: number
+    price: number,
+    isFull: boolean
   ) {
     this.id = id;
     this.title = title;
@@ -20,5 +22,6 @@ export class TrainingModel {
     this.city = city;
     this.genre = genre;
     this.price = price;
+    this.isFull = isFull;
   }
 }
