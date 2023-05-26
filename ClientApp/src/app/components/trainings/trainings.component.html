@@ -55,7 +55,7 @@
     <div
       class="card card-square"
       *ngFor="let training of trainings"
-      (click)="selectTraining(training.id)"
+      (click)="training.isFull ? false : selectTraining(training.id)"
     >
       <div class="card-head">
         <h2>{{ training.title }}</h2>

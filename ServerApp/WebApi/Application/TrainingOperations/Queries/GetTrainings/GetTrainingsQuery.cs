@@ -29,6 +29,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
             var trainings = _dbContext.Trainings
                 .Include(x => x.Genre)
                 .Include(x => x.Enrollments)
+                .Where(x => x.IsActive)
                 .ToList<Training>();
 
             if (Title != default)

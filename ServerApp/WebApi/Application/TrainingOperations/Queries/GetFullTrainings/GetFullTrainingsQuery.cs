@@ -27,6 +27,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetFullTrainings
                 .Include(x => x.Enrollments)
                 .Include(x => x.Genre)
                 .Where(x => x.MaxPetCount <= x.Enrollments.Count)
+                .Where(x => x.IsActive)
                 .ToList<Training>();
 
             var vm = _mapper.Map<List<TrainingViewModel>>(trainings);

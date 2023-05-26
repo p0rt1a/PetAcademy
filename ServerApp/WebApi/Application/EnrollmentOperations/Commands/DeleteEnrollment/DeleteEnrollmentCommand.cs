@@ -29,7 +29,7 @@ namespace WebApi.Application.EnrollmentOperations.Commands.DeleteEnrollment
             if (enrollment is null)
                 throw new InvalidOperationException("Evcil hayvan bu eğitime kayıtlı değil!");
 
-            _dbContext.Enrollments.Remove(enrollment);
+            enrollment.IsActive = false;
             _dbContext.SaveChanges();
         }
     }

@@ -27,6 +27,7 @@ namespace WebApi.Application.TrainingOperations.Queries.GetRunningOutTrainings
             var trainings = _dbContext.Trainings
                 .Include(x => x.Genre)
                 .Where(x => x.MaxPetCount - x.Enrollments.Count < 5 && x.Enrollments.Count < x.MaxPetCount)
+                .Where(x => x.IsActive)
                 .ToList<Training>();
 
             var vm = _mapper.Map<List<TrainingViewModel>>(trainings);

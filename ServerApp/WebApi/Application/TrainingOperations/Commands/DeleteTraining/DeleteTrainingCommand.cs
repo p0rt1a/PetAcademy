@@ -23,7 +23,7 @@ namespace WebApi.Application.TrainingOperations.Commands.DeleteTraining
             if (training is null)
                 throw new InvalidOperationException("Silinecek eğitim bulunamadı");
 
-            _dbContext.Trainings.Remove(training);
+            training.IsActive = false;
             _dbContext.SaveChanges();
         }
     }

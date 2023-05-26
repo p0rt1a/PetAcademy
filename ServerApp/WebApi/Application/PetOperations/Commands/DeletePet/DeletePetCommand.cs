@@ -23,7 +23,7 @@ namespace WebApi.Application.PetOperations.Commands.DeletePet
             if (pet is null)
                 throw new InvalidOperationException("Evcil hayvan bulunamadı!");
 
-            _dbContext.Pets.Remove(pet);
+            pet.IsActive = false;
             _dbContext.SaveChanges();
         }
     }
