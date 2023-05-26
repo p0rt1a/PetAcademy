@@ -28,7 +28,6 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
         {
             var trainings = _dbContext.Trainings
                 .Include(x => x.Genre)
-                .Where(x => x.Enrollments.Count < x.MaxPetCount)
                 .ToList<Training>();
 
             if (Title != default)
@@ -54,5 +53,6 @@ namespace WebApi.Application.TrainingOperations.Queries.GetTrainings
         public string City { get; set; }
         public string Genre { get; set; }
         public decimal Price { get; set; }
+        public bool IsFull { get; set; }
     }
 }

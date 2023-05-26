@@ -31,7 +31,8 @@ namespace WebApi.Common
         {
             #region Training Mappings
             CreateMap<Training, TrainingViewModel>()
-                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
+                .ForMember(dest => dest.IsFull, opt => opt.MapFrom(src => src.MaxPetCount <= src.Enrollments.Count));
             CreateMap<Training, TrainingDetailViewModel>()
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
                 .ForMember(dest => dest.TrainerName, opt => opt.MapFrom(src => $"{src.User.Name} {src.User.Surname}"))

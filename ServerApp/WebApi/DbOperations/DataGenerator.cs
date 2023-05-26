@@ -25,7 +25,7 @@ namespace WebApi.DbOperations
                             Price = 1350,
                             GenreId = 1,
                             UserId = 1,
-                            MaxPetCount = 10
+                            MaxPetCount = 1
                         },
                         new Training()
                         {
