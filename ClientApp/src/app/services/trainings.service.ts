@@ -36,6 +36,10 @@ export class TrainingsService {
     return this.http.get<TrainingModel[]>(this.url + '/runningout');
   }
 
+  getFullTrainings(): Observable<TrainingModel[]> {
+    return this.http.get<TrainingModel[]>(this.url + '/full');
+  }
+
   getTrainingDetail(id: number): Observable<TrainingDetailModel> {
     return this.http.get<TrainingDetailModel>(this.url + '/' + id);
   }
