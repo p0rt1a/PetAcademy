@@ -60,32 +60,48 @@ export class ViewTrainingComponent implements OnInit {
       this.selectedTrainingId
     );
 
-    this.certificatesService.createCertificate(model).subscribe(
-      (response) => {
-        if (response.status == 200) {
-          alertify.success('Mezun etme işlemi başarılı!');
-          this.router.navigate(['/my-trainings']);
-        }
+    alertify.confirm(
+      'Mezuniyet işlemini onaylıyor musunuz?',
+      () => {
+        this.certificatesService.createCertificate(model).subscribe(
+          (response) => {
+            if (response.status == 200) {
+              alertify.success('Mezun etme işlemi başarılı!');
+              this.router.navigate(['my-trainings']);
+            }
+          },
+          (error) => {
+            alertify.error(error.error.error);
+          }
+        );
       },
-      (error) => {
-        alertify.alertify(error.error.error);
+      () => {
+        alertify.error('Cancel');
       }
     );
   }
 
   deleteEnrollment(petId: number) {
-    this.enrollmentsService
-      .deleteEnrollment(petId, this.selectedTrainingId)
-      .subscribe(
-        (response) => {
-          if (response.status == 200) {
-            alertify.success('Kayıt silme işlemi başarılı');
-            this.router.navigate(['/my-trainings']);
-          }
-        },
-        (error) => {
-          alertify.error(error.error.error);
-        }
-      );
+    alertify.confirm(
+      'Evcil hayvan, eğitimden silinecektir. Onaylıyor musunuz?',
+      () => {
+        this.enrollmentsService
+          .deleteEnrollment(petId, this.selectedTrainingId)
+          .subscribe(
+            (response) => {
+              if (response.status == 200) {
+                alertify.success('Kayıt başarıyla silindi');
+                this.router.navigate(['my-trainings']);
+              }
+            },
+            (error) => {
+              alertify.error(error.error.error);
+            }
+          );
+      },
+      () => {
+        alertify.error('Cancel');
+      }
+    );
   }
 }
