@@ -18,7 +18,7 @@ namespace WebApi.Application.TrainingOperations.Commands.DeleteTraining
 
         public void Handle()
         {
-            var training = _dbContext.Trainings.SingleOrDefault(x => x.Id == TrainingId);
+            var training = _dbContext.Trainings.SingleOrDefault(x => x.Id == TrainingId && x.IsActive == true);
 
             if (training is null)
                 throw new InvalidOperationException("Silinecek eğitim bulunamadı");

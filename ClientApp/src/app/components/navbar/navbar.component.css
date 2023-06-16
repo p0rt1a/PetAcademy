@@ -53,6 +53,8 @@
   transition: 0.3s;
 
   font-size: 1rem;
+
+  z-index: 10;
 }
 .main-nav a:hover {
   color: var(--primary);
@@ -111,7 +113,7 @@ i:hover {
 
   border-radius: 10px;
 
-  z-index: 7;
+  z-index: 10;
 }
 @media only screen and (min-width: 640px) {
   .user-operations {

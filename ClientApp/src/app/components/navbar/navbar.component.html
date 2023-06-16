@@ -1,17 +1,17 @@
 <nav class="main-nav">
   <div class="flex-1">
     <img src="../../../assets/images/logo.png" />
-    <a routerLink="home" class="head">PetAcademy</a>
+    <a routerLink="/home" class="head">PetAcademy</a>
   </div>
   <div class="justify-start flex-3">
-    <a routerLink="home">Ana Sayfa</a>
-    <a routerLink="trainings">Eğitimler</a>
+    <a routerLink="/home">Ana Sayfa</a>
+    <a routerLink="/trainings">Eğitimler</a>
   </div>
   <div class="flex-2 justify-end">
-    <a *ngIf="isTokenExpired()" routerLink="register" class="btn btn-primary"
+    <a *ngIf="isTokenExpired()" routerLink="/register" class="btn btn-primary"
       >Üye Ol</a
     >
-    <a *ngIf="isTokenExpired()" routerLink="login" class="btn btn-success"
+    <a *ngIf="isTokenExpired()" routerLink="/login" class="btn btn-success"
       >Giriş Yap</a
     >
     <i
@@ -20,8 +20,8 @@
       (click)="isOperations = !isOperations"
     >
       <div *ngIf="isOperations" class="user-operations">
-        <a routerLink="profile">Profilim</a>
-        <a routerLink="my-trainings">Hizmetlerim</a>
+        <a routerLink="/profile">Profilim</a>
+        <a routerLink="/my-trainings">Hizmetlerim</a>
         <button class="btn btn-danger" (click)="logout()">Çıkış Yap</button>
       </div>
     </i>

@@ -31,7 +31,7 @@ namespace WebApi.Application.UserOperations.Queries.UserTrainings
 
             var trainings = _dbContext.Trainings
                 .Include(x => x.Genre)
-                .Where(x => x.UserId == UserId)
+                .Where(x => x.UserId == UserId && x.IsActive == true)
                 .ToList<Training>();
 
             var vm = _mapper.Map<List<TrainingViewModel>>(trainings);

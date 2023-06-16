@@ -223,7 +223,7 @@ export class ProfileComponent implements OnInit {
               alertify.success('Silme işlemi başarılı.');
               this.router.routeReuseStrategy.shouldReuseRoute = () => false;
               this.router.onSameUrlNavigation = 'reload';
-              this.router.navigate(['profile']);
+              this.router.navigate(['/profile']);
             }
           },
           (error) => {

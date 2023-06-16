@@ -14,40 +14,55 @@ import { CertificateComponent } from './app/components/certificate/certificate.c
 import { HomeComponent } from './app/components/home/home.component';
 
 export const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'trainings', component: TrainingsComponent },
-  { path: 'training-detail', component: TrainingDetailComponent },
+  { path: 'home', component: HomeComponent, pathMatch: 'full' },
+  { path: 'trainings', component: TrainingsComponent, pathMatch: 'full' },
+  {
+    path: 'training-detail',
+    component: TrainingDetailComponent,
+    pathMatch: 'full',
+  },
   {
     path: 'create-enrollment',
     component: CreateEnrollmentComponent,
     canActivate: [AuthGuard],
+    pathMatch: 'full',
   },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, pathMatch: 'full' },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+    pathMatch: 'full',
+  },
   {
     path: 'my-trainings',
     component: MyTrainingsComponent,
     canActivate: [AuthGuard],
+    pathMatch: 'full',
   },
   {
     path: 'update-training',
     component: UpdateTrainingComponent,
     canActivate: [AuthGuard],
+    pathMatch: 'full',
   },
   {
     path: 'create-training',
     component: CreateTrainingComponent,
     canActivate: [AuthGuard],
+    pathMatch: 'full',
   },
   {
     path: 'view-training',
     component: ViewTrainingComponent,
     canActivate: [AuthGuard],
+    pathMatch: 'full',
   },
   {
     path: 'certificate',
     component: CertificateComponent,
     canActivate: [AuthGuard],
+    pathMatch: 'full',
   },
 ];
